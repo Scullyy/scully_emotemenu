@@ -11,6 +11,8 @@ local custom = {
     AnimalEmotes = {}
 }
 
-for _type, emote in pairs(custom) do
-    AnimationList[_type][#AnimationList[_type] + 1] = emote
+for _type, emoteList in pairs(custom) do
+    for i = 1, #emoteList do
+        AnimationList[_type][#AnimationList[_type] + 1] = emoteList[i] 
+    end
 end
