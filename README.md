@@ -29,13 +29,13 @@ For support join my discord here: https://discord.gg/scully
 
 - Synchronized animations
 
-- Synchronized particle effects with optional automated feature
+- Synchronized particle effects with optional automated feature and color support
 
 - Ability to hide certain menus along with NSFW, gang and social movement emotes
 
 - Easy To understand configuration file
 
-- Exports to integrate within other resources
+- Exports and events to integrate within other resources
 
 - Walk styles that save
 
@@ -48,6 +48,10 @@ For support join my discord here: https://discord.gg/scully
 - Commands
 
 - Emote binding
+
+- Ability to have multiple emotes within an option to play a random one when selected
+
+- Ability to make certain synchronized emotes skip the request
 
 # Exports
 
