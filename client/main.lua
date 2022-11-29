@@ -498,7 +498,7 @@ function EmoteMenu.RemoveUnsupportedEmotes()
                         end
                     end
                     if not doesExist then
-                        print('^1removed ' .. animation.Label .. ' as it is not supported')
+                        print('^1removed ' .. animation.Label .. ' as it is not supported on your current game build.')
                     end
                 end
                 return doesExist

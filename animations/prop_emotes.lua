@@ -5339,6 +5339,40 @@ AnimationList.PropEmotes = {
         },
     },
     {
+        Label = 'Selfie Cute 6',
+        Command = 'selfiecute6',
+        Animation = 'heartselfie_clip',
+        Dictionary = 'heartselfiemirror@queensisters',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+            Props = {
+                {
+                    Bone = 64096,
+                    Name = 'prop_phone_ing',
+                    Placement = {
+                        vector3(0.039000, 0.020000, 0.033000),
+                        vector3(90.000000, 180.000000, 13.000000),
+                    },
+                    Variant = 0,
+                    Variations = {0, 1, 2, 3, 4, 5, 6, 7},
+                },
+            },
+            Ptfx = {
+                Asset = 'scr_tn_meet',
+                HasProp = true,
+                Name = 'scr_tn_meet_phone_camera_flash',
+                Placement = {
+                    vector3(-0.015000, 0.000000, 0.041000),
+                    vector3(0.000000, 0.000000, 0.000000),
+                    1.0,
+                },
+                Wait = 200,
+            },
+        },
+    },
+    {
         Label = 'Selfie Floor Instagram',
         Command = 'selfiefloor',
         Animation = 'floor_cute_clip',
@@ -5447,6 +5481,83 @@ AnimationList.PropEmotes = {
                 Wait = 200,
             },
         },
+    },
+    {
+        Label = 'Selfie Middle Finger 2',
+        Command = 'selfiefu2',
+        Animation = 'mirrorselfie_clip',
+        Dictionary = 'fuckyouselfie@queensisters',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+            Props = {
+                {
+                    Bone = 64097,
+                    Name = 'prop_phone_ing',
+                    Placement = {
+                        vector3(-0.021000, 0.030000, -0.003000),
+                        vector3(-180.000000, -180.000000, 0.000000),
+                    },
+                    Variant = 0,
+                    Variations = {0, 1, 2, 3, 4, 5, 6, 7},
+                },
+            },
+            Ptfx = {
+                Asset = 'scr_tn_meet',
+                HasProp = true,
+                Name = 'scr_tn_meet_phone_camera_flash',
+                Placement = {
+                    vector3(-0.015000, 0.000000, 0.041000),
+                    vector3(0.000000, 0.000000, 0.000000),
+                    1.0,
+                },
+                Wait = 200,
+            },
+        },
+    },
+    {
+        Label = 'Selfie Middle Finger 3',
+        Command = 'selfiefu3',
+        Animation = 'kilye_clip',
+        Dictionary = 'selfiekilye@queensisters',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+            Props = {
+                {
+                    Bone = 28422,
+                    Name = 'prop_cs_dildo_01',
+                    Placement = {
+                        vector3(0.045000, 0.005000, -0.015000),
+                        vector3(92.081001, 1.304900, -2.886300),
+                    },
+                },
+                {
+                    Bone = 26613,
+                    Name = 'prop_phone_ing',
+                    Placement = {
+                        vector3(0.065000, -0.028000, 0.044000),
+                        vector3(10.680800, 13.752600, 2.645700),
+                    },
+                    Variant = 0,
+                    Variations = {0, 1, 2, 3, 4, 5, 6, 7},
+                },
+            },
+            Ptfx = {
+                Asset = 'scr_tn_meet',
+                HasProp = true,
+                Name = 'scr_tn_meet_phone_camera_flash',
+                Placement = {
+                    vector3(-0.015000, 0.000000, 0.041000),
+                    vector3(0.000000, 0.000000, 0.000000),
+                    1.0,
+                },
+                Wait = 200,
+            },
+        },
+        NSFW = true,
     },
     {
         Label = 'Selfie Sexy',

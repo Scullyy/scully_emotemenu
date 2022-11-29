@@ -2155,7 +2155,7 @@ AnimationList.Emotes = {
         },
     },
     {
-        Label = 'Meditiate',
+        Label = 'Meditate',
         Command = 'meditate',
         Animation = 'meditiate_idle',
         Dictionary = 'rcmcollect_paperleadinout@',
@@ -2166,7 +2166,7 @@ AnimationList.Emotes = {
         },
     },
     {
-        Label = 'Meditiate 2',
+        Label = 'Meditate 2',
         Command = 'meditate2',
         Animation = 'ep_3_rcm_marnie_meditating',
         Dictionary = 'rcmepsilonism3',
@@ -2177,7 +2177,7 @@ AnimationList.Emotes = {
         },
     },
     {
-        Label = 'Meditiate 3',
+        Label = 'Meditate 3',
         Command = 'meditate3',
         Animation = 'base_loop',
         Dictionary = 'rcmepsilonism3',
@@ -2349,6 +2349,28 @@ AnimationList.Emotes = {
         Command = 'modelpose4',
         Animation = 'fmodelpose3_clip',
         Dictionary = 'fmodelpose3@sharror',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Model Pose 5',
+        Command = 'modelpose5',
+        Animation = 'sitdown_clip',
+        Dictionary = 'sitdownonknees@queensisters',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Model Pose 6',
+        Command = 'modelpose6',
+        Animation = 'kylie_clip',
+        Dictionary = 'handkylie@queensisters',
         Options = {
             Flags = {
                 Loop = true,
@@ -3573,6 +3595,17 @@ AnimationList.Emotes = {
         Command = 'sit12',
         Animation = 'sitonground1_clip',
         Dictionary = 'sitonground1@sharror',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Sit 13',
+        Command = 'sit13',
+        Animation = 'kylie_clip',
+        Dictionary = 'sitkylie@queensisters',
         Options = {
             Flags = {
                 Loop = true,

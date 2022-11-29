@@ -33,7 +33,7 @@ For support join my discord here: https://discord.gg/scully
 
 - Ability to hide certain menus along with NSFW, gang and social movement emotes
 
-- Easy To understand configuration file
+- Easy to understand configuration file
 
 - Exports and events to integrate within other resources
 
@@ -214,3 +214,5 @@ All custom animations were added with permission from the creators. Credit to th
 - [Sharror](https://discord.gg/sharror)
 
 - [Pupppy](https://discord.gg/3fUwtQW54b)
+
+- [QueenSisters](https://www.gta5-mods.com/users/Queens%20Sister)

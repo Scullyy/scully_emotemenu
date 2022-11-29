@@ -97,12 +97,46 @@ AnimationList.AnimalEmotes = {
         },
     },
     {
+        Label = 'Hump (big dog)',
+        Command = 'bdoghump',
+        Animation = 'hump_loop_chop',
+        Dictionary = 'creatures@rottweiler@amb@',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+        NSFW = true
+    },
+    {
         Label = 'Itch (big dog)',
         Command = 'bdogitch',
         Animation = 'idle_a',
         Dictionary = 'creatures@rottweiler@amb@world_dog_sitting@idle_a',
         Options = {
             Duration = 2000,
+        },
+    },
+    {
+        Label = 'Lay Down (big dog)',
+        Command = 'bdoglay',
+        Animation = 'dead_left',
+        Dictionary = 'creatures@rottweiler@move',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Lay Down 2 (big dog)',
+        Command = 'bdoglay2',
+        Animation = 'dead_right',
+        Dictionary = 'creatures@rottweiler@move',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
         },
     },
     {
@@ -1460,7 +1494,7 @@ AnimationList.AnimalEmotes = {
         SocialMovement = true,
     },
     {
-        Label = 'Pride B Sit LGBTQIA  (small dog)',
+        Label = 'Pride B Sit LGBTQIA (small dog)',
         Command = 'sdogpridesitb',
         Animation = 'idle_b',
         Dictionary = 'creatures@pug@amb@world_dog_sitting@idle_a',
@@ -1482,7 +1516,7 @@ AnimationList.AnimalEmotes = {
         SocialMovement = true,
     },
     {
-        Label = 'Pride C Sit Bisexual  (small dog)',
+        Label = 'Pride C Sit Bisexual (small dog)',
         Command = 'sdogpridesitc',
         Animation = 'idle_b',
         Dictionary = 'creatures@pug@amb@world_dog_sitting@idle_a',
@@ -1526,7 +1560,7 @@ AnimationList.AnimalEmotes = {
         SocialMovement = true,
     },
     {
-        Label = 'Pride E Sit Pansexual  (small dog)',
+        Label = 'Pride E Sit Pansexual (small dog)',
         Command = 'sdogpridesite',
         Animation = 'idle_b',
         Dictionary = 'creatures@pug@amb@world_dog_sitting@idle_a',
@@ -1548,7 +1582,7 @@ AnimationList.AnimalEmotes = {
         SocialMovement = true,
     },
     {
-        Label = 'Pride F Sit Transgender  (small dog)',
+        Label = 'Pride F Sit Transgender (small dog)',
         Command = 'sdogpridesitf',
         Animation = 'idle_b',
         Dictionary = 'creatures@pug@amb@world_dog_sitting@idle_a',
@@ -1592,7 +1626,7 @@ AnimationList.AnimalEmotes = {
         SocialMovement = true,
     },
     {
-        Label = 'Pride H Sit Asexual  (small dog)',
+        Label = 'Pride H Sit Asexual (small dog)',
         Command = 'sdogpridesith',
         Animation = 'idle_b',
         Dictionary = 'creatures@pug@amb@world_dog_sitting@idle_a',
@@ -1614,7 +1648,7 @@ AnimationList.AnimalEmotes = {
         SocialMovement = true,
     },
     {
-        Label = 'Pride I Sit Straight Ally  (small dog)',
+        Label = 'Pride I Sit Straight Ally (small dog)',
         Command = 'sdogpridesiti',
         Animation = 'idle_b',
         Dictionary = 'creatures@pug@amb@world_dog_sitting@idle_a',
@@ -1693,6 +1727,17 @@ AnimationList.AnimalEmotes = {
         Command = 'sdogsit',
         Animation = 'idle_b',
         Dictionary = 'creatures@pug@amb@world_dog_sitting@idle_a',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Sit Car (big dog)',
+        Command = 'bdogsitcar',
+        Animation = 'sit',
+        Dictionary = 'creatures@rottweiler@incar@',
         Options = {
             Flags = {
                 Loop = true,
