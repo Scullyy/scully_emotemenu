@@ -1,0 +1,16 @@
+{
+    "Lua.diagnostics.disable": [
+        "missing-parameter",
+        "need-check-nil",
+        "param-type-mismatch",
+        "undefined-global",
+        "redundant-parameter",
+        "return-type-mismatch",
+        "trailing-space",
+        "unused-local"
+    ],
+    "Lua.diagnostics.globals": [
+        "cache",
+        "lib"
+    ]
+}
