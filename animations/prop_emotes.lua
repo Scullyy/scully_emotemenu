@@ -2923,8 +2923,8 @@ AnimationList.PropEmotes = {
     {
         Label = 'Hold Firework 2',
         Command = 'holdfw2',
-        Animation = 'bottle_hold_idle',
-        Dictionary = 'anim@amb@nightclub@mini@drinking@champagne_drinking@base@',
+        Animation = 'ped_a_enter_loop',
+        Dictionary = 'anim@heists@humane_labs@finale@keycards',
         Options = {
             Flags = {
                 Loop = true,
@@ -2932,11 +2932,11 @@ AnimationList.PropEmotes = {
             },
             Props = {
                 {
-                    Bone = 28422,
+                    Bone = 18905,
                     Name = 'ind_prop_firework_01',
                     Placement = {
-                        vector3(-0.005000, 0.000000, 0.000000),
-                        vector3(360.000000, 360.000000, 0.000000),
+                        vector3(0.110000, 0.320000, -0.240000),
+                        vector3(-130.0688242, -2.5736034, -3.0631483),
                     },
                 },
             },
@@ -2957,8 +2957,8 @@ AnimationList.PropEmotes = {
     {
         Label = 'Hold Firework 3',
         Command = 'holdfw3',
-        Animation = 'bottle_hold_idle',
-        Dictionary = 'anim@amb@nightclub@mini@drinking@champagne_drinking@base@',
+        Animation = 'ped_a_enter_loop',
+        Dictionary = 'anim@heists@humane_labs@finale@keycards',
         Options = {
             Flags = {
                 Loop = true,
@@ -2966,11 +2966,11 @@ AnimationList.PropEmotes = {
             },
             Props = {
                 {
-                    Bone = 28422,
+                    Bone = 18905,
                     Name = 'ind_prop_firework_01',
                     Placement = {
-                        vector3(-0.005000, 0.000000, 0.000000),
-                        vector3(360.000000, 360.000000, 0.000000),
+                        vector3(0.110000, 0.320000, -0.240000),
+                        vector3(-130.0688242, -2.5736034, -3.0631483),
                     },
                 },
             },
@@ -2990,6 +2990,49 @@ AnimationList.PropEmotes = {
                     1.0,
                 },
                 Wait = 200,
+            },
+        },
+    },
+    {
+        Label = 'Hold Firework 4',
+        Command = 'holdfw4',
+        Animation = 'ped_a_enter_loop',
+        Dictionary = 'anim@heists@humane_labs@finale@keycards',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 18905,
+                    Name = 'ind_prop_firework_01',
+                    Placement = {
+                        vector3(0.180000, 0.290000, -0.070000),
+                        vector3(-106.746696, -2.912200, -19.596500),
+                    },
+                },
+            },
+            Ptfx = {
+                Asset = 'scr_rcpaparazzo1',
+                AttachToProp = true,
+                Color = {
+                    {R = 255, G = 0, B = 0, A = 1.0},
+                    {R = 0, G = 255, B = 0, A = 1.0},
+                    {R = 0, G = 0, B = 255, A = 1.0},
+                    {R = 177, G = 5, B = 245, A = 1.0},
+                    {R = 251, G = 3, B = 255, A = 1.0},
+                    {R = 2, G = 238, B = 250, A = 1.0},
+                    {R = 252, G = 248, B = 0, A = 1.0},
+                    {R = 245, G = 245, B = 245, A = 1.0}
+                },
+                Name = 'scr_mich4_firework_trailburst',
+                Placement = {
+                    vector3(0.000000, 0.000000, -0.500000),
+                    vector3(0.000000, 0.000000, 0.000000),
+                    0.6,
+                },
+                Wait = 650,
             },
         },
     },
@@ -4952,7 +4995,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -4987,7 +5030,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5021,7 +5064,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5055,7 +5098,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5157,7 +5200,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5191,7 +5234,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5225,7 +5268,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5259,7 +5302,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5293,7 +5336,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5327,7 +5370,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5361,7 +5404,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5437,7 +5480,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5505,7 +5548,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5547,7 +5590,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5582,7 +5625,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5617,7 +5660,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5652,7 +5695,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5687,7 +5730,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
@@ -5722,7 +5765,7 @@ AnimationList.PropEmotes = {
             },
             Ptfx = {
                 Asset = 'scr_tn_meet',
-                HasProp = true,
+                AttachToProp = true,
                 Name = 'scr_tn_meet_phone_camera_flash',
                 Placement = {
                     vector3(-0.015000, 0.000000, 0.041000),
