@@ -674,6 +674,7 @@ if Config.EnableEmoteBinds then
         RegisterCommand(command, function()
             local bind = EmoteMenu.EmoteBinds[i]
             if bind then
+                if IsNuiFocused() then return end
                 EmoteMenu.PlayByCommand(bind.Emote)
             end
         end, false)
