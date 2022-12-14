@@ -452,6 +452,111 @@ AnimationList.ConsumableEmotes = {
         },
     },
     {
+        Label = 'Candy Cane Red',
+        Command = 'candycane',
+        Animation = 'mp_player_int_eat_burger',
+        Dictionary = 'mp_player_inteat@burger',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_lollipop_a',
+                    Placement = {
+                        vector3(0.16, 0.02, 0.03),
+                        vector3(-73.0, 146.0, -5.0),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Candy Cane Green',
+        Command = 'candycaneb',
+        Animation = 'mp_player_int_eat_burger',
+        Dictionary = 'mp_player_inteat@burger',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_lollipop_b',
+                    Placement = {
+                        vector3(0.16, 0.02, 0.03),
+                        vector3(-73.0, 146.0, -5.0),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Candy Cane Purple',
+        Command = 'candycanec',
+        Animation = 'mp_player_int_eat_burger',
+        Dictionary = 'mp_player_inteat@burger',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_lollipop_c',
+                    Placement = {
+                        vector3(0.16, 0.02, 0.03),
+                        vector3(-73.0, 146.0, -5.0),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Candy Cane Yellow',
+        Command = 'candycaned',
+        Animation = 'mp_player_int_eat_burger',
+        Dictionary = 'mp_player_inteat@burger',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_lollipop_d',
+                    Placement = {
+                        vector3(0.16, 0.02, 0.03),
+                        vector3(-73.0, 146.0, -5.0),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Candy Cane Blue',
+        Command = 'candycanee',
+        Animation = 'mp_player_int_eat_burger',
+        Dictionary = 'mp_player_inteat@burger',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_lollipop_e',
+                    Placement = {
+                        vector3(0.16, 0.02, 0.03),
+                        vector3(-73.0, 146.0, -5.0),
+                    },
+                },
+            },
+        },
+    },
+    {
         Label = 'Champagne',
         Command = 'champagne',
         Animation = 'ped_a_enter_loop',
@@ -747,6 +852,27 @@ AnimationList.ConsumableEmotes = {
                     Placement = {
                         vector3(0.130000, 0.040000, 0.030000),
                         vector3(24.000000, 2.000000, 168.000000),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Gingerbread Man',
+        Command = 'gingerbread',
+        Animation = 'mp_player_int_eat_burger',
+        Dictionary = 'mp_player_inteat@burger',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_gingerbread_a',
+                    Placement = {
+                        vector3(0.16, 0.04, 0.03),
+                        vector3(18.0, 164.0, -5.0),
                     },
                 },
             },
@@ -1221,6 +1347,27 @@ AnimationList.ConsumableEmotes = {
         },
     },
     {
+        Label = 'Macaroon',
+        Command = 'macaroon',
+        Animation = 'mp_player_int_eat_burger',
+        Dictionary = 'mp_player_inteat@burger',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_macaroon_a',
+                    Placement = {
+                        vector3(0.15, 0.07, 0.0),
+                        vector3(38.0, 7.0, 7.0),
+                    },
+                },
+            },
+        },
+    },
+    {
         Label = 'Marshmallow Sandwhich',
         Command = 'msandwhich',
         Animation = 'mp_player_int_eat_burger',
@@ -1617,6 +1764,69 @@ AnimationList.ConsumableEmotes = {
                     Placement = {
                         vector3(0.000000, -0.260000, 0.100000),
                         vector3(240.000000, -60.000000, 0.000000),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Xmas Mug - Tea',
+        Command = 'xmasmug',
+        Animation = 'loop_bottle',
+        Dictionary = 'mp_player_intdrink',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_mug_a',
+                    Placement = {
+                        vector3(0.09, -0.01, 0.08),
+                        vector3(-44.0, 137.0, 9.0),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Xmas Mug - Coffee',
+        Command = 'xmasmug2',
+        Animation = 'loop_bottle',
+        Dictionary = 'mp_player_intdrink',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_mug_b',
+                    Placement = {
+                        vector3(0.09, -0.01, 0.08),
+                        vector3(-44.0, 137.0, 9.0),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Xmas Mulled Wine',
+        Command = 'xmaswine',
+        Animation = 'loop_bottle',
+        Dictionary = 'mp_player_intdrink',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = -28905,
+                    Name = 'bzzz_food_xmas_mulled_wine_a',
+                    Placement = {
+                        vector3(0.13, 0.03, 0.05),
+                        vector3(-110.0, -47.0, 7.0),
                     },
                 },
             },

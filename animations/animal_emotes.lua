@@ -109,6 +109,18 @@ AnimationList.AnimalEmotes = {
         NSFW = true
     },
     {
+        Label = 'Hump 2 (big dog)',
+        Command = 'bdoghump2',
+        Animation = 'hump_loop_ladydog',
+        Dictionary = 'creatures@rottweiler@amb@',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+        NSFW = true
+    },
+    {
         Label = 'Itch (big dog)',
         Command = 'bdogitch',
         Animation = 'idle_a',

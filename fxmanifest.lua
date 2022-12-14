@@ -2,7 +2,7 @@
 fx_version 'cerulean'
 
 game 'gta5'
-version '1.0.3'
+version '1.1.0'
 
 dependencies {
     '/server:5848',
@@ -48,6 +48,7 @@ data_file 'DLC_ITYP_REQUEST' 'bzzz_food_dessert_a.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'bzzz_prop_give_gift.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'bzzz_package_pizzahut.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'ultra_ringcase.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'bzzz_food_xmas22.ytyp'
 
 lua54 'yes'
 

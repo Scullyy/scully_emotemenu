@@ -286,8 +286,14 @@ function EmoteMenu.Play(data, variation)
         return
     end
 
+    if Config.EnableWeaponBlock and IsPedArmed(cache.ped, 7) then
+        EmoteMenu.Notify('error', 'You can\'t play animations with a weapon!')
+        return 
+    end
+
     local isInVehicle = IsPedInAnyVehicle(cache.ped, true)
     local duration, movementFlag = nil, isInVehicle and 51 or 0
+
     if not Config.AllowedInVehicles and isInVehicle then
         EmoteMenu.Notify('error', 'You can\'t play animations in vehicles!')
         return
@@ -302,6 +308,7 @@ function EmoteMenu.Play(data, variation)
             EmoteMenu.Notify('error', 'You can\'t play scenarios in vehicles!')
             return
         end
+
         ClearPedTasks(cache.ped)
         TaskStartScenarioInPlace(cache.ped, data.Scenario, 0, true)
         EmoteMenu.IsPlayingAnimation = true
@@ -336,12 +343,14 @@ function EmoteMenu.Play(data, variation)
         if data.Options.Ptfx then
             hasAutomatedPtfx = Config.EnableAutoPtfx and data.Options.Ptfx.Auto
             EmoteMenu.PtfxCanHold = data.Options.Ptfx.CanHold
+
             if Config.PtfxKeybind and not hasAutomatedPtfx then
                 EmoteMenu.Keybinds.PlayPtfx:disable(false)
                 EmoteMenu.Notify('success', ('Press %s to use the effect!'):format(GetControlInstructionalButton(0, joaat('+playptfx') | 0x80000000, 1):sub(3)))
             else
                 EmoteMenu.Keybinds.PlayPtfx:disable(true)
             end
+
             TriggerServerEvent('scully_emotemenu:syncPtfx', data.Options.Ptfx.Asset, data.Options.Ptfx.Name, data.Options.Ptfx.Placement, data.Options.Ptfx.Color)
         else
             if Config.PtfxKeybind then EmoteMenu.Keybinds.PlayPtfx:disable(true) end
@@ -1014,25 +1023,34 @@ end
 -- State Bag Handlers
 AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, replicated)
     local serverId = tonumber(bagName:gsub('player:', ''), 10)
+
     if (EmoteMenu.PlayerParticles[serverId] and value) or (not EmoteMenu.PlayerParticles[serverId] and not value) then return end
+
     local playerId = GetPlayerFromServerId(serverId)
+
     if not playerId then return end
+
     local playerPed = GetPlayerPed(playerId)
     local stateBag = Player(serverId).state
+
     if value then
         local asset, name, offset, rot, scale, color, propNet, entityTarget = stateBag.ptfxAsset, stateBag.ptfxName, stateBag.ptfxOffset, stateBag.ptfxRot, stateBag.ptfxScale or 1, stateBag.ptfxColor, stateBag.ptfxPropNet, playerPed
+
         if propNet then
             local propObj = NetToObj(propNet)
             if DoesEntityExist(propObj) then entityTarget = propObj end
         end
+
         lib.requestNamedPtfxAsset(asset, 1000)
         UseParticleFxAsset(asset)
         EmoteMenu.PlayerParticles[serverId] = StartParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, GetEntityBoneIndexByName(name, 'VFX'), scale + 0.0, false, false, false)
-        if stateBag.ptfxColor then
+
+        if color then
             if color[1] and type(color[1]) == 'table' then
                 local randomIndex = math.random(1, #color)
                 color = color[randomIndex]
             end
+
             SetParticleFxLoopedAlpha(EmoteMenu.PlayerParticles[serverId], color.A)
             SetParticleFxLoopedColour(EmoteMenu.PlayerParticles[serverId], color.R / 255, color.G / 255, color.B / 255, false)
         end

@@ -793,43 +793,10 @@ AnimationList.DanceEmotes = {
         },
     },
     {
-        Label = 'Makarena',
-        Command = 'makarena',
-        Animation = 'makarena',
-        Dictionary = 'custom@makarena',
-        Options = {
-            Flags = {
-                Loop = true,
-            },
-        },
-    },
-    {
-        Label = 'Monkey Dance',
-        Command = 'dancemonkey',
-        Animation = 'high_center',
-        Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@techno_monkey@',
-        Options = {
-            Flags = {
-                Loop = true,
-            },
-        },
-    },
-    {
-        Label = 'Monkey Dance 2',
-        Command = 'dancemonkey2',
-        Animation = 'high_center_down',
-        Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@techno_monkey@',
-        Options = {
-            Flags = {
-                Loop = true,
-            },
-        },
-    },
-    {
-        Label = 'Monkey Dance 3',
-        Command = 'dancemonkey3',
-        Animation = 'med_center_down',
-        Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@techno_monkey@',
+        Label = 'Dance - MJ Thriller',
+        Command = 'dancethriller',
+        Animation = 'mj_thriller_dance',
+        Dictionary = 'mj_thriller',
         Options = {
             Flags = {
                 Loop = true,
@@ -1549,6 +1516,50 @@ AnimationList.DanceEmotes = {
         Command = 'lapdancewith3',
         Animation = 'ld_2g_p1_s2',
         Dictionary = 'mini@strip_club@lap_dance_2g@ld_2g_p1',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Makarena',
+        Command = 'makarena',
+        Animation = 'makarena',
+        Dictionary = 'custom@makarena',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Monkey Dance',
+        Command = 'dancemonkey',
+        Animation = 'high_center',
+        Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@techno_monkey@',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Monkey Dance 2',
+        Command = 'dancemonkey2',
+        Animation = 'high_center_down',
+        Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@techno_monkey@',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Monkey Dance 3',
+        Command = 'dancemonkey3',
+        Animation = 'med_center_down',
+        Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@techno_monkey@',
         Options = {
             Flags = {
                 Loop = true,

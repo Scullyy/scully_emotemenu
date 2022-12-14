@@ -3,6 +3,8 @@ Config = {
     EnableSearch = true,
     -- You can disable the emote binds option here.
     EnableEmoteBinds = true,
+    -- Block players from using weapons while doing an emote.
+    EnableWeaponBlock = false,
     -- Set this to '' to disable the key.
     CancelEmoteKey = 'x', -- List of keys here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- Set this to '' to disable the key.
