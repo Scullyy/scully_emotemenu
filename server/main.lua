@@ -1,3 +1,8 @@
+local function EmoteMenuPrint(_type, log)
+    local color = _type == 'success' and '^2' or '^1'
+    print(('^5[scully_emotemenu]%s %s^7'):format(color, log))
+end
+
 RegisterNetEvent('scully_emotemenu:requestSynchronizedEmote', function(target, senderData, targetData)
     local src = source
     if senderData.SkipRequest then
@@ -27,6 +32,11 @@ RegisterNetEvent('scully_emotemenu:cancelSynchronizedEmote', function(target)
 end)
 
 RegisterNetEvent('scully_emotemenu:syncPtfx', function(asset, name, placement, color)
+    if (type(asset) ~= 'string') or (type(name) ~= 'string') or (type(placement) ~= 'table') then
+        EmoteMenuPrint('error', 'Invalid arguments for PTFX.')
+        return
+    end
+
     local src = source
     local playerState = Player(src).state
     playerState:set('ptfxAsset', asset, true)
@@ -57,24 +67,19 @@ RegisterNetEvent('scully_emotemenu:syncProp', function(propNet)
 end)
 
 -- Version check
-local function VersionLog(_type, log)
-    local color = _type == 'success' and '^2' or '^1'
-    print(('^5[scully_emotemenu]%s %s^7'):format(color, log))
-end
-
 local function CheckMenuVersion()
     PerformHttpRequest('https://raw.githubusercontent.com/scullyy/scully_emotemenu/master/version.txt', function(err, text, headers)
         local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version')
         if not text then 
-            VersionLog('error', 'Currently unable to run a version check.')
+            EmoteMenuPrint('error', 'Currently unable to run a version check.')
             return 
         end
-        VersionLog('success', ('Current Version: %s'):format(currentVersion))
-        VersionLog('success', ('Latest Version: %s'):format(text))
+        EmoteMenuPrint('success', ('Current Version: %s'):format(currentVersion))
+        EmoteMenuPrint('success', ('Latest Version: %s'):format(text))
         if text == currentVersion then
-            VersionLog('success', 'You are running the latest version.')
+            EmoteMenuPrint('success', 'You are running the latest version.')
         else
-            VersionLog('error', ('You are currently running an outdated version, please update to version %s'):format(text))
+            EmoteMenuPrint('error', ('You are currently running an outdated version, please update to version %s'):format(text))
         end
     end)
 end

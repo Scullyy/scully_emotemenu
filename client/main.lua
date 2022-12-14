@@ -1141,14 +1141,24 @@ RegisterNetEvent('scully_emotemenu:senderStartSynchronizedEmote', function(targe
 
     local targetId = GetPlayerFromServerId(target)
     local targetPed = GetPlayerPed(targetId)
-    local frontOffset, sideOffset = 1.0, 0.0
+    local frontOffset, sideOffset, heightOffset, headingOffset = 1.0, 0.0, 0.0, 180.1
 
     if senderData.Options.Shared.FrontOffset then
         frontOffset = senderData.Options.Shared.FrontOffset + 0.0
     end
+
     if senderData.Options.Shared.SideOffset then
         sideOffset = senderData.Options.Shared.SideOffset + 0.0
     end
+
+    if senderData.Options.Shared.HeightOffset then
+        heightOffset = senderData.Options.Shared.HeightOffset + 0.0
+    end
+
+    if senderData.Options.Shared.HeadingOffset then
+        headingOffset = senderData.Options.Shared.HeadingOffset + 0.0
+    end
+
     if senderData.Options.Shared.Attach then
         local bone = senderData.Options.Shared.Bone or -1
         local placement = senderData.Options.Shared.Placement
@@ -1159,9 +1169,9 @@ RegisterNetEvent('scully_emotemenu:senderStartSynchronizedEmote', function(targe
         AttachEntityToEntity(cache.ped, targetPed, GetPedBoneIndex(targetPed, bone), xP, yP, zP, xR, yR, zR, false, false, false, true, 1, true)
     end
 
-    local targetCoords = GetOffsetFromEntityInWorldCoords(targetPed, sideOffset, frontOffset, 0.0)
+    local targetCoords = GetOffsetFromEntityInWorldCoords(targetPed, sideOffset, frontOffset, heightOffset)
     local targetHeading = GetEntityHeading(targetPed)
-    SetEntityHeading(cache.ped, targetHeading - 180.1)
+    SetEntityHeading(cache.ped, targetHeading - headingOffset)
     SetEntityCoordsNoOffset(cache.ped, targetCoords.x, targetCoords.y, targetCoords.z, 0)
     EmoteMenu.Play(senderData)
     EmoteMenu.OtherPlayer = target
