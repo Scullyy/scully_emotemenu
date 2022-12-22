@@ -1004,6 +1004,7 @@ end
 if Config.PtfxKeybind then
     EmoteMenu.Keybinds.PlayPtfx = lib.addKeybind({
         name = 'playptfx',
+        disabled = true,
         description = 'Play your selected particle effect',
         defaultKey = Config.PtfxKeybind,
         onPressed = function(key)
