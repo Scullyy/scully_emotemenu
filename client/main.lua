@@ -25,7 +25,11 @@ local mainMenuOptions, emoteMenuOptions, emoteMenuBindsOptions = {
     {label = 'Walking Styles', icon = 'fa-solid fa-person-walking', values = {}, args = 'Walks', close = false},
     {label = 'Scenarios', icon = 'fa-solid fa-person-walking-with-cane', values = {}, args = 'Scenarios', close = false},
     {label = 'Facial Expressions', icon = 'fa-solid fa-face-angry', values = {}, args = 'Expressions', close = false},
-    {label = 'Cancel', values = {{label = 'Emote', description = 'Cancel your emote'}, {label = 'Walk Style', description = 'Reset your walk style'}, {label = 'Expression', description = 'Reset your expression'}, {label = 'All', description = 'Cancel and reset everything'}}, icon = 'fa-solid fa-ban', args = 'cancel', close = false}
+    {label = 'Cancel', values = {
+    {label = 'Emote', description = 'Cancel your emote'}, 
+    {label = 'Estilo de paseo', description = 'Reset your walk style'}, 
+    {label = 'Expression', description = 'Reset your expression'}, 
+    {label = 'All', description = 'Cancel and reset everything'}}, icon = 'fa-solid fa-ban', args = 'cancel', close = false}
 }, {
     -- Emote Menu
     {label = 'Emotes', icon = 'fa-solid fa-person-walking', values = {}, args = 'Emotes', close = false},
