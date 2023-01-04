@@ -388,9 +388,11 @@ end
 exports('Play', EmoteMenu.Play)
 
 ---Cancel the animation you're currently playing
-function EmoteMenu.CancelAnimation()
+function EmoteMenu.CancelAnimation(options)
     if EmoteMenu.IsPlayingAnimation then
-        if IsPedUsingAnyScenario(cache.ped) then ClearPedTasksImmediately(cache.ped) end
+        if IsPedUsingAnyScenario(cache.ped) then
+            if options.clearImmediately ~= false then ClearPedTasksImmediately(cache.ped) end
+        end
         if LocalPlayer.state.ptfx then LocalPlayer.state:set('ptfx', false, true) end
         if Config.PtfxKeybind then EmoteMenu.Keybinds.PlayPtfx:disable(true) end
         ClearPedTasks(cache.ped)
@@ -891,19 +893,39 @@ if Config.RagdollKeybind ~= '' then
 end
 
 if Config.HandsUpKey ~= '' then
-    EmoteMenu.Keybinds.HandsUp = lib.addKeybind({
-        name = 'handsup',
-        description = 'Put your hands up',
-        defaultKey = Config.HandsUpKey,
-        onPressed = function(key)
-            if EmoteMenu.isActionsLimited then return end
-            lib.requestAnimDict('random@mugging3', 1000)
-            TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, false, false)
-        end,
-        onReleased = function(key)
-            ClearPedTasks(cache.ped)
-        end
-    })
+    if Config.HandsUpKeyToggles then
+        local handsup = false
+        EmoteMenu.Keybinds.HandsUp = lib.addKeybind({
+            name = 'handsup',
+            description = 'Put your hands up',
+            defaultKey = Config.HandsUpKey,
+            onPressed = function(key)
+                if EmoteMenu.isActionsLimited then return end
+                if not handsup then
+                    lib.requestAnimDict('random@mugging3', 1000)
+                    TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, false, false)
+                    handsup = true
+                else
+                    ClearPedTasks(cache.ped)
+                    handsup = false
+                end
+            end
+        })
+    else
+        EmoteMenu.Keybinds.HandsUp = lib.addKeybind({
+            name = 'handsup',
+            description = 'Put your hands up',
+            defaultKey = Config.HandsUpKey,
+            onPressed = function(key)
+                if EmoteMenu.isActionsLimited then return end
+                lib.requestAnimDict('random@mugging3', 1000)
+                TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, false, false)
+            end,
+            onReleased = function(key)
+                ClearPedTasks(cache.ped)
+            end
+        })
+    end
 end
 
 if Config.CrouchKey ~= '' then

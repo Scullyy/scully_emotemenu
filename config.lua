@@ -9,6 +9,8 @@ Config = {
     CancelEmoteKey = 'x', -- List of keys here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- Set this to '' to disable the key.
     HandsUpKey = 'h', -- List of keys here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    -- Set this to true if you want the hands up key to toggle the emote rather then press and hold.
+    HandsUpKeyToggles = false,
     -- Set this to '' to disable the key.
     CrouchKey = 'c', -- List of keys here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- Set this to '' to disable the key.
