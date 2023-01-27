@@ -882,7 +882,10 @@ if Config.RagdollKeybind ~= '' then
             EmoteMenu.IsRagdoll = not EmoteMenu.IsRagdoll
             while EmoteMenu.IsRagdoll do
                 Wait(0)
-                if EmoteMenu.isActionsLimited then return end
+                if EmoteMenu.isActionsLimited then
+                    EmoteMenu.IsRagdoll = false
+                    return
+                end
                 if IsPedOnFoot(cache.ped) then
                     SetPedToRagdoll(cache.ped, 1000, 1000, 0, 0, 0, 0)
                 end
