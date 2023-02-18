@@ -5050,7 +5050,7 @@ AnimationList.Emotes = {
     {
         Label = 'Zombie Walk',
         Command = 'zombiewalk',
-        Animation = 'zombi_walk_0-2',
+        Animation = 'zombi_walk_01',
         Dictionary = 'zombies_animations',
         Options = {
             Flags = {
