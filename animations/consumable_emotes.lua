@@ -462,11 +462,11 @@ AnimationList.ConsumableEmotes = {
             },
             Props = {
                 {
-                    Bone = -28905,
+                    Bone = 60309,
                     Name = 'bzzz_food_xmas_lollipop_a',
                     Placement = {
-                        vector3(0.16, 0.02, 0.03),
-                        vector3(-73.0, 146.0, -5.0),
+                        vector3(-0.030000, 0.018000, 0.000000),
+                        vector3(220.000000, 180.000000, -88.098999),
                     },
                 },
             },
@@ -483,11 +483,11 @@ AnimationList.ConsumableEmotes = {
             },
             Props = {
                 {
-                    Bone = -28905,
+                    Bone = 60309,
                     Name = 'bzzz_food_xmas_lollipop_b',
                     Placement = {
-                        vector3(0.16, 0.02, 0.03),
-                        vector3(-73.0, 146.0, -5.0),
+                        vector3(-0.030000, 0.018000, 0.000000),
+                        vector3(220.000000, 180.000000, -88.098999),
                     },
                 },
             },
@@ -504,11 +504,11 @@ AnimationList.ConsumableEmotes = {
             },
             Props = {
                 {
-                    Bone = -28905,
+                    Bone = 60309,
                     Name = 'bzzz_food_xmas_lollipop_c',
                     Placement = {
-                        vector3(0.16, 0.02, 0.03),
-                        vector3(-73.0, 146.0, -5.0),
+                        vector3(-0.030000, 0.018000, 0.000000),
+                        vector3(220.000000, 180.000000, -88.098999),
                     },
                 },
             },
@@ -525,11 +525,11 @@ AnimationList.ConsumableEmotes = {
             },
             Props = {
                 {
-                    Bone = -28905,
+                    Bone = 60309,
                     Name = 'bzzz_food_xmas_lollipop_d',
                     Placement = {
-                        vector3(0.16, 0.02, 0.03),
-                        vector3(-73.0, 146.0, -5.0),
+                        vector3(-0.030000, 0.018000, 0.000000),
+                        vector3(220.000000, 180.000000, -88.098999),
                     },
                 },
             },
@@ -546,11 +546,11 @@ AnimationList.ConsumableEmotes = {
             },
             Props = {
                 {
-                    Bone = -28905,
+                    Bone = 60309,
                     Name = 'bzzz_food_xmas_lollipop_e',
                     Placement = {
-                        vector3(0.16, 0.02, 0.03),
-                        vector3(-73.0, 146.0, -5.0),
+                        vector3(-0.030000, 0.018000, 0.000000),
+                        vector3(220.000000, 180.000000, -88.098999),
                     },
                 },
             },
