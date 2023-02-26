@@ -717,6 +717,42 @@ function EmoteMenu.OpenBindMenu()
     lib.showMenu('animations_emote_binds_menu')
 end
 
+local IsPedFalling = IsPedFalling
+local IsPedJumping = IsPedJumping
+local IsPedUsingActionMode = IsPedUsingActionMode
+local SetPedUsingActionMode = SetPedUsingActionMode
+local SetPedCanPlayAmbientAnims = SetPedCanPlayAmbientAnims
+
+---Crouch loop
+function EmoteMenu.CrouchLoop()
+    CreateThread(function()
+        while EmoteMenu.IsCrouched do
+            Wait(0)
+            
+            if cache.vehicle then 
+                EmoteMenu.IsCrouched = false
+                break
+            end
+
+            if IsPedFalling(cache.ped) then 
+                EmoteMenu.IsCrouched = false
+                break
+            end
+
+            if IsPedJumping(cache.ped) then 
+                EmoteMenu.IsCrouched = false
+                break
+            end
+
+            if IsPedUsingActionMode(cache.ped) == 1 then
+                SetPedUsingActionMode(cache.ped, false, -1, 'DEFAULT_ACTION')
+            end
+
+            SetPedCanPlayAmbientAnims(cache.ped, false)
+        end
+    end)
+end
+
 -- Add / Remove options
 EmoteMenu.RemoveUnsupportedEmotes()
 
@@ -1048,6 +1084,7 @@ if Config.CrouchKey ~= '' then
                 SetPedMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
                 SetPedWeaponMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
                 SetPedStrafeClipset(cache.ped, 'move_ped_crouched_strafing', 1.0)
+                EmoteMenu.CrouchLoop()
             else
                 if EmoteMenu.CurrentWalk == 'default' then
                     ResetPedMovementClipset(cache.ped, 1.0)
