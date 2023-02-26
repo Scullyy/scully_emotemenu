@@ -5828,15 +5828,18 @@ AnimationList.PropEmotes = {
                         vector3(0.070000, -0.020000, -0.210000),
                         vector3(0.000000, 0.000000, 0.000000),
                     },
+                }
+            },
+            Ptfx = {
+                Asset = 'scr_amb_chop',
+                AttachToProp = true,
+                Name = 'ent_anim_dog_poo',
+                Placement = {
+                    vector3(0.000000, 0.000000, -0.100000),
+                    vector3(0.000000, 0.000000, 0.000000),
+                    1.0,
                 },
-                {
-                    Bone = 0,
-                    Name = 'prop_big_shit_01',
-                    Placement = {
-                        vector3(-0.010000, 0.060000, -0.155000),
-                        vector3(101.301521, 7.351221, -29.266579),
-                    },
-                },
+                Wait = 200,
             },
         },
         NSFW = true,

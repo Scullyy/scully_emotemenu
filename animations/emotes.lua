@@ -1347,6 +1347,18 @@ AnimationList.Emotes = {
         },
     },
     {
+        Label = 'Hands Up 3',
+        Command = 'handsup3',
+        Animation = 'hands_up_idle_a_player_one',
+        Dictionary = 'anim@mp_rollarcoaster',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+        },
+    },
+    {
         Label = 'Headbutt',
         Command = 'headbutt',
         Animation = 'plyr_takedown_front_headbutt',
