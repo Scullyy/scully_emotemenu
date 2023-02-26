@@ -127,7 +127,7 @@ AnimationList.Walks = {
     {
         Label = 'Dave',
         Command = 'dave',
-        Walk = 'move_character@dave_n',
+        Walk = 'move_characters@dave_n',
     },
     {
         Label = 'Default Female',
@@ -238,6 +238,11 @@ AnimationList.Walks = {
         Label = 'Flee 5',
         Command = 'flee5',
         Walk = 'move_m@flee@c',
+    },
+    {
+        Label = 'Floyd',
+        Command = 'floyd',
+        Walk = 'move_characters@floyd',
     },
     {
         Label = 'Franklin',
@@ -355,6 +360,11 @@ AnimationList.Walks = {
         Walk = 'move_m@hurry@c',
     },
     {
+        Label = 'Hurry 4',
+        Command = 'hurry4',
+        Walk = 'move_f@hurry@b',
+    },
+    {
         Label = 'Injured',
         Command = 'injured',
         Walk = 'move_m@injured',
@@ -398,6 +408,11 @@ AnimationList.Walks = {
         Label = 'Lamar',
         Command = 'lamar',
         Walk = 'anim_group_move_lemar_alley',
+    },
+    {
+        Label = 'Lamar 2',
+        Command = 'lamar2',
+        Walk = 'move_characters@lamar',
     },
     {
         Label = 'Lester',
@@ -548,6 +563,11 @@ AnimationList.Walks = {
         Label = 'Toolbelt 2',
         Command = 'toolbelt2',
         Walk = 'move_f@tool_belt@a',
+    },
+    {
+        Label = 'Tracy',
+        Command = 'tracy',
+        Walk = 'move_characters@tracey',
     },
     {
         Label = 'Trash',
