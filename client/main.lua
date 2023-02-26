@@ -1177,7 +1177,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
 
     if value then
         local asset, name, offset, rot, scale, color, propNet, entityTarget = stateBag.ptfxAsset, stateBag.ptfxName, stateBag.ptfxOffset, stateBag.ptfxRot, stateBag.ptfxScale or 1, stateBag.ptfxColor, stateBag.ptfxPropNet, playerPed
-        local boneIndex = stateBag.ptfxBone and GetEntityBoneIndexByName(playerPed, stateBag.ptfxBone) or GetEntityBoneIndexByName(name, "VFX")
+        local boneIndex = stateBag.ptfxBone and GetPedBoneIndex(playerPed, stateBag.ptfxBone) or GetEntityBoneIndexByName(name, "VFX")
 
         if propNet then
             local propObj = NetToObj(propNet)
