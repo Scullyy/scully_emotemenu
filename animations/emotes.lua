@@ -3805,7 +3805,7 @@ AnimationList.Emotes = {
     {
         Label = 'Sleep',
         Command = 'sleep',
-        Animation = 'idle_c',
+        Animation = 'base',
         Dictionary = 'timetable@tracy@sleep@',
         Options = {
             Flags = {
