@@ -37,7 +37,7 @@ RegisterNetEvent('scully_emotemenu:cancelSynchronizedEmote', function(target)
     TriggerClientEvent('scully_emotemenu:cancelSynchronizedEmote', target)
 end)
 
-RegisterNetEvent('scully_emotemenu:syncPtfx', function(asset, name, placement, color)
+RegisterNetEvent('scully_emotemenu:syncPtfx', function(asset, name, placement, bone, color)
     if (type(asset) ~= 'string') or (type(name) ~= 'string') or (type(placement) ~= 'table') then
         EmoteMenuPrint('error', 'Invalid arguments for PTFX.')
         return
@@ -51,6 +51,7 @@ RegisterNetEvent('scully_emotemenu:syncPtfx', function(asset, name, placement, c
     playerState:set('ptfxOffset', placement[1], true)
     playerState:set('ptfxRot', placement[2], true)
     playerState:set('ptfxScale', placement[3], true)
+    playerState:set('ptfxBone', bone, true)
     playerState:set('ptfxColor', color, true)
     playerState:set('ptfxPropNet', false, true)
     playerState:set('ptfx', false, true)

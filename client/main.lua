@@ -371,7 +371,7 @@ function EmoteMenu.Play(data, variation)
                 EmoteMenu.Keybinds.PlayPtfx:disable(true)
             end
 
-            TriggerServerEvent('scully_emotemenu:syncPtfx', data.Options.Ptfx.Asset, data.Options.Ptfx.Name, data.Options.Ptfx.Placement, data.Options.Ptfx.Color)
+            TriggerServerEvent('scully_emotemenu:syncPtfx', data.Options.Ptfx.Asset, data.Options.Ptfx.Name, data.Options.Ptfx.Placement, data.Options.Ptfx.Bone, data.Options.Ptfx.Color)
         else
             if Config.PtfxKeybind then EmoteMenu.Keybinds.PlayPtfx:disable(true) end
         end
@@ -1177,6 +1177,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
 
     if value then
         local asset, name, offset, rot, scale, color, propNet, entityTarget = stateBag.ptfxAsset, stateBag.ptfxName, stateBag.ptfxOffset, stateBag.ptfxRot, stateBag.ptfxScale or 1, stateBag.ptfxColor, stateBag.ptfxPropNet, playerPed
+        local boneIndex = stateBag.ptfxBone and GetEntityBoneIndexByName(playerPed, stateBag.ptfxBone) or GetEntityBoneIndexByName(name, "VFX")
 
         if propNet then
             local propObj = NetToObj(propNet)
@@ -1185,7 +1186,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
 
         lib.requestNamedPtfxAsset(asset, 1000)
         UseParticleFxAsset(asset)
-        EmoteMenu.PlayerParticles[serverId] = StartParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, GetEntityBoneIndexByName(name, 'VFX'), scale + 0.0, false, false, false)
+        EmoteMenu.PlayerParticles[serverId] = StartParticleFxLoopedOnEntityBone(name, entityTarget, offset.x, offset.y, offset.z, rot.x, rot.y, rot.z, boneIndex, scale + 0.0, false, false, false)
 
         if color then
             if color[1] and type(color[1]) == 'table' then
