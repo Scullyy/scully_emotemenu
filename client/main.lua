@@ -997,7 +997,7 @@ if Config.RagdollKeybind ~= '' then
         description = 'Ragdoll your character',
         defaultKey = Config.RagdollKeybind,
         onPressed = function(key)
-            if EmoteMenu.isActionsLimited then return end
+            if EmoteMenu.isActionsLimited or EmoteMenu.IsPlayingAnimation then return end
 
             EmoteMenu.IsRagdoll = not EmoteMenu.IsRagdoll
 
