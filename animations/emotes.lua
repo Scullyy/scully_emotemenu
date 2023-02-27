@@ -272,6 +272,29 @@ AnimationList.Emotes = {
         },
     },
     {
+        Label = 'Call Dog',
+        Command = 'calldog',
+        Animation = '001916_01_fras_v2_9_plays_w_dog_idle',
+        Dictionary = 'switch@franklin@plays_w_dog',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Call Dog 2',
+        Command = 'calldog2',
+        Animation = 'call_chop_r',
+        Dictionary = 'missfra0_chop_find',
+    },
+    {
+        Label = 'Call Dog 3',
+        Command = 'calldog3',
+        Animation = 'call_chop_l',
+        Dictionary = 'missfra0_chop_find',
+    },
+    {
         Label = 'Celebrate',
         Command = 'celebrate',
         Animation = 'celebrate',
@@ -1413,6 +1436,78 @@ AnimationList.Emotes = {
         },
     },
     {
+        Label = 'Hold Vest',
+        Command = 'vest',
+        Animation = 'holding_vest_clip',
+        Dictionary = 'anim@male@holding_vest',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+        },
+    },
+    {
+        Label = 'Hold Vest 2',
+        Command = 'vest2',
+        Animation = 'holding_side_vest_clip',
+        Dictionary = 'anim@holding_side_vest',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+        },
+    },
+    {
+        Label = 'Hold Vest 3',
+        Command = 'vest3',
+        Animation = 'holding_siege_vest_side_clip',
+        Dictionary = 'anim@holding_siege_vest_side',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+        },
+    },
+    {
+        Label = 'Hold Vest 4',
+        Command = 'vest4',
+        Animation = 'holding_vest_2_clip',
+        Dictionary = 'anim@male@holding_vest_2',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+        },
+    },
+    {
+        Label = 'Hold Vest 5',
+        Command = 'vest5',
+        Animation = 'holding_vest_siege_clip',
+        Dictionary = 'anim@male@holding_vest_siege',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+        },
+    },
+    {
+        Label = 'Hold Vest 6',
+        Command = 'vest6',
+        Animation = 'holding_vest_siege_2_clip',
+        Dictionary = 'anim@male@holding_vest_siege_2',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+        },
+    },
+    {
         Label = 'Hug',
         Command = 'hug',
         Animation = 'kisses_guy_a',
@@ -1691,6 +1786,37 @@ AnimationList.Emotes = {
             Flags = {
                 Move = true,
             },
+        },
+    },
+    {
+        Label = 'Kick',
+        Command = 'kick',
+        Animation = 'guard_beatup_kickidle_guard1',
+        Dictionary = 'missheistdockssetup1ig_13@kick_idle',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Kick 2',
+        Command = 'kick2',
+        Animation = 'guard_beatup_kickidle_guard2',
+        Dictionary = 'missheistdockssetup1ig_13@kick_idle',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+        },
+    },
+    {
+        Label = 'Kick 3',
+        Command = 'kick3',
+        Animation = 'kick_close_a',
+        Dictionary = 'melee@unarmed@streamed_core',
+        Options = {
+            Duration = 1750,
         },
     },
     {
