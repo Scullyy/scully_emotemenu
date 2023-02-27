@@ -1075,6 +1075,8 @@ if Config.CrouchKey ~= '' then
         description = 'Crouch',
         defaultKey = Config.CrouchKey,
         onPressed = function(key)
+            DisableControlAction(0, 36, true)
+            
             if EmoteMenu.isActionsLimited or cache.vehicle then return end
 
             EmoteMenu.IsCrouched = not EmoteMenu.IsCrouched
