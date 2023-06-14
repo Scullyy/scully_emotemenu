@@ -1,6 +1,6 @@
 # Close Menu
 
-Close the animation menu.
+Close the emote menu.
 ```lua
-exports.scully_emotemenu:CloseMenu()
+exports.scully_emotemenu:closeMenu()
 ```

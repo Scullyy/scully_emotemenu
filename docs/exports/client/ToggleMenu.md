@@ -1,6 +1,6 @@
 # Toggle Menu
 
-Toggle the animation menu.
+Toggle the emote menu.
 ```lua
-exports.scully_emotemenu:ToggleMenu()
+exports.scully_emotemenu:toggleMenu()
 ```

@@ -2,5 +2,5 @@
 
 Set the players expression.
 ```lua
-exports.scully_emotemenu:SetExpression('mood_drunk_1')
+exports.scully_emotemenu:setExpression('mood_drunk_1')
 ```

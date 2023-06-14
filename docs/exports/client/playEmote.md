@@ -1,6 +1,6 @@
-# Play
+# Play Emote
 
-Play an animation.
+Play an emote.
 ```lua
 local EmoteData = {
     Label = 'Leaning With Phone',
@@ -26,5 +26,5 @@ local EmoteData = {
     }
 }
 
-exports.scully_emotemenu:Play(EmoteData, EmoteData.Variant) -- Variant is optional.
+exports.scully_emotemenu:playEmote(EmoteData, EmoteData.Variant) -- Variant is optional.
 ```

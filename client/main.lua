@@ -265,10 +265,10 @@ end
 
 ---Check if the player is in an animation
 ---@return boolean
-function isInAnimation()
+function isInEmote()
     return isPlayingAnimation
 end
-exports('isInAnimation', isInAnimation)
+exports('isInEmote', isInEmote)
 
 function requestSynchronizedEmote(senderData)
     local playerPos = GetEntityCoords(cache.ped)
@@ -431,7 +431,7 @@ end
 exports('playEmote', playEmote)
 
 ---Cancel the animation you're currently playing
-function cancelAnimation()
+function cancelEmote()
     if isPlayingAnimation then
         if IsPedUsingAnyScenario(cache.ped) then ClearPedTasksImmediately(cache.ped) end
         if LocalPlayer.state.ptfx then LocalPlayer.state:set('ptfx', false, true) end
@@ -450,7 +450,7 @@ function cancelAnimation()
         end
     end
 end
-exports('cancelAnimation', cancelAnimation)
+exports('cancelEmote', cancelEmote)
 
 ---Get the players current expression
 ---@return string
@@ -883,13 +883,13 @@ lib.registerMenu({
         return
     elseif option == 'cancel' then
         if scrollIndex == 1 then
-            cancelAnimation()
+            cancelEmote()
         elseif scrollIndex == 2 then
             resetWalk()
         elseif scrollIndex == 3 then
             resetExpression()
         elseif scrollIndex == 4 then
-            cancelAnimation()
+            cancelEmote()
             resetWalk()
             resetExpression()
         end
@@ -965,7 +965,7 @@ for i = 1, #Config.EmotePlayCommands do
         local emoteName = args[1]:lower()
 
         if emoteName == 'c' then
-            cancelAnimation()
+            cancelEmote()
 
             return
         end
@@ -1038,7 +1038,7 @@ if Config.CancelEmoteKey ~= '' then
         description = 'Cancel animation',
         defaultKey = Config.CancelEmoteKey,
         onPressed = function(key)
-            cancelAnimation()
+            cancelEmote()
         end
     })
 end
@@ -1264,8 +1264,8 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
 end)
 
 -- Events
-RegisterNetEvent('scully_emotemenu:cancelAnimation', function()
-    cancelAnimation()
+RegisterNetEvent('scully_emotemenu:cancelEmote', function()
+    cancelEmote()
 end)
 
 RegisterNetEvent('scully_emotemenu:closeMenu', function()
@@ -1409,7 +1409,7 @@ RegisterNetEvent('scully_emotemenu:cancelSynchronizedEmote', function()
     otherPlayer = nil
 
     notify('error', 'The emote was cancelled!')
-    cancelAnimation()
+    cancelEmote()
 end)
 
 -- Cache
@@ -1440,12 +1440,12 @@ AddEventHandler('entityDamaged', function(entity)
     if cache.ped == entity then
         if not IsPedFatallyInjured(cache.ped) then return end
         
-        cancelAnimation()
+        cancelEmote()
     end
 end)
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
-        cancelAnimation()
+        cancelEmote()
     end
 end)
