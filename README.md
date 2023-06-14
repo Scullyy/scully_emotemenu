@@ -216,5 +216,3 @@ All custom animations were added with permission from the creators. Credit to th
 - [Pupppy](https://discord.gg/3fUwtQW54b)
 
 - [QueenSisters](https://www.gta5-mods.com/users/Queens%20Sister)
-
-- [TayMcKenzieNZ](https://forum.cfx.re/u/taymckenzienz/summary)
