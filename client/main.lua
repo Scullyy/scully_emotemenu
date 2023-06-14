@@ -1,7 +1,7 @@
 local gameBuild, currentWalk, currentExpression = GetGameBuildNumber(), GetResourceKvpString('animations_walkstyle') or 'default', GetResourceKvpString('animations_expression') or 'default'
 local emoteBinds, isActionsLimited, isPlayingAnimation = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false
 local isRagdoll, isCrouched, isPointing = false, false, false
-local lastEmote, ptfxCanHold, otherPlayer = nil, false, nil
+local lastEmote, lastVariant, ptfxCanHold, otherPlayer = nil, nil, false, nil
 local playerParticles, keybinds, registeredEmotes = {}, {}, {}
 
 -- Menu Options
@@ -302,9 +302,9 @@ end
 exports('isInEmote', isInEmote)
 
 ---Get the last emote a player used
----@return string
+---@return table
 function getLastEmote()
-    return lastEmote
+    return lastEmote, lastVariant
 end
 exports('getLastEmote', getLastEmote)
 
@@ -432,7 +432,7 @@ function playEmote(data, variation)
     RemoveAnimDict(dictionaryName)
 
     isPlayingAnimation = true
-    lastEmote = data.Command
+    lastEmote, lastVariant = data, variation
 
     if data.Options and data.Options.Props then
         local propCount = #data.Options.Props
@@ -1497,6 +1497,55 @@ AddEventHandler('entityDamaged', function(entity)
         if not IsPedFatallyInjured(cache.ped) then return end
         
         cancelEmote()
+    end
+end)
+
+local openingDoor = false
+local IsPedOpeningADoor = IsPedOpeningADoor
+
+AddEventHandler('CEventOpenDoor', function()
+    if not isPlayingAnimation then return end
+    if openingDoor then return end
+
+    openingDoor = true
+
+    cancelEmote()
+
+    while IsPedOpeningADoor(cache.ped) do
+        Wait(500)
+    end
+
+    openingDoor = false
+
+    if lastEmote then
+        playEmote(lastEmote, lastVariant)
+    end
+end)
+
+local hitTimeout, hittingPed = 500, false
+
+AddEventHandler('CEventPlayerCollisionWithPed', function()
+    if not isPlayingAnimation then return end
+
+    cancelEmote()
+
+    if hittingPed then
+        hitTimeout = 500
+        return
+    end
+
+    hitTimeout, hittingPed = 500, true
+
+    SetTimeout(hitTimeout, function()
+        hitTimeout = 0
+    end)
+
+    while hitTimeout > 0 do Wait(100) end
+
+    if lastEmote then
+        hitTimeout, hittingPed = 500, false
+
+        playEmote(lastEmote, lastVariant)
     end
 end)
 

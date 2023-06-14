@@ -2,5 +2,5 @@
 
 Get the emote a player last used.
 ```lua
-local lastEmote = exports.scully_emotemenu:getLastEmote()
+local lastEmote, lastVariant = exports.scully_emotemenu:getLastEmote()
 ```
