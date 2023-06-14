@@ -1509,15 +1509,15 @@ AddEventHandler('CEventOpenDoor', function()
 
     openingDoor = true
 
-    cancelEmote()
-
     while IsPedOpeningADoor(cache.ped) do
-        Wait(500)
+        Wait(100)
     end
 
     openingDoor = false
 
     if lastEmote then
+        cancelEmote()
+        Wait(10)
         playEmote(lastEmote, lastVariant)
     end
 end)
@@ -1527,20 +1527,20 @@ local hitTimeout, hittingPed = 500, false
 AddEventHandler('CEventPlayerCollisionWithPed', function()
     if not isPlayingAnimation then return end
 
-    cancelEmote()
-
     if hittingPed then
         hitTimeout = 500
         return
     end
+    
+    cancelEmote()
 
     hitTimeout, hittingPed = 500, true
 
-    SetTimeout(hitTimeout, function()
-        hitTimeout = 0
-    end)
+    while hitTimeout > 0 do 
+        Wait(100)
 
-    while hitTimeout > 0 do Wait(100) end
+        hitTimeout -= 100
+    end
 
     if lastEmote then
         hitTimeout, hittingPed = 500, false
