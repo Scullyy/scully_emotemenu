@@ -53,6 +53,8 @@ For support join my discord here: https://discord.gg/scully
 
 - Ability to make certain synchronized emotes skip the request
 
+- Ability to add walk styles and expressions to your radial menu
+
 # Exports
 
 | Export Name | Parameter(s) | Type | Description |

@@ -222,6 +222,42 @@ function addEmotesToMenu(_type, command)
     end
 end
 
+---Add emotes to the radial menu
+---@param _type string
+---@param label string
+---@param icon string
+function addEmotesToRadial(_type, label, icon)
+    local radialId = 'scully_emotemenu:' .. _type
+
+    lib.registerRadial({
+        id = radialId,
+        items = {}
+    })
+
+    for emote = 1, #AnimationList[_type] do
+        local _emote = AnimationList[_type][emote]
+
+        if _emote and _emote.Label and not _emote.Hide then
+            items[#items + 1] = {
+                label = _emote.label,
+                icon = icon,
+                onSelect = function()
+                    playEmoteByCommand(_emote.command)
+                end
+            }
+        end
+    end
+
+    lib.addRadialItem({
+        {
+          id = radialId .. ':2',
+          label = label,
+          icon = icon,
+          menu = radialId
+        }
+    })
+end
+
 ---Remove attached props on the player
 function removeProps()
     for i = 1, #playerProps do
@@ -785,16 +821,16 @@ if not Config.EnableSocialMovementEmotes then
 end
 
 addEmotesToMenu('Emotes', Config.EmotePlayCommands[1])
-
 addEmotesToMenu('PropEmotes', Config.EmotePlayCommands[1])
-
 addEmotesToMenu('DanceEmotes', Config.EmotePlayCommands[1])
-
 addEmotesToMenu('Walks', Config.WalkSetCommands[1])
-
 addEmotesToMenu('Scenarios', Config.EmotePlayCommands[1])
-
 addEmotesToMenu('Expressions', Config.EmotePlayCommands[1])
+
+if Config.EnableRadialMenu then
+    addEmotesToRadial('Walks', 'Walk Styles', 'person-walking')
+    addEmotesToRadial('Expressions', 'Expressions', 'face-angry')
+end
 
 if not Config.EnableSearch then
     mainMenuOptions = removeFromTable(mainMenuOptions, function(_table, _index)

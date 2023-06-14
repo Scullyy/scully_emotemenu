@@ -46,5 +46,7 @@ Config = {
     -- You can enable the synchronized emotes here.
     EnableSynchronizedEmotes = false,
     -- You can enable the animal emotes here.
-    EnableAnimalEmotes = false
+    EnableAnimalEmotes = false,
+    -- You can enable radial menu usage here.
+    EnableRadialMenu = false
 }
