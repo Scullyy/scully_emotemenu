@@ -175,7 +175,7 @@ To use emote binds you need to have the `EnableEmoteBinds` option enabled in the
 
 # Disclaimer & Credits
 
-All custom animations were added with permission from the creators. Credit to the following people for their animations / props and Dulpear for providing the original project that this is based on:
+All custom animations were added with permission from the creators. Credit to the following people for their animations / props and Dulpear for providing the original project that this is inspired by:
 
 - [Dullpear_dev](https://forum.cfx.re/u/dullpear_dev/summary)
 

@@ -61,7 +61,7 @@ function closeMenu()
         lib.hideMenu()
     end
 end
-exports('CloseMenu', closeMenu)
+exports('closeMenu', closeMenu)
 
 ---Toggles the animation menu
 function toggleMenu()
@@ -73,21 +73,21 @@ function toggleMenu()
         closeMenu()
     end
 end
-exports('ToggleMenu', toggleMenu)
+exports('toggleMenu', toggleMenu)
 
 ---Toggle player limitations
 ---@param limited boolean
 function setLimitation(limited)
     isActionsLimited = limited
 end
-exports('ToggleLimitation', setLimitation)
+exports('setLimitation', setLimitation)
 
 ---Check if the player is currently limited
 ---@return boolean
 function isLimited()
     return isActionsLimited
 end
-exports('IsLimited', isLimited)
+exports('isLimited', isLimited)
 
 ---Remove multiple entries from a table
 ---@param _table table
@@ -147,7 +147,7 @@ end
 function registerEmote(emote)
     registeredEmotes[emote.Name] = emote
 end
-exports('RegisterEmote', registerEmote)
+exports('registerEmote', registerEmote)
 
 ---Play a registered emote
 ---@param emote string
@@ -165,7 +165,7 @@ function playRegisteredEmote(emote)
         playEmote(registeredEmote, registeredEmote.Variant)
     end
 end
-exports('PlayRegisteredEmote', playRegisteredEmote)
+exports('playRegisteredEmote', playRegisteredEmote)
 
 ---Remove emotes from the menu
 ---@param _type string
@@ -268,7 +268,7 @@ end
 function isInAnimation()
     return isPlayingAnimation
 end
-exports('IsInAnimation', isInAnimation)
+exports('isInAnimation', isInAnimation)
 
 function requestSynchronizedEmote(senderData)
     local playerPos = GetEntityCoords(cache.ped)
@@ -307,7 +307,7 @@ function playEmoteByCommand(command, variant)
 
     playEmote(emote, variant)
 end
-exports('PlayByCommand', playEmoteByCommand)
+exports('playEmoteByCommand', playEmoteByCommand)
 
 ---Play an animation
 ---@param data table
@@ -428,7 +428,7 @@ function playEmote(data, variation)
         LocalPlayer.state:set('ptfx', true, true)
     end
 end
-exports('Play', playEmote)
+exports('playEmote', playEmote)
 
 ---Cancel the animation you're currently playing
 function cancelAnimation()
@@ -450,14 +450,14 @@ function cancelAnimation()
         end
     end
 end
-exports('CancelAnimation', cancelAnimation)
+exports('cancelAnimation', cancelAnimation)
 
 ---Get the players current expression
 ---@return string
 function getCurrentExpression()
     return currentExpression
 end
-exports('GetCurrentExpression', getCurrentExpression)
+exports('getCurrentExpression', getCurrentExpression)
 
 ---Set the players current expression
 ---@param name string
@@ -467,7 +467,7 @@ function setExpression(name)
 
     currentExpression = name
 end
-exports('SetExpression', setExpression)
+exports('setExpression', setExpression)
 
 ---Reset the players expression
 function resetExpression()
@@ -476,14 +476,14 @@ function resetExpression()
 
     currentExpression = 'default'
 end
-exports('ResetExpression', resetExpression)
+exports('resetExpression', resetExpression)
 
 ---Get the players current walk style
 ---@return string
 function getCurrentWalk()
     return currentWalk
 end
-exports('GetCurrentWalk', getCurrentWalk)
+exports('getCurrentWalk', getCurrentWalk)
 
 ---Set the players current walk style
 ---@param name string
@@ -495,7 +495,7 @@ function setWalk(name)
 
     currentWalk = name
 end
-exports('SetWalk', setWalk)
+exports('setWalk', setWalk)
 
 ---Reset the players walk style
 function resetWalk()
@@ -504,7 +504,7 @@ function resetWalk()
 
     currentWalk = 'default'
 end
-exports('ResetWalk', resetWalk)
+exports('resetWalk', resetWalk)
 
 ---Attach a prop to the player
 ---@param prop string
