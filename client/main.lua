@@ -226,8 +226,8 @@ end
 ---@param _type string
 ---@param label string
 ---@param icon string
-function addEmotesToRadial(_type, label, icon, cancel)
-    local radialId, options = 'scully_emotemenu:' .. _type, {cancel}
+function addEmotesToRadial(_type, id, icon, cancel)
+    local options = {cancel}
 
     for i = 1, #AnimationList[_type] do
         local emote = AnimationList[_type][i]
@@ -237,6 +237,8 @@ function addEmotesToRadial(_type, label, icon, cancel)
                 label = emote.Label,
                 icon = icon,
                 onSelect = function()
+                    if isActionsLimited then return end
+                    
                     if _type == 'Walks' then
                         setWalk(emote.Walk)
                     else
@@ -248,17 +250,8 @@ function addEmotesToRadial(_type, label, icon, cancel)
     end
 
     lib.registerRadial({
-        id = radialId,
+        id = id,
         items = options
-    })
-
-    lib.addRadialItem({
-        {
-          id = radialId .. ':2',
-          label = label,
-          icon = icon,
-          menu = radialId
-        }
     })
 end
 
@@ -835,7 +828,44 @@ addEmotesToMenu('Scenarios', Config.EmotePlayCommands[1])
 addEmotesToMenu('Expressions', Config.EmotePlayCommands[1])
 
 if Config.EnableRadialMenu then
-    addEmotesToRadial('Walks', 'Walk Styles', 'person-walking', {
+    lib.registerRadial({
+        id = 'scully_emotemenu:main',
+        items = {
+            {
+                id = 'scully_emotemenu:open',
+                label = 'Open Menu',
+                icon = 'person-walking',
+                onSelect = 'toggleMenu'
+            },
+            {
+                id = 'scully_emotemenu:walks_',
+                label = 'Walk Styles',
+                icon = 'person-walking',
+                menu = 'scully_emotemenu:walks'
+            },
+            {
+                id = 'scully_emotemenu:expressions_',
+                label = 'Expressions',
+                icon = 'face-angry',
+                menu = 'scully_emotemenu:expressions'
+            },
+            {
+                id = 'scully_emotemenu:cancel',
+                label = 'Cancel',
+                icon = 'ban',
+                onSelect = 'cancelEmote'
+            }
+        }
+    })
+
+    lib.addRadialItem({{
+        id = 'scully_emotemenu:open',
+        label = 'Emotes',
+        icon = 'person-walking',
+        menu = 'scully_emotemenu:main'
+    }})
+
+    addEmotesToRadial('Walks', 'scully_emotemenu:walks', 'person-walking', {
         label = 'Cancel',
         icon = 'ban',
         onSelect = function()
@@ -843,7 +873,7 @@ if Config.EnableRadialMenu then
         end
     })
 
-    addEmotesToRadial('Expressions', 'Expressions', 'face-angry', {
+    addEmotesToRadial('Expressions', 'scully_emotemenu:expressions', 'face-angry', {
         label = 'Cancel',
         icon = 'ban',
         onSelect = function()

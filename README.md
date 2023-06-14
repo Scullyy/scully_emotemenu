@@ -55,6 +55,8 @@ For support join my discord here: https://discord.gg/scully
 
 - Ability to add walk styles and expressions to your radial menu
 
+- Prop extractor for anticheat systems
+
 # Exports
 
 | Export Name | Parameter(s) | Type | Description |
@@ -103,6 +105,10 @@ By default the configured keybinds in the *initial* config.lua will be the defau
 # Emote Binds
 
 To use emote binds you need to have the `EnableEmoteBinds` option enabled in the config.lua, this will allow your players to bind emotes by opening the keybinds sub menu. Each option within the sub menu is binded to a key within `Esc > settings > keybinds > fivem` that your players can change to their own preferred keys to play emotes.
+
+# Prop Extractor
+
+We've addressed concerns about anticheat scripts causing unintended bans or kicks by introducing a prop extractor config option. This automates the creation of a `prop_dump.lua` file in the resource folder, making it easier for server owners to manage props and mitigate false positives in the anticheat system. This enhancement aims to create a more secure and fair gaming environment for community members.
 
 # Additional Animation Options
 

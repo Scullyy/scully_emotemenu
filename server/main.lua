@@ -1,9 +1,69 @@
 local playerProps = {}
+local custom = require('custom_emotes')
+
+AnimationList = {
+    Walks = require('animations.walks'),
+    Scenarios = require('animations.scenarios'),
+    Expressions = require('animations.expressions'),
+    Emotes = require('animations.emotes'),
+    PropEmotes = require('animations.prop_emotes'),
+    ConsumableEmotes = require('animations.consumable_emotes'),
+    DanceEmotes = require('animations.dance_emotes'),
+    SynchronizedEmotes = require('animations.synchronized_emotes'),
+    AnimalEmotes = require('animations.animal_emotes')
+}
+
+-- Import customs animations
+for _type, emoteList in pairs(custom) do
+    for i = 1, #emoteList do
+        AnimationList[_type][#AnimationList[_type] + 1] = emoteList[i] 
+    end
+end
 
 local function emoteMenuPrint(_type, log)
     local color = _type == 'success' and '^2' or '^1'
 
     print(('^5[scully_emotemenu]%s %s^7'):format(color, log))
+end
+
+local function dumpPropsToFile()
+    local propDump = {}
+    
+    for _type, emoteList in pairs(AnimationList) do
+        for i = 1, #emoteList do
+            local emote = emoteList[i]
+    
+            if emote.Options and emote.Options.Props then
+                local propCount = #emote.Options.Props
+        
+                if propCount > 0 then
+                    for k = 1, propCount do
+                        local prop = emote.Options.Props[k]
+                        
+                        propDump[prop.Name] = true
+                    end
+                end
+            end
+        end
+    end
+
+    local contents = 'return {\n'
+
+    for prop, _bool in pairs(propDump) do
+        local entry = '\t[`' .. tostring(prop) .. '`] = ' .. tostring(_bool) .. ',\n'
+
+        contents = contents .. entry
+    end
+
+    contents = contents .. '}'
+
+    local success = SaveResourceFile(GetCurrentResourceName(), 'prop_dump.lua', contents, -1)
+
+    if success then
+        emoteMenuPrint('success', 'Prop dump created.')
+    else
+        emoteMenuPrint('error', 'Could not save prop_dump.lua file.')
+    end
 end
 
 local function deleteProps(props)
@@ -146,3 +206,4 @@ local function CheckMenuVersion()
     end)
 end
 CheckMenuVersion()
+dumpPropsToFile()

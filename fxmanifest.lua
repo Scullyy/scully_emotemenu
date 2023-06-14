@@ -25,7 +25,8 @@ client_scripts {
 
 files {
     'animations/*.lua',
-    'custom_emotes.lua'
+    'custom_emotes.lua',
+    'prop_dump.lua'
 }
 
 data_file 'DLC_ITYP_REQUEST' 'bzzz_foodpack.ytyp'
