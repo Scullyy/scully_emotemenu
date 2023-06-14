@@ -946,13 +946,15 @@ for i = 1, #Config.EmotePlayCommands do
             return
         end
 
-        if args[1]:lower() == 'c' then
+        local emoteName = args[1]:lower()
+
+        if emoteName == 'c' then
             EmoteMenu.CancelAnimation()
 
             return
         end
 
-        local _type, emote = EmoteMenu.GetEmoteByCommand(args[1])
+        local _type, emote = EmoteMenu.GetEmoteByCommand(emoteName)
 
         if not _type or (_type == 'Walks') then
             EmoteMenu.Notify('error', 'That isn\'t a valid emote')
@@ -967,9 +969,10 @@ for i = 1, #Config.EmotePlayCommands do
         end
 
         local variant = nil
+        local selectedVariant = args[2]
 
-        if args[2] then
-            local index = tonumber(args[2])
+        if selectedVariant then
+            local index = tonumber(selectedVariant)
 
             if index then variant = index end
         end
