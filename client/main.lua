@@ -226,18 +226,22 @@ end
 ---@param _type string
 ---@param label string
 ---@param icon string
-function addEmotesToRadial(_type, label, icon)
-    local radialId, options = 'scully_emotemenu:' .. _type, {}
+function addEmotesToRadial(_type, label, icon, cancel)
+    local radialId, options = 'scully_emotemenu:' .. _type, {cancel}
 
-    for emote = 1, #AnimationList[_type] do
-        local _emote = AnimationList[_type][emote]
+    for i = 1, #AnimationList[_type] do
+        local emote = AnimationList[_type][i]
 
-        if _emote and _emote.Label and not _emote.Hide then
+        if emote and emote.Label and not emote.Hide then
             options[#options + 1] = {
-                label = _emote.label,
+                label = emote.Label,
                 icon = icon,
                 onSelect = function()
-                    playEmoteByCommand(_emote.command)
+                    if _type == 'Walks' then
+                        setWalk(emote.Walk)
+                    else
+                        playEmote(emote)
+                    end
                 end
             }
         end
@@ -828,8 +832,21 @@ addEmotesToMenu('Scenarios', Config.EmotePlayCommands[1])
 addEmotesToMenu('Expressions', Config.EmotePlayCommands[1])
 
 if Config.EnableRadialMenu then
-    addEmotesToRadial('Walks', 'Walk Styles', 'person-walking')
-    addEmotesToRadial('Expressions', 'Expressions', 'face-angry')
+    addEmotesToRadial('Walks', 'Walk Styles', 'person-walking', {
+        label = 'Cancel',
+        icon = 'ban',
+        onSelect = function()
+            resetWalk()
+        end
+    })
+
+    addEmotesToRadial('Expressions', 'Expressions', 'face-angry', {
+        label = 'Cancel',
+        icon = 'ban',
+        onSelect = function()
+            resetExpression()
+        end
+    })
 end
 
 if not Config.EnableSearch then
