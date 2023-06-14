@@ -1,4 +1,4 @@
-local function EmoteMenuPrint(_type, log)
+local function emoteMenuPrint(_type, log)
     local color = _type == 'success' and '^2' or '^1'
 
     print(('^5[scully_emotemenu]%s %s^7'):format(color, log))
@@ -39,7 +39,7 @@ end)
 
 RegisterNetEvent('scully_emotemenu:syncPtfx', function(asset, name, placement, bone, color)
     if (type(asset) ~= 'string') or (type(name) ~= 'string') or (type(placement) ~= 'table') then
-        EmoteMenuPrint('error', 'Invalid arguments for PTFX.')
+        emoteMenuPrint('error', 'Invalid arguments for PTFX.')
         return
     end
 
@@ -83,17 +83,17 @@ local function CheckMenuVersion()
         local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version')
 
         if not text then 
-            EmoteMenuPrint('error', 'Currently unable to run a version check.')
+            emoteMenuPrint('error', 'Currently unable to run a version check.')
             return 
         end
 
-        EmoteMenuPrint('success', ('Current Version: %s'):format(currentVersion))
-        EmoteMenuPrint('success', ('Latest Version: %s'):format(text))
+        emoteMenuPrint('success', ('Current Version: %s'):format(currentVersion))
+        emoteMenuPrint('success', ('Latest Version: %s'):format(text))
         
         if text == currentVersion then
-            EmoteMenuPrint('success', 'You are running the latest version.')
+            emoteMenuPrint('success', 'You are running the latest version.')
         else
-            EmoteMenuPrint('error', ('You are currently running an outdated version, please update to version %s'):format(text))
+            emoteMenuPrint('error', ('You are currently running an outdated version, please update to version %s'):format(text))
         end
     end)
 end
