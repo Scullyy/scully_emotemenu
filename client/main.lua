@@ -1,7 +1,7 @@
 local gameBuild, currentWalk, currentExpression = GetGameBuildNumber(), GetResourceKvpString('animations_walkstyle') or 'default', GetResourceKvpString('animations_expression') or 'default'
-local emoteBinds, isActionsLimited, isPlayingAnimation, lastEmote = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false, nil
+local emoteBinds, isActionsLimited, isPlayingAnimation = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false
 local isRagdoll, isCrouched, isPointing = false, false, false
-local ptfxCanHold, otherPlayer, playerProps = false, nil, {}
+local lastEmote, ptfxCanHold, otherPlayer = nil, false, nil
 local playerParticles, keybinds, registeredEmotes = {}, {}, {}
 
 -- Menu Options
@@ -262,15 +262,6 @@ function addEmotesToRadial(_type, label, icon, cancel)
     })
 end
 
----Remove attached props on the player
-function removeProps()
-    for i = 1, #playerProps do
-        DeleteEntity(playerProps[i])
-    end
-
-    playerProps = {}
-end
-
 ---Get an emote based on the command
 ---@param name string
 ---@return string _type Emote type
@@ -378,9 +369,7 @@ function playEmote(data, variation)
         return
     end
 
-    if #playerProps > 0 then
-        removeProps()
-    end
+    TriggerServerEvent('scully_emotemenu:deleteProps')
 
     if data.Scenario then
         if isInVehicle then
@@ -451,6 +440,8 @@ function playEmote(data, variation)
         if propCount > 0 then
             Wait(duration or 0)
 
+            local propList = {}
+
             for i = 1, propCount do
                 local prop = data.Options.Props[i]
                 local variant = prop.Variant
@@ -461,10 +452,25 @@ function playEmote(data, variation)
                     end
                 end
 
-                local object = addPropToPlayer(prop.Name, prop.Bone, prop.Placement, variant)
+                propList[#propList + 1] = {
+                    hash = joaat(prop.Name), 
+                    bone = prop.Bone, 
+                    placement = prop.Placement, 
+                    variant = variant,
+                    hasPTFX = (i == 1) and (data.Options.Ptfx and data.Options.Ptfx.AttachToProp)
+                }
+            end
 
-                if (i == 1) and (data.Options.Ptfx and data.Options.Ptfx.AttachToProp) then
-                    TriggerServerEvent('scully_emotemenu:syncProp', ObjToNet(object))
+            local props = lib.callback.await('scully_emotemenu:spawnProps', false, propList)
+
+            if props then
+                for i = 1, #props do
+                    local prop = props[i]
+                    local object = NetworkGetEntityFromNetworkId(prop.object)
+    
+                    if DoesEntityExist(object) then
+                        addPropToPlayer(object, prop.bone, prop.placement, prop.variant)
+                    end
                 end
             end
         end
@@ -487,7 +493,7 @@ function cancelEmote()
 
         ClearPedTasks(cache.ped)
         DetachEntity(cache.ped, true, false)
-        removeProps()
+        TriggerServerEvent('scully_emotemenu:deleteProps', otherPlayer)
 
         isPlayingAnimation = false
 
@@ -555,28 +561,17 @@ end
 exports('resetWalk', resetWalk)
 
 ---Attach a prop to the player
----@param prop string
+---@param object number
 ---@param bone number
 ---@param placement table
 ---@param variant number
 ---@return number object Entity handle
-function addPropToPlayer(prop, bone, placement, variant)
-    local playerPos = GetEntityCoords(cache.ped)
-
-    lib.requestModel(prop, 1000)
-    local object = CreateObject(joaat(prop), playerPos.x, playerPos.y, playerPos.z + 0.2, true, true, true)
-
+function addPropToPlayer(object, bone, placement, variant)
     SetEntityCollision(object, false, false)
 
     if variant then SetObjectTextureVariation(object, variant) end
 
     AttachEntityToEntity(object, cache.ped, GetPedBoneIndex(cache.ped, bone), placement[1].x, placement[1].y, placement[1].z, placement[2].x, placement[2].y, placement[2].z, true, true, false, true, 1, true)
-    
-    playerProps[#playerProps + 1] = object
-    
-    SetModelAsNoLongerNeeded(prop)
-    
-    return object
 end
 
 ---Remove unsupported emotes
@@ -1299,7 +1294,7 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
         local boneIndex = stateBag.ptfxBone and GetPedBoneIndex(playerPed, stateBag.ptfxBone) or GetEntityBoneIndexByName(name, "VFX")
 
         if propNet then
-            local propObj = NetToObj(propNet)
+            local propObj = NetworkGetEntityFromNetworkId(propNet)
             if DoesEntityExist(propObj) then entityTarget = propObj end
         end
 
