@@ -1,4 +1,4 @@
-AnimationList.Walks = {
+return {
     {
         Label = 'Alien',
         Command = 'alien',

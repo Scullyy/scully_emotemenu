@@ -1,4 +1,4 @@
-AnimationList.Expressions = {
+return {
     {
         Label = 'Aiming',
         Command = 'aiming',

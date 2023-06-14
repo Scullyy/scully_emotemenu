@@ -1,4 +1,4 @@
-AnimationList.SynchronizedEmotes = {
+return {
     {
         Label = 'Baseball',
         Command = 'sbaseball',

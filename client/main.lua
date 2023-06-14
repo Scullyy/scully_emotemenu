@@ -31,6 +31,27 @@ local mainMenuOptions, emoteMenuOptions, emoteMenuBindsOptions = {
     {label = 'None', description = 'Select to create a new emote bind', icon = 'fa-solid fa-5', args = 'animations_create_bind'}
 }
 
+local custom = require('custom_emotes')
+
+AnimationList = {
+    Walks = require('animations.walks'),
+    Scenarios = require('animations.scenarios'),
+    Expressions = require('animations.expressions'),
+    Emotes = require('animations.emotes'),
+    PropEmotes = require('animations.prop_emotes'),
+    ConsumableEmotes = require('animations.consumable_emotes'),
+    DanceEmotes = require('animations.dance_emotes'),
+    SynchronizedEmotes = require('animations.synchronized_emotes'),
+    AnimalEmotes = require('animations.animal_emotes')
+}
+
+-- Import customs animations
+for _type, emoteList in pairs(custom) do
+    for i = 1, #emoteList do
+        AnimationList[_type][#AnimationList[_type] + 1] = emoteList[i] 
+    end
+end
+
 -- Functions
 ---Closes the animation menu
 function closeMenu()

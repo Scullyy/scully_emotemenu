@@ -1,4 +1,4 @@
-AnimationList.DanceEmotes = {
+return {
     {
         Label = 'Boxing Dance Solo',
         Command = 'boxdance',

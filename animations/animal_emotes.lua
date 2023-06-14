@@ -1,4 +1,4 @@
-AnimationList.AnimalEmotes = {
+return {
     {
         Label = 'Bark (big dog)',
         Command = 'bdogbark',

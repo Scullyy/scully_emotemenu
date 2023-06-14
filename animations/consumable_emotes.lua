@@ -1,4 +1,4 @@
-AnimationList.ConsumableEmotes = {
+return {
     {
         Label = 'Apple',
         Command = 'apple',

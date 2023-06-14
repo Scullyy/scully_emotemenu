@@ -1,4 +1,4 @@
-AnimationList.Scenarios = {
+return {
     {
         Label = 'ATM',
         Command = 'atm',

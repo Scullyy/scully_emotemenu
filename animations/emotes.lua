@@ -1,5 +1,4 @@
-AnimationList = {}
-AnimationList.Emotes = {
+return {
     {
         Label = 'Adjust',
         Command = 'adjust',

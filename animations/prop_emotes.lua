@@ -1,4 +1,4 @@
-AnimationList.PropEmotes = {
+return {
     {
         Label = 'Airport Bag',
         Command = 'airportbag',

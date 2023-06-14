@@ -2,7 +2,7 @@
 fx_version 'cerulean'
 
 game 'gta5'
-version '1.2.0'
+version '1.5.0'
 
 dependencies {
     '/server:5848',
@@ -20,17 +20,12 @@ server_scripts {
 }
 
 client_scripts {
-    'animations/emotes.lua',
-    'animations/prop_emotes.lua',
-    'animations/consumable_emotes.lua',
-    'animations/dance_emotes.lua',
-    'animations/animal_emotes.lua',
-    'animations/synchronized_emotes.lua',
-    'animations/walks.lua',
-    'animations/scenarios.lua',
-    'animations/expressions.lua',
-    'animations.lua',
     'client/*.lua'
+}
+
+files {
+    'animations/*.lua',
+    'custom_emotes.lua'
 }
 
 data_file 'DLC_ITYP_REQUEST' 'bzzz_foodpack.ytyp'
