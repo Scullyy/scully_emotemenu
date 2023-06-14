@@ -408,6 +408,9 @@ AnimationList.SynchronizedEmotes = {
             Flags = {
                 Loop = true,
             },
+            Shared = {
+                OtherAnimation = 'hugtip2',
+            },
         },
     },
     {
@@ -418,6 +421,9 @@ AnimationList.SynchronizedEmotes = {
         Options = {
             Flags = {
                 Loop = true,
+            },
+            Shared = {
+                OtherAnimation = 'hugtip',
             },
         },
     },
