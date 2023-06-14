@@ -59,22 +59,23 @@ For support join my discord here: https://discord.gg/scully
 
 | Export Name | Parameter(s) | Type | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| [ToggleMenu](docs/exports/client/ToggleMenu.md) | None | Client | Toggle the animation menu |
-| [CloseMenu](docs/exports/client/CloseMenu.md) | None | Client | Close the animation menu |
-| [GetCurrentExpression](docs/exports/client/GetCurrentExpression.md) | None | Client | Get the players current expression |
-| [SetExpression](docs/exports/client/SetExpression.md) | String (Expression Name) | Client | Set the players expression |
-| [ResetExpression](docs/exports/client/ResetExpression.md) | None | Client | Reset the players expression to default |
-| [GetCurrentWalk](docs/exports/client/GetCurrentWalk.md) | None | Client | Get the players current walk style |
-| [SetWalk](docs/exports/client/SetWalk.md) | String (Walk Name) | Client | Set the players walk style |
-| [ResetWalk](docs/exports/client/ResetWalk.md) | None | Client | Reset the players walk style to default |
-| [IsInAnimation](docs/exports/client/IsInAnimation.md) | None | Client | Check if the player is currently playing an animation |
-| [RegisterEmote](docs/exports/client/RegisterEmote.md) | Table (Emote Data) | Client | Register an animation from an external resource |
-| [PlayRegisteredEmote](docs/exports/client/PlayRegisteredEmote.md) | String (Emote Name) | Client | Play a registered animation |
-| [Play](docs/exports/client/Play.md) | Table (Emote Data), Number (Variant) | Client | Play an animation |
-| [PlayByCommand](docs/exports/client/PlayByCommand.md) | String (Emote Command), Number (Variant) | Client | Play an animation using the command |
-| [CancelAnimation](docs/exports/client/CancelAnimation.md) | None | Client | Stop playing an animation |
-| [IsLimited](docs/exports/client/IsLimited.md) | None | Client | Check if the player is currently limited |
-| [ToggleLimitation](docs/exports/client/ToggleLimitation.md) | Boolean (Limited) | Client | Toggle player limitations |
+| [toggleMenu](docs/exports/client/toggleMenu.md) | None | Client | Toggle the emote menu |
+| [closeMenu](docs/exports/client/closeMenu.md) | None | Client | Close the emote menu |
+| [getCurrentExpression](docs/exports/client/getCurrentExpression.md) | None | Client | Get the players current expression |
+| [setExpression](docs/exports/client/setExpression.md) | String (Expression Name) | Client | Set the players expression |
+| [resetExpression](docs/exports/client/resetExpression.md) | None | Client | Reset the players expression to default |
+| [getCurrentWalk](docs/exports/client/getCurrentWalk.md) | None | Client | Get the players current walk style |
+| [setWalk](docs/exports/client/setWalk.md) | String (Walk Name) | Client | Set the players walk style |
+| [resetWalk](docs/exports/client/resetWalk.md) | None | Client | Reset the players walk style to default |
+| [isInEmote](docs/exports/client/isInEmote.md) | None | Client | Check if the player is currently playing an animation |
+| [getLastEmote](docs/exports/client/getLastEmote.md) | None | Client | Get the emote a player last used |
+| [registerEmote](docs/exports/client/registerEmote.md) | Table (Emote Data) | Client | Register an animation from an external resource |
+| [playRegisteredEmote](docs/exports/client/playRegisteredEmote.md) | String (Emote Name) | Client | Play a registered animation |
+| [playEmote](docs/exports/client/playEmote.md) | Table (Emote Data), Number (Variant) | Client | Play an animation |
+| [playEmoteByCommand](docs/exports/client/playEmoteByCommand.md) | String (Emote Command), Number (Variant) | Client | Play an animation using the command |
+| [cancelEmote](docs/exports/client/cancelEmote.md) | None | Client | Stop playing an animation |
+| [isLimited](docs/exports/client/isLimited.md) | None | Client | Check if the player is currently limited |
+| [setLimitation](docs/exports/client/setLimitation.md) | Boolean (Limited) | Client | Toggle player limitations |
 
 # Events
 

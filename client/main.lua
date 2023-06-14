@@ -1,5 +1,5 @@
 local gameBuild, currentWalk, currentExpression = GetGameBuildNumber(), GetResourceKvpString('animations_walkstyle') or 'default', GetResourceKvpString('animations_expression') or 'default'
-local emoteBinds, isActionsLimited, isPlayingAnimation = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false
+local emoteBinds, isActionsLimited, isPlayingAnimation, lastEmote = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false, nil
 local isRagdoll, isCrouched, isPointing = false, false, false
 local ptfxCanHold, otherPlayer, playerProps = false, nil, {}
 local playerParticles, keybinds, registeredEmotes = {}, {}, {}
@@ -310,6 +310,13 @@ function isInEmote()
 end
 exports('isInEmote', isInEmote)
 
+---Get the last emote a player used
+---@return string
+function getLastEmote()
+    return lastEmote
+end
+exports('getLastEmote', getLastEmote)
+
 function requestSynchronizedEmote(senderData)
     local playerPos = GetEntityCoords(cache.ped)
     local targetId, targetPed, targetPos = lib.getClosestPlayer(playerPos, 3.0, false)
@@ -436,6 +443,7 @@ function playEmote(data, variation)
     RemoveAnimDict(dictionaryName)
 
     isPlayingAnimation = true
+    lastEmote = data.Command
 
     if data.Options and data.Options.Props then
         local propCount = #data.Options.Props
