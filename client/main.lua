@@ -227,18 +227,13 @@ end
 ---@param label string
 ---@param icon string
 function addEmotesToRadial(_type, label, icon)
-    local radialId = 'scully_emotemenu:' .. _type
-
-    lib.registerRadial({
-        id = radialId,
-        items = {}
-    })
+    local radialId, options = 'scully_emotemenu:' .. _type, {}
 
     for emote = 1, #AnimationList[_type] do
         local _emote = AnimationList[_type][emote]
 
         if _emote and _emote.Label and not _emote.Hide then
-            items[#items + 1] = {
+            options[#options + 1] = {
                 label = _emote.label,
                 icon = icon,
                 onSelect = function()
@@ -247,6 +242,11 @@ function addEmotesToRadial(_type, label, icon)
             }
         end
     end
+
+    lib.registerRadial({
+        id = radialId,
+        items = options
+    })
 
     lib.addRadialItem({
         {
