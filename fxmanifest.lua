@@ -2,7 +2,7 @@
 fx_version 'cerulean'
 
 game 'gta5'
-version '1.7.0'
+version '1.7.1'
 
 dependencies {
     '/server:5848',
