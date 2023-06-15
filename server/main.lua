@@ -47,6 +47,8 @@ local function CheckMenuVersion()
 end
 
 local function dumpPropsToFile()
+    if not Config.EnablePropDump then return end
+    
     local propDump = {}
     
     for _type, emoteList in pairs(AnimationList) do
