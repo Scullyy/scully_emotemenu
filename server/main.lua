@@ -26,6 +26,26 @@ local function emoteMenuPrint(_type, log)
     print(('^5[scully_emotemenu]%s %s^7'):format(color, log))
 end
 
+local function CheckMenuVersion()
+    PerformHttpRequest('https://raw.githubusercontent.com/scullyy/scully_emotemenu/master/version.txt', function(err, text, headers)
+        local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version')
+
+        if not text then 
+            emoteMenuPrint('error', 'Currently unable to run a version check.')
+            return 
+        end
+
+        emoteMenuPrint('success', ('Current Version: %s'):format(currentVersion))
+        emoteMenuPrint('success', ('Latest Version: %s'):format(text))
+        
+        if text == currentVersion then
+            emoteMenuPrint('success', 'You are running the latest version.')
+        else
+            emoteMenuPrint('error', ('You are currently running an outdated version, please update to version %s'):format(text))
+        end
+    end)
+end
+
 local function dumpPropsToFile()
     local propDump = {}
     
@@ -185,25 +205,5 @@ RegisterNetEvent('scully_emotemenu:syncPtfx', function(asset, name, placement, b
     playerState:set('ptfx', false, true)
 end)
 
--- Version check
-local function CheckMenuVersion()
-    PerformHttpRequest('https://raw.githubusercontent.com/scullyy/scully_emotemenu/master/version.txt', function(err, text, headers)
-        local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version')
-
-        if not text then 
-            emoteMenuPrint('error', 'Currently unable to run a version check.')
-            return 
-        end
-
-        emoteMenuPrint('success', ('Current Version: %s'):format(currentVersion))
-        emoteMenuPrint('success', ('Latest Version: %s'):format(text))
-        
-        if text == currentVersion then
-            emoteMenuPrint('success', 'You are running the latest version.')
-        else
-            emoteMenuPrint('error', ('You are currently running an outdated version, please update to version %s'):format(text))
-        end
-    end)
-end
 CheckMenuVersion()
 dumpPropsToFile()
