@@ -10,6 +10,12 @@ dependencies {
     'ox_lib'
 }
 
+files {
+    'animations/*.lua',
+    'custom_emotes.lua',
+    'prop_dump.lua'
+}
+
 shared_scripts {
     '@ox_lib/init.lua',
     'config.lua'
@@ -21,12 +27,6 @@ server_scripts {
 
 client_scripts {
     'client/*.lua'
-}
-
-files {
-    'animations/*.lua',
-    'custom_emotes.lua',
-    'prop_dump.lua'
 }
 
 data_file 'DLC_ITYP_REQUEST' 'bzzz_foodpack.ytyp'
@@ -47,6 +47,4 @@ data_file 'DLC_ITYP_REQUEST' 'ultra_ringcase.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'bzzz_food_xmas22.ytyp'
 
 lua54 'yes'
-
-provide 'dpemotes'
 
