@@ -2,7 +2,7 @@
 fx_version 'cerulean'
 
 game 'gta5'
-version '1.7.1'
+version '1.8.0'
 
 dependencies {
     '/server:5848',
@@ -11,6 +11,7 @@ dependencies {
 }
 
 files {
+    'locales/*.lua',
     'animations/*.lua',
     'custom_emotes.lua',
     'prop_dump.lua'

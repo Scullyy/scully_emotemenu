@@ -1,4 +1,6 @@
 Config = {
+    -- You can change the language of the menu here. Available languages can be found in the locales folder.
+    Language = 'en',
     -- You can disable the search option here.
     EnableSearch = true,
     -- You can disable prop dumps here.

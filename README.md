@@ -17,6 +17,8 @@ For support join my discord here: https://discord.gg/scully
 
 # Features
 
+- Over 20 translations
+
 - Search option
 
 - Custom animations
