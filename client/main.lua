@@ -1182,6 +1182,7 @@ if Config.CrouchKey ~= '' then
         defaultKey = Config.CrouchKey,
         onPressed = function(key)
             DisableControlAction(0, 36, true)
+            DisableControlAction(0, 26, true)
             
             if isActionsLimited or cache.vehicle then return end
 
