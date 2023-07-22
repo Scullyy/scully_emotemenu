@@ -1,8 +1,8 @@
 local gameBuild, currentWalk, currentExpression = GetGameBuildNumber(), GetResourceKvpString('animations_walkstyle') or 'default', GetResourceKvpString('animations_expression') or 'default'
 local emoteBinds, isActionsLimited, isPlayingAnimation = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false
 local isRagdoll, isCrouched, isPointing = false, false, false
-local lastEmote, lastVariant, ptfxCanHold, otherPlayer = nil, nil, false, nil
-local playerParticles, keybinds, registeredEmotes = {}, {}, {}
+local lastEmote, lastVariant, ptfxCanHold, otherPlayer, clone = nil, nil, false, nil, nil
+local playerParticles, keybinds, registeredEmotes, cloneProps = {}, {}, {}, {}
 local lang = require('locales.' .. Config.Language)
 
 -- Menu Options
@@ -355,10 +355,9 @@ function playEmote(data, variation)
         return 
     end
 
-    local isInVehicle = IsPedInAnyVehicle(cache.ped, true)
-    local duration, movementFlag = nil, isInVehicle and 51 or 0
+    local duration, movementFlag = nil, cache.vehicle and 51 or 0
 
-    if not Config.AllowedInVehicles and isInVehicle then
+    if not Config.AllowedInVehicles and cache.vehicle then
         notify('error', lang.no_animations_in_vehicle)
         return
     end
@@ -366,7 +365,7 @@ function playEmote(data, variation)
     TriggerServerEvent('scully_emotemenu:deleteProps')
 
     if data.Scenario then
-        if isInVehicle then
+        if cache.vehicle then
             notify('error', lang.no_scenarios_in_vehicle)
             return
         end
@@ -399,7 +398,7 @@ function playEmote(data, variation)
 
         if data.Options.Delay then Wait(data.Options.Delay) end
 
-        if not isInVehicle and data.Options.Flags then
+        if not cache.vehicle and data.Options.Flags then
             if data.Options.Flags.Loop then movementFlag = 1 end
             if data.Options.Flags.Move then movementFlag = 51 end
             if data.Options.Flags.Stuck then movementFlag = 50 end
@@ -477,6 +476,129 @@ function playEmote(data, variation)
     end
 end
 exports('playEmote', playEmote)
+
+---Play an animation using a clone
+---@param data table
+function initCloneEmote(data)
+    if DoesEntityExist(clone) then return end
+
+    if cache.vehicle then
+        notify('error', lang.no_animations_in_vehicle)
+        return
+    end
+
+    local cloneModel = `mp_m_freemode_01`
+    local clonePos = GetOffsetFromEntityInWorldCoords(cache.ped, 0.0, 4.5, 0.0)
+    local cloneHeading = GetEntityHeading(cache.ped) + 180
+
+    lib.requestModel(cloneModel, 1000)
+
+    clone = CreatePed(4, cloneModel, clonePos.x, clonePos.y, clonePos.z, cloneHeading, false, false)
+
+    SetEntityAlpha(clone, 200)
+
+    Wait(200)
+
+    local hasAutomatedPtfx, dictionaryName, animationName = false, data.Dictionary, data.Animation
+
+    if (type(dictionaryName) == 'table') and (type(animationName) == 'table') then
+        local randomIndex = math.random(1, #animationName)
+
+        dictionaryName = dictionaryName[randomIndex]
+        animationName = animationName[randomIndex]
+    end
+
+    local isValid = lib.requestAnimDict(dictionaryName, 1000)
+
+    if not isValid then
+        notify('error', lang.not_valid_emote)
+        return
+    end
+
+    if data.Options then
+        duration = data.Options.Duration
+
+        if data.Options.Delay then Wait(data.Options.Delay) end
+
+        if not cache.vehicle and data.Options.Flags then
+            if data.Options.Flags.Loop then movementFlag = 1 end
+            if data.Options.Flags.Move then movementFlag = 51 end
+            if data.Options.Flags.Stuck then movementFlag = 50 end
+        end
+
+        if data.Options.Ptfx then
+            -- TO-DO
+        end
+    end
+
+    local cloneDuration = GetAnimDuration(dictionaryName, animationName)
+
+    TaskPlayAnim(clone, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
+    RemoveAnimDict(dictionaryName)
+
+    isPlayingAnimation = true
+    lastEmote, lastVariant = data, variation
+
+    if data.Options and data.Options.Props then
+        local propCount = #data.Options.Props
+
+        if propCount > 0 then
+            Wait(duration or 0)
+
+            local propList = {}
+
+            for i = 1, propCount do
+                local prop = data.Options.Props[i]
+                local variant = prop.Variant
+
+                if variation then
+                    if prop.Variations and prop.Variations[variation] then
+                        variant = prop.Variations[variation]
+                    end
+                end
+
+                propList[#propList + 1] = {
+                    hash = joaat(prop.Name), 
+                    bone = prop.Bone, 
+                    placement = prop.Placement
+                }
+            end
+
+            if #propList > 0 then
+                for i = 1, #propList do
+                    local prop = propList[i]
+                    
+                    lib.requestModel(prop.hash, 1000)
+                    
+                    local object = CreateObject(prop.hash, clonePos.x, clonePos.y, clonePos.z, false, false, false)
+
+                    SetEntityCollision(object, false, false)
+                    AttachEntityToEntity(object, clone, GetPedBoneIndex(clone, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
+
+                    cloneProps[#cloneProps + 1] = object
+                    
+                    SetModelAsNoLongerNeeded(prop.hash)
+                end
+            end
+        end
+    end
+
+    local endTimer = ((cloneDuration or 0) + 1) * 1000
+
+    if endTimer > 5000 then
+        endTimer = 5000
+    end
+
+    Wait(endTimer)
+
+    for i = 1, #cloneProps do
+        DeleteEntity(cloneProps[i])
+    end
+
+    cloneProps = {}
+
+    DeleteEntity(clone)
+end
 
 ---Cancel the animation you're currently playing
 function cancelEmote()
@@ -1024,6 +1146,11 @@ lib.registerMenu({
     if option == 'SynchronizedEmotes' then
         requestSynchronizedEmote(emote)
 
+        return
+    end
+
+    if IsControlPressed(0, 38) and Config.EnableEmotePreview then
+        initCloneEmote(emote)
         return
     end
 

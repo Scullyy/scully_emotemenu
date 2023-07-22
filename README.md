@@ -59,6 +59,8 @@ For support join my discord here: https://discord.gg/scully
 
 - Prop extractor for anticheat systems
 
+- Emote preview system by holding `E` while selecting an emote
+
 # Exports
 
 | Export Name | Parameter(s) | Type | Description |

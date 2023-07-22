@@ -5,6 +5,8 @@ Config = {
     EnableSearch = true,
     -- You can disable prop dumps here.
     EnablePropDump = true,
+    -- You can disable the emote preview feature here.
+    EnableEmotePreview = true,
     -- You can disable the emote binds option here.
     EnableEmoteBinds = true,
     -- Block players from using weapons while doing an emote.
