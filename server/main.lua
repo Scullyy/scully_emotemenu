@@ -88,10 +88,16 @@ local function dumpPropsToFile()
     end
 end
 
-local function deleteProps(props)
+local function deleteProps(source, props)
     for i = 1, #props do
-        DeleteEntity(props[i])
+        local prop = props[i]
+
+        if DoesEntityExist(prop) then
+            DeleteEntity(prop)
+        end
     end
+
+    playerProps[source] = nil
 end
 
 AddEventHandler('playerDropped', function(reason)
@@ -99,9 +105,7 @@ AddEventHandler('playerDropped', function(reason)
     local props = playerProps[src]
 
     if props then
-        deleteProps(props)
-
-        playerProps[src] = nil
+        deleteProps(src, props)
     end
 end)
 
@@ -110,9 +114,7 @@ RegisterNetEvent('scully_emotemenu:deleteProps', function(otherPlayer)
     local props = playerProps[src]
 
     if props then
-        deleteProps(props)
-
-        playerProps[src] = nil
+        deleteProps(src, props)
     end
 
     if otherPlayer then
