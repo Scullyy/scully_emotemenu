@@ -50,6 +50,11 @@ return {
         Walk = 'move_m@buzzed',
     },
     {
+        Label = 'Casey',
+        Command = 'casey',
+        Walk = 'move_casey',
+    },
+    {
         Label = 'Casual',
         Command = 'casual',
         Walk = 'move_m@casual@a',
@@ -160,6 +165,11 @@ return {
         Walk = 'move_f@depressed@c',
     },
     {
+        Label = 'Dreyfuss',
+        Command = 'dreyfuss',
+        Walk = 'move_dreyfuss',
+    },
+    {
         Label = 'Drunk',
         Command = 'drunk',
         Walk = 'move_m@drunk@a',
@@ -257,27 +267,67 @@ return {
     {
         Label = 'Gangster 2',
         Command = 'gangster2',
-        Walk = 'move_m@gangster@ng',
+        Walk = 'move_gangster',
     },
     {
         Label = 'Gangster 3',
         Command = 'gangster3',
-        Walk = 'move_m@gangster@var_e',
+        Walk = 'move_m@gangster@ng',
     },
     {
         Label = 'Gangster 4',
         Command = 'gangster4',
-        Walk = 'move_m@gangster@var_f',
+        Walk = 'move_m@gangster@var_a',
     },
     {
         Label = 'Gangster 5',
         Command = 'gangster5',
-        Walk = 'move_m@gangster@var_i',
+        Walk = 'move_m@gangster@var_b',
     },
     {
         Label = 'Gangster 6',
         Command = 'gangster6',
-        Walk = 'move_f@gangster@ng',
+        Walk = 'move_m@gangster@var_c',
+    },
+    {
+        Label = 'Gangster 7',
+        Command = 'gangster7',
+        Walk = 'move_m@gangster@var_d',
+    },
+    {
+        Label = 'Gangster 8',
+        Command = 'gangster8',
+        Walk = 'move_m@gangster@var_e',
+    },
+    {
+        Label = 'Gangster 9',
+        Command = 'gangster9',
+        Walk = 'move_m@gangster@var_f',
+    },
+    {
+        Label = 'Gangster 10',
+        Command = 'gangster10',
+        Walk = 'move_m@gangster@var_g',
+    },
+    {
+        Label = 'Gangster 11',
+        Command = 'gangster11',
+        Walk = 'move_m@gangster@var_h',
+    },
+    {
+        Label = 'Gangster 12',
+        Command = 'gangster12',
+        Walk = 'move_m@gangster@var_i',
+    },
+    {
+        Label = 'Gangster 13',
+        Command = 'gangster13',
+        Walk = 'move_m@gangster@var_j',
+    },
+    {
+        Label = 'Gangster 14',
+        Command = 'gangster14',
+        Walk = 'move_m@gangster@var_k',
     },
     {
         Label = 'Generic',
@@ -455,6 +505,11 @@ return {
         Walk = 'move_characters@patricia',
     },
     {
+        Label = 'Paramedic',
+        Command = 'paramedic',
+        Walk = 'move_paramedic',
+    },
+    {
         Label = 'Posh',
         Command = 'posh',
         Walk = 'move_m@posh@',
@@ -535,6 +590,11 @@ return {
         Walk = 'move_characters@jimmy@slow@',
     },
     {
+        Label = 'Stripper',
+        Command = 'stripper',
+        Walk = 'move_f@stripper@a',
+    },
+    {
         Label = 'Swagger',
         Command = 'swagger',
         Walk = 'move_m@swagger',
@@ -583,6 +643,11 @@ return {
         Label = 'Trevor',
         Command = 'trevor',
         Walk = 'move_p_m_two',
+    },
+    {
+        Label = 'Very Slow',
+        Command = 'veryslow',
+        Walk = 'move_m@leaf_blower',
     },
     {
         Label = 'Wide',
