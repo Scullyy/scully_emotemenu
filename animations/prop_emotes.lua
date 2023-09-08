@@ -22,6 +22,92 @@ return {
         },
     },
     {
+        Label = 'Axe',
+        Command = 'axe',
+        Animation = 'base_club_shoulder',
+        Dictionary = 'rcmnigel1d',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 18905,
+                    Name = 'prop_tool_fireaxe',
+                    Placement = {
+                        vector3(0.080000, -0.209000, 0.090000),
+                        vector3(-82.667702, -141.298798, 12.330800),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Axe - Ground Impact',
+        Command = 'axe2',
+        Animation = 'ground_attack_on_spot',
+        Dictionary = 'melee@large_wpn@streamed_core',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+            Props = {
+                {
+                    Bone = 57005,
+                    Name = 'prop_tool_fireaxe',
+                    Placement = {
+                        vector3(0.016000, -0.314000, -0.086000),
+                        vector3(-97.145500, 165.074905, 13.911400),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Axe - Pickaxe',
+        Command = 'axe3',
+        Animation = 'base_club_shoulder',
+        Dictionary = 'rcmnigel1d',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 57005,
+                    Name = 'prop_tool_pickaxe',
+                    Placement = {
+                        vector3(0.040000, -0.255000, -0.138000),
+                        vector3(-109.023804, 163.614395, 20.609100),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Axe - Pickaxe Ground Impact',
+        Command = 'axe4',
+        Animation = 'ground_attack_on_spot',
+        Dictionary = 'melee@large_wpn@streamed_core',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+            Props = {
+                {
+                    Bone = 57005,
+                    Name = 'prop_tool_pickaxe',
+                    Placement = {
+                        vector3(0.080000, -0.400000, -0.100000),
+                        vector3(80.000000, -20.000000, 175.000000),
+                    },
+                },
+            },
+        },
+    },
+    {
         Label = 'Backpack',
         Command = 'backpack',
         Animation = 'nill',
@@ -317,11 +403,77 @@ return {
             },
             Props = {
                 {
-                    Bone = 58868,
+                    Bone = 28422,
                     Name = 'prop_beggers_sign_03',
                     Placement = {
-                        vector3(0.190000, 0.180000, 0.000000),
-                        vector3(5.000000, 0.000000, 40.000000),
+                        vector3(0.000000, 0.000000, 0.000000),
+                        vector3(0.000000, 0.000000, 0.000000),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Beg 2',
+        Command = 'beg2',
+        Animation = 'base',
+        Dictionary = 'amb@world_human_bum_freeway@male@base',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 28422,
+                    Name = 'prop_beggers_sign_01',
+                    Placement = {
+                        vector3(0.000000, 0.000000, 0.000000),
+                        vector3(0.000000, 0.000000, 0.000000),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Beg 3',
+        Command = 'beg3',
+        Animation = 'base',
+        Dictionary = 'amb@world_human_bum_freeway@male@base',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 28422,
+                    Name = 'prop_beggers_sign_02',
+                    Placement = {
+                        vector3(0.000000, 0.000000, 0.080000),
+                        vector3(0.000000, 0.000000, 0.000000),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Beg 4',
+        Command = 'beg4',
+        Animation = 'base',
+        Dictionary = 'amb@world_human_bum_freeway@male@base',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 28422,
+                    Name = 'prop_beggers_sign_04',
+                    Placement = {
+                        vector3(0.000000, 0.000000, 0.080000),
+                        vector3(0.000000, 0.000000, 0.000000),
                     },
                 },
             },
@@ -737,6 +889,59 @@ return {
                     1.0,
                 },
                 Wait = 200,
+            },
+        },
+    },
+    {
+        Label = 'Camera 3',
+        Command = 'camera3',
+        Animation = 'cellphone_text_read_base_cover_low',
+        Dictionary = 'cellphone@female',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 28422,
+                    Name = 'prop_ing_camera_01',
+                    Placement = {
+                        vector3(0.010000, -0.030000, 0.052000),
+                        vector3(-172.048706, -163.938904, -29.022100),
+                    },
+                },
+            },
+            Ptfx = {
+                Asset = 'scr_bike_business',
+                AttachToProp = true,
+                Name = 'scr_bike_cfid_camera_flash',
+                Placement = {
+                    vector3(0.000000, 0.000000, 0.000000),
+                    vector3(0.000000, 0.000000, 0.000000),
+                    1.0,
+                },
+                Wait = 200,
+            },
+        },
+    },
+    {
+        Label = 'Camera 4 - Carry News Camera',
+        Command = 'camera4',
+        Animation = 'idle',
+        Dictionary = 'move_weapon@jerrycan@generic',
+        Options = {
+            Flags = {
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 28422,
+                    Name = 'prop_v_cam_01',
+                    Placement = {
+                        vector3(0.210000, 0.030000, -0.010000),
+                        vector3(90.000000, 176.000000, 79.999901),
+                    },
+                },
             },
         },
     },
