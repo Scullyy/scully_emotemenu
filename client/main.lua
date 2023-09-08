@@ -928,6 +928,21 @@ function CrouchLoop()
     end)
 end
 
+-- Disable the crouch controls
+function DisableCrouchControls()
+    lib.disableControls:Add({36, 26})
+
+    CreateThread(function()
+        while IsDisabledControlPressed(0, 36) or IsDisabledControlPressed(0, 26) do
+            Wait(0)
+
+            lib.disableControls()
+        end
+
+        lib.disableControls:Remove({36, 26})
+    end)
+end
+
 -- Add / Remove options
 removeUnsupportedEmotes()
 
@@ -1316,10 +1331,11 @@ if Config.CrouchKey ~= '' then
         description = lang.crouch,
         defaultKey = Config.CrouchKey,
         onPressed = function(key)
+            if isActionsLimited or cache.vehicle then return end
+
             DisableControlAction(0, 36, true)
             DisableControlAction(0, 26, true)
-            
-            if isActionsLimited or cache.vehicle then return end
+            DisableCrouchControls()
 
             isCrouched = not isCrouched
 
