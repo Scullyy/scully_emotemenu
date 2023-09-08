@@ -142,12 +142,15 @@ lib.callback.register('scully_emotemenu:spawnProps', function(source, props)
 
         if not timeout then
             local netObject = NetworkGetNetworkIdFromEntity(object)
+
             if not playerProps[source] then playerProps[source] = {} end
+
             if prop.hasPTFX then Player(source).state:set('ptfxPropNet', netObject, true) end
 
             local index = #returnList + 1
 
             playerProps[source][index] = object
+            
             returnList[index] = {
                 object = netObject, 
                 bone = prop.bone, 
