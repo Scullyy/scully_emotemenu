@@ -50,6 +50,16 @@ return {
         Expression = 'electrocuted_1',
     },
     {
+        Label = 'Excited',
+        Command = 'excited',
+        Expression = 'mood_excited_1',
+    },
+    {
+        Label = 'Frustrated',
+        Command = 'frustrated',
+        Expression = 'mood_frustrated_1',
+    },
+    {
         Label = 'Grumpy',
         Command = 'grumpy',
         Expression = 'effort_1',
@@ -80,7 +90,7 @@ return {
         Expression = 'mood_dancing_low_1',
     },
     {
-        Label = 'Mouthbreather',
+        Label = 'Mouth breather',
         Command = 'mouthbreather',
         Expression = 'smoking_hold_1',
     },
