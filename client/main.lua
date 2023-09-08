@@ -1293,8 +1293,16 @@ if Config.HandsUpKey ~= '' then
         onPressed = function(key)
             if isActionsLimited then return end
 
+            local onBike = false
+
+            if cache.vehicle then
+                local model = GetEntityModel(cache.vehicle)
+
+                onBike = IsThisModelABike(model)
+            end
+
             lib.requestAnimDict('random@mugging3', 1000)
-            TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, false, false)
+            TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
         end,
         onReleased = function(key)
             ClearPedTasks(cache.ped)
