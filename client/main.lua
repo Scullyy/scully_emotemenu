@@ -399,7 +399,12 @@ function playEmote(data, variation)
         if data.Options.Delay then Wait(data.Options.Delay) end
 
         if not cache.vehicle and data.Options.Flags then
-            if data.Options.Flags.Loop then movementFlag = 1 end
+            if data.Options.Flags.Loop then 
+                movementFlag = 1
+
+                lastEmote, lastVariant = data, variation
+            end
+
             if data.Options.Flags.Move then movementFlag = 51 end
             if data.Options.Flags.Stuck then movementFlag = 50 end
         end
@@ -425,7 +430,6 @@ function playEmote(data, variation)
     RemoveAnimDict(dictionaryName)
 
     isPlayingAnimation = true
-    lastEmote, lastVariant = data, variation
 
     if data.Options and data.Options.Props then
         local propCount = #data.Options.Props
@@ -537,7 +541,6 @@ function initCloneEmote(data)
     RemoveAnimDict(dictionaryName)
 
     isPlayingAnimation = true
-    lastEmote, lastVariant = data, variation
 
     if data.Options and data.Options.Props then
         local propCount = #data.Options.Props
@@ -601,7 +604,8 @@ function initCloneEmote(data)
 end
 
 ---Cancel the animation you're currently playing
-function cancelEmote()
+---@param? skipReset boolean 
+function cancelEmote(skipReset)
     if isPlayingAnimation then
         if IsPedUsingAnyScenario(cache.ped) then ClearPedTasksImmediately(cache.ped) end
         if LocalPlayer.state.ptfx then LocalPlayer.state:set('ptfx', false, true) end
@@ -612,6 +616,10 @@ function cancelEmote()
         TriggerServerEvent('scully_emotemenu:deleteProps', otherPlayer)
 
         isPlayingAnimation = false
+
+        if not skipReset then
+            lastEmote, lastVariant = nil, nil
+        end
 
         if otherPlayer then
             TriggerServerEvent('scully_emotemenu:cancelSynchronizedEmote', otherPlayer)
@@ -1699,7 +1707,7 @@ AddEventHandler('CEventOpenDoor', function()
     openingDoor = false
 
     if lastEmote then
-        cancelEmote()
+        cancelEmote(true)
         Wait(10)
         playEmote(lastEmote, lastVariant)
     end
@@ -1714,8 +1722,6 @@ AddEventHandler('CEventPlayerCollisionWithPed', function()
         hitTimeout = 500
         return
     end
-    
-    cancelEmote()
 
     hitTimeout, hittingPed = 500, true
 
@@ -1728,6 +1734,8 @@ AddEventHandler('CEventPlayerCollisionWithPed', function()
     if lastEmote then
         hitTimeout, hittingPed = 500, false
 
+        cancelEmote(true)
+        Wait(10)
         playEmote(lastEmote, lastVariant)
     end
 end)
