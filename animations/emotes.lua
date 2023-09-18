@@ -1423,6 +1423,18 @@ return {
         },
     },
     {
+        Label = 'Hide Gun',
+        Command = 'hidegun',
+        Animation = 'player_one_dual-3',
+        Dictionary = 'fin_a_int-3',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+        },
+    },
+    {
         Label = 'Hiking',
         Command = 'hiking',
         Animation = 'idle',
