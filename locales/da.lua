@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Genvejen er slettet!',
     new_bind = 'Vælg for at oprette en ny emote-genvej',
     bind_created = '%s er blevet bundet!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Det er ikke en gyldig registreret emote. Informer venligst serverejeren',
     no_player_nearby = 'Ingen spiller i nærheden!',
     not_valid_synced_emote = 'Det er ikke en gyldig synkroniseret emote. Informer venligst serverejeren',

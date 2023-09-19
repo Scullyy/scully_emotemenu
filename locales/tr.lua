@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Bağlantı silindi!',
     new_bind = 'Yeni bir emote bağlantısı oluşturmak için seç',
     bind_created = '%s bağlandı!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Bu geçerli bir kayıtlı emote değil, lütfen sunucu sahibine bildirin',
     no_player_nearby = 'Yakında oyuncu yok!',
     not_valid_synced_emote = 'Bu geçerli bir senkronize edilmiş emote değil, lütfen sunucu sahibine bildirin',

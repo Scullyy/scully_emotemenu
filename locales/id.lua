@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Ikatan telah dihapus!',
     new_bind = 'Pilih untuk membuat ikatan emote baru',
     bind_created = '%s telah diikatkan!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Itu bukan emote yang valid terdaftar, harap beri tahu pemilik server',
     no_player_nearby = 'Tidak ada pemain di sekitar!',
     not_valid_synced_emote = 'Itu bukan emote sinkron yang valid, harap beri tahu pemilik server',

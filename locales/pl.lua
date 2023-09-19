@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Przypisanie zostało usunięte!',
     new_bind = 'Wybierz, aby utworzyć nowe przypisanie emote',
     bind_created = '%s zostało przypisane!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'To nie jest prawidłowy zarejestrowany emote. Poinformuj właściciela serwera',
     no_player_nearby = 'Brak gracza w pobliżu!',
     not_valid_synced_emote = 'To nie jest prawidłowy zsynchronizowany emote. Poinformuj właściciela serwera',

@@ -29,6 +29,8 @@ return {
     bind_deleted = 'De koppeling is verwijderd!',
     new_bind = 'Selecteer om een nieuwe emotie-koppeling te maken',
     bind_created = '%s is gekoppeld!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Dit is geen geldige geregistreerde emotie, informeer alsjeblieft de server eigenaar',
     no_player_nearby = 'Geen speler in de buurt!',
     not_valid_synced_emote = 'Dit is geen geldige gesynchroniseerde emotie, informeer alsjeblieft de server eigenaar',

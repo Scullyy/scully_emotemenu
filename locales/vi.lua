@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Gắn kết đã được xóa!',
     new_bind = 'Chọn để tạo gắn kết emote mới',
     bind_created = 'Gắn kết %s đã được tạo!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Đó không phải là emote đã đăng ký hợp lệ, vui lòng thông báo cho chủ sở hữu máy chủ',
     no_player_nearby = 'Không có người chơi gần đó!',
     not_valid_synced_emote = 'Đó không phải là emote đồng bộ hợp lệ, vui lòng thông báo cho chủ sở hữu máy chủ',

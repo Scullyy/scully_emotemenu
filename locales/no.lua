@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Bindingen er slettet!',
     new_bind = 'Velg for å opprette en ny emotebinding',
     bind_created = '%s er bundet!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Dette er ikke en gyldig registrert emote. Vennligst informer servereieren',
     no_player_nearby = 'Ingen spiller i nærheten!',
     not_valid_synced_emote = 'Dette er ikke en gyldig synkronisert emote. Vennligst informer servereieren',

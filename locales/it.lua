@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Il collegamento è stato cancellato!',
     new_bind = 'Seleziona per creare un nuovo collegamento emote',
     bind_created = 'Il collegamento %s è stato creato!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Questa non è un\'emote registrata valida. Si prega di informare il proprietario del server',
     no_player_nearby = 'Nessun giocatore nelle vicinanze!',
     not_valid_synced_emote = 'Questa non è un\'emote sincronizzata valida. Si prega di informare il proprietario del server',

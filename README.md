@@ -61,6 +61,8 @@ For support join my discord here: https://discord.gg/scully
 
 - Emote preview system by holding `E` while selecting an emote
 
+- Compatibility with QBCore events
+
 # Exports
 
 | Export Name | Parameter(s) | Type | Description |
@@ -82,6 +84,7 @@ For support join my discord here: https://discord.gg/scully
 | [cancelEmote](docs/exports/client/cancelEmote.md) | None | Client | Stop playing an animation |
 | [isLimited](docs/exports/client/isLimited.md) | None | Client | Check if the player is currently limited |
 | [setLimitation](docs/exports/client/setLimitation.md) | Boolean (Limited) | Client | Toggle player limitations |
+| [listEmotes](docs/exports/client/listEmotes.md) | String (Emote Type) | Client | List emotes from any category |
 
 # Events
 
@@ -99,6 +102,7 @@ For support join my discord here: https://discord.gg/scully
 | [scully_emotemenu:playByCommand](docs/exports/client/playByCommand.md) | String (Emote Command), Number (Variant) | Client | Play an animation using the command |
 | [scully_emotemenu:cancelAnimation](docs/exports/client/cancelAnimation.md) | None | Client | Stop playing an animation |
 | [scully_emotemenu:toggleLimitation](docs/exports/client/toggleLimitation.md) | Boolean (Limited) | Client | Toggle player limitations |
+| [scully_emotemenu:listEmotes](docs/exports/client/listEmotes.md) | String (Emote Type) | Client | List emotes from any category |
 
 # Keybinds
 

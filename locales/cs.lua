@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Přiřazení bylo smazáno!',
     new_bind = 'Vyberte pro vytvoření nového přiřazení emótek',
     bind_created = '%s bylo přiřazeno!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Toto není platná registrovaná emóteka, informujte prosím majitele serveru',
     no_player_nearby = 'Žádný hráč není poblíž!',
     not_valid_synced_emote = 'Toto není platná synchronizovaná emóteka, informujte prosím majitele serveru',

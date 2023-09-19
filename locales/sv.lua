@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Bindningen har tagits bort!',
     new_bind = 'Välj för att skapa en ny emote-bindning',
     bind_created = '%s har bundits!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Det är inte en giltig registrerad emote, vänligen meddela serverägaren',
     no_player_nearby = 'Ingen spelare i närheten!',
     not_valid_synced_emote = 'Det är inte en giltig synkroniserad emote, vänligen meddela serverägaren',

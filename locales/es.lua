@@ -29,6 +29,8 @@ return {
     bind_deleted = '¡La combinación se ha eliminado!',
     new_bind = 'Selecciona para crear una nueva combinación de emote',
     bind_created = '¡%s se ha vinculado!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'No es un emote registrado válido, por favor, informa al propietario del servidor',
     no_player_nearby = '¡No hay jugadores cercanos!',
     not_valid_synced_emote = 'No es un emote sincronizado válido, por favor, informa al propietario del servidor',

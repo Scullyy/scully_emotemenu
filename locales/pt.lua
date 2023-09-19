@@ -29,6 +29,8 @@ return {
     bind_deleted = 'O atalho foi apagado!',
     new_bind = 'Selecionar para criar um novo atalho de emote',
     bind_created = '%s foi vinculado!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Esse não é um emote registrado válido, por favor informe o dono do servidor',
     no_player_nearby = 'Nenhum jogador próximo!',
     not_valid_synced_emote = 'Esse não é um emote sincronizado válido, por favor informe o dono do servidor',

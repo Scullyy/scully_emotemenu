@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Kytkentä on poistettu!',
     new_bind = 'Valitse luodaksesi uusi elekytkentä',
     bind_created = '%s on kytketty!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Se ei ole kelvollinen rekisteröity ele, ilmoita palvelimen omistajalle',
     no_player_nearby = 'Ei pelaajaa lähellä!',
     not_valid_synced_emote = 'Se ei ole kelvollinen synkronoitu ele, ilmoita palvelimen omistajalle',

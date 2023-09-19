@@ -29,6 +29,8 @@ return {
     bind_deleted = 'The bind has been deleted!',
     new_bind = 'Select to create a new emote bind',
     bind_created = '%s has been binded!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'That isn\'t a valid registered emote, please inform the server owner',
     no_player_nearby = 'No player nearby!',
     not_valid_synced_emote = 'That isn\'t a valid synchronized emote, please inform the server owner',

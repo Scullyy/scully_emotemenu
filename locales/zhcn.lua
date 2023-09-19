@@ -29,6 +29,8 @@ return {
     bind_deleted = '绑定已删除！',
     new_bind = '选择创建新的表情绑定',
     bind_created = '已绑定%s！',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = '这不是有效的注册表情，请通知服务器所有者',
     no_player_nearby = '附近没有玩家！',
     not_valid_synced_emote = '这不是有效的同步表情，请通知服务器所有者',

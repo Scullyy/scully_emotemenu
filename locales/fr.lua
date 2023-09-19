@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Le lien a été supprimé !',
     new_bind = 'Sélectionnez pour créer un nouveau lien d\'émote',
     bind_created = '%s a été lié !',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Ce n\'est pas une émote enregistrée valide, veuillez informer le propriétaire du serveur',
     no_player_nearby = 'Aucun joueur à proximité !',
     not_valid_synced_emote = 'Ce n\'est pas une émote synchronisée valide, veuillez informer le propriétaire du serveur',

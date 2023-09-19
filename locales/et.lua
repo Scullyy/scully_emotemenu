@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Animatsiooni kiirnupp edukalt kustutatud!',
     new_bind = 'Vali, et luua uus animatsiooni kiirnupp',
     bind_created = '%s on salvestatud!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'See ei ole registreeritud animatsioon.',
     no_player_nearby = 'Lähedal pole ühtegi mängijat!',
     not_valid_synced_emote = 'See ei ole registreeritud sünkroniseeritud animatsioon.',

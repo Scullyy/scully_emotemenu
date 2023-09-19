@@ -76,6 +76,36 @@ function toggleMenu()
 end
 exports('toggleMenu', toggleMenu)
 
+---Opens list of emotes
+---@param _type string
+function listEmotes(_type)
+    local emotes = AnimationList[_type]
+
+    if not emotes then emotes = AnimationList.Emotes end
+
+    local emoteCount, emoteTable = #emotes, {}
+
+    for i = 1, emoteCount do
+        local emote = emotes[i]
+
+        if emote and emote.Label and emote.Command then
+            emoteTable[#emoteTable + 1] = '- ' .. emote.Label .. ' - ' .. emote.Command
+        end
+    end
+
+    local content = table.concat(emoteTable, '\n')
+
+    lib.alertDialog({
+        header = lang.emote_list,
+        content = content,
+        centered = true,
+        size = 'lg',
+        overflow = true,
+        labels = {cancel = '', confirm = lang.close}
+    })
+end
+exports('listEmotes', listEmotes)
+
 ---Toggle player limitations
 ---@param limited boolean
 function setLimitation(limited)
@@ -604,7 +634,7 @@ function initCloneEmote(data)
 end
 
 ---Cancel the animation you're currently playing
----@param? skipReset boolean 
+---@param skipReset boolean 
 function cancelEmote(skipReset)
     if isPlayingAnimation then
         if IsPedUsingAnyScenario(cache.ped) then ClearPedTasksImmediately(cache.ped) end
@@ -1207,6 +1237,12 @@ for i = 1, #Config.EmotePlayCommands do
             return
         end
 
+        if emoteName == 'l' then
+            listEmotes('Emotes')
+
+            return
+        end
+
         local _type, emote = getEmoteByCommand(emoteName)
 
         if not _type or (_type == 'Walks') then
@@ -1244,13 +1280,21 @@ for i = 1, #Config.WalkSetCommands do
             return
         end
 
-        if args[1]:lower() == 'c' then
+        local walkName = args[1]:lower()
+
+        if walkName == 'c' then
             resetWalk()
 
             return
         end
 
-        local _type, emote = getEmoteByCommand(args[1])
+        if walkName == 'l' then
+            listEmotes('Walks')
+
+            return
+        end
+
+        local _type, emote = getEmoteByCommand(walkName)
 
         if not _type or (_type ~= 'Walks') then
             notify('error', lang.not_valid_walk)
@@ -1553,6 +1597,10 @@ end)
 
 RegisterNetEvent('scully_emotemenu:toggleLimitation', function(_state)
     setLimitation(_state)
+end)
+
+RegisterNetEvent('scully_emotemenu:listEmotes', function(_type)
+    listEmotes(_type)
 end)
 
 RegisterNetEvent('scully_emotemenu:toggleMenu', function()

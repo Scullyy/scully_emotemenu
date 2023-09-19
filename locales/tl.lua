@@ -29,6 +29,8 @@ return {
     bind_deleted = 'Ang bind ay binura na!',
     new_bind = 'Pumili para lumikha ng bagong bind ng emote',
     bind_created = 'Ang %s ay na-bind na!',
+    emote_list = 'Emote List',
+    close = 'Close',
     not_valid_registered_emote = 'Ito ay hindi wastong rehistradong emote, mangyaring ipaalam sa may-ari ng server',
     no_player_nearby = 'Walang malapit na player!',
     not_valid_synced_emote = 'Ito ay hindi wastong synchronized emote, mangyaring ipaalam sa may-ari ng server',
