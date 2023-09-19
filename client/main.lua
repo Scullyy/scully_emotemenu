@@ -258,7 +258,13 @@ end
 ---@param label string
 ---@param icon string
 function addEmotesToRadial(_type, id, icon, cancel)
-    local options = {cancel}
+    local options = {{
+        label = lang.emote_list,
+        icon = 'list',
+        onSelect = function()
+            listEmotes(_type)
+        end
+    }, cancel}
 
     for i = 1, #AnimationList[_type] do
         local emote = AnimationList[_type][i]
