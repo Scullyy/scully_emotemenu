@@ -937,7 +937,7 @@ local SetPedUsingActionMode = SetPedUsingActionMode
 local SetPedCanPlayAmbientAnims = SetPedCanPlayAmbientAnims
 
 ---Crouch loop
-function CrouchLoop()
+function crouchLoop()
     CreateThread(function()
         while isCrouched do
             Wait(0)
@@ -967,7 +967,7 @@ function CrouchLoop()
 end
 
 -- Disable the crouch controls
-function DisableCrouchControls()
+function disableCrouchControls()
     lib.disableControls:Add({36, 26})
 
     CreateThread(function()
@@ -1387,7 +1387,7 @@ if Config.CrouchKey ~= '' then
 
             DisableControlAction(0, 36, true)
             DisableControlAction(0, 26, true)
-            DisableCrouchControls()
+            disableCrouchControls()
 
             isCrouched = not isCrouched
 
@@ -1396,7 +1396,7 @@ if Config.CrouchKey ~= '' then
                 SetPedMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
                 SetPedWeaponMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
                 SetPedStrafeClipset(cache.ped, 'move_ped_crouched_strafing', 1.0)
-                CrouchLoop()
+                crouchLoop()
             else
                 if currentWalk == 'default' then
                     ResetPedMovementClipset(cache.ped, 1.0)
