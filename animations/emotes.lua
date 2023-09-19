@@ -1448,7 +1448,7 @@ return {
     },
     {
         Label = 'Hold Vest',
-        Command = 'vest',
+        Command = 'holdvest',
         Animation = 'holding_vest_clip',
         Dictionary = 'anim@male@holding_vest',
         Options = {
@@ -1460,7 +1460,7 @@ return {
     },
     {
         Label = 'Hold Vest 2',
-        Command = 'vest2',
+        Command = 'holdvest2',
         Animation = 'holding_side_vest_clip',
         Dictionary = 'anim@holding_side_vest',
         Options = {
@@ -1472,7 +1472,7 @@ return {
     },
     {
         Label = 'Hold Vest 3',
-        Command = 'vest3',
+        Command = 'holdvest3',
         Animation = 'holding_siege_vest_side_clip',
         Dictionary = 'anim@holding_siege_vest_side',
         Options = {
@@ -1484,7 +1484,7 @@ return {
     },
     {
         Label = 'Hold Vest 4',
-        Command = 'vest4',
+        Command = 'holdvest4',
         Animation = 'holding_vest_2_clip',
         Dictionary = 'anim@male@holding_vest_2',
         Options = {
@@ -1496,7 +1496,7 @@ return {
     },
     {
         Label = 'Hold Vest 5',
-        Command = 'vest5',
+        Command = 'holdvest5',
         Animation = 'holding_vest_siege_clip',
         Dictionary = 'anim@male@holding_vest_siege',
         Options = {
@@ -1508,7 +1508,7 @@ return {
     },
     {
         Label = 'Hold Vest 6',
-        Command = 'vest6',
+        Command = 'holdvest6',
         Animation = 'holding_vest_siege_2_clip',
         Dictionary = 'anim@male@holding_vest_siege_2',
         Options = {
