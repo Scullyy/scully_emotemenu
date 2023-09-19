@@ -41,7 +41,7 @@ Config = {
     PtfxKeybind = 'g', -- List of keys here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can enable automated ptfx on emotes with the Auto flag here. 
     EnableAutoPtfx = false,
-    -- You can enable the NSFW emotes here.
+    -- You can enable the NSFW emotes here. Can be true, false or 'limited'
     EnableNSFWEmotes = false,
     -- You can enable the gang emotes here.
     EnableGangEmotes = false,

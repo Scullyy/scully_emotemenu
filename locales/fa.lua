@@ -30,6 +30,7 @@ return {
     new_bind = 'برای ایجاد بایند اموت جدید انتخاب کنید',
     bind_created = '%s به بایند اضافه شد!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'این یک اموت ثبت شده معتبر نیست. لطفا به مالک سرور اطلاع دهید',
     no_player_nearby = 'هیچ بازیکنی در نزدیکی وجود ندارد!',

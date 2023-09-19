@@ -30,6 +30,7 @@ return {
     new_bind = '選擇建立新的表情綁定',
     bind_created = '已綁定%s！',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = '這不是有效的註冊表情，請通知伺服器擁有者',
     no_player_nearby = '附近沒有玩家！',

@@ -30,6 +30,7 @@ return {
     new_bind = 'Выберите, чтобы создать новую привязку эмоции',
     bind_created = '%s привязано!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'Это недопустимая зарегистрированная эмоция, пожалуйста, сообщите владельцу сервера',
     no_player_nearby = 'Нет игрока поблизости!',

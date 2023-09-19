@@ -30,6 +30,7 @@ return {
     new_bind = 'Chọn để tạo gắn kết emote mới',
     bind_created = 'Gắn kết %s đã được tạo!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'Đó không phải là emote đã đăng ký hợp lệ, vui lòng thông báo cho chủ sở hữu máy chủ',
     no_player_nearby = 'Không có người chơi gần đó!',

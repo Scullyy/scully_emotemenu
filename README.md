@@ -127,7 +127,7 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 **Key:** `NSFW = true`
 <br>
 
-**Description:** NSFW animations are any animation that wouldn't be considered safe for anyone under the age of 18 to see, if you don't run an 18+ community I suggest keeping the `EnableNSFWEmotes` config option as false which will disable all animations with this added.
+**Description:** NSFW animations are any animation that wouldn't be considered safe for anyone under the age of 18 to see, if you don't run an 18+ community I suggest keeping the `EnableNSFWEmotes` config option as false which will disable all animations with this added. You can also set `EnableNSFWEmotes` to `'limited'` which will make it so a state bag needs to be set so NSFW animations can be used. Info on the export can be found [here](docs/statebags/allowNSFWEmotes.md) and I would personally suggest making it so the animations can only be used when inside a house or apartment.
 </details>
 
 <details>

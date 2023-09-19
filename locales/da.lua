@@ -30,6 +30,7 @@ return {
     new_bind = 'Vælg for at oprette en ny emote-genvej',
     bind_created = '%s er blevet bundet!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'Det er ikke en gyldig registreret emote. Informer venligst serverejeren',
     no_player_nearby = 'Ingen spiller i nærheden!',

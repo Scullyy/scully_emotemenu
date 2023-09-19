@@ -30,6 +30,7 @@ return {
     new_bind = 'Yeni bir emote bağlantısı oluşturmak için seç',
     bind_created = '%s bağlandı!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'Bu geçerli bir kayıtlı emote değil, lütfen sunucu sahibine bildirin',
     no_player_nearby = 'Yakında oyuncu yok!',

@@ -30,6 +30,7 @@ return {
     new_bind = 'Selecciona para crear una nueva combinación de emote',
     bind_created = '¡%s se ha vinculado!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'No es un emote registrado válido, por favor, informa al propietario del servidor',
     no_player_nearby = '¡No hay jugadores cercanos!',

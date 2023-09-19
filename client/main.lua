@@ -429,6 +429,13 @@ function playEmote(data, variation)
         return
     end
 
+    if data.NSFW and (type(Config.EnableNSFWEmotes) == 'string' and Config.EnableNSFWEmotes == 'limited') then
+        if not LocalPlayer.state.allowNSFWEmotes then 
+            notify('error', lang.nsfw_limited)
+            return 
+        end
+    end
+
     if data.Options then
         duration = data.Options.Duration
 

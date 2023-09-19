@@ -30,6 +30,7 @@ return {
     new_bind = 'Selecteer om een nieuwe emotie-koppeling te maken',
     bind_created = '%s is gekoppeld!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'Dit is geen geldige geregistreerde emotie, informeer alsjeblieft de server eigenaar',
     no_player_nearby = 'Geen speler in de buurt!',

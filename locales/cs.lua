@@ -30,6 +30,7 @@ return {
     new_bind = 'Vyberte pro vytvoření nového přiřazení emótek',
     bind_created = '%s bylo přiřazeno!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'Toto není platná registrovaná emóteka, informujte prosím majitele serveru',
     no_player_nearby = 'Žádný hráč není poblíž!',

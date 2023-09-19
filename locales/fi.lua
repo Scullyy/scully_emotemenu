@@ -30,6 +30,7 @@ return {
     new_bind = 'Valitse luodaksesi uusi elekytkentä',
     bind_created = '%s on kytketty!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'Se ei ole kelvollinen rekisteröity ele, ilmoita palvelimen omistajalle',
     no_player_nearby = 'Ei pelaajaa lähellä!',

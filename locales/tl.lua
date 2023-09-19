@@ -30,6 +30,7 @@ return {
     new_bind = 'Pumili para lumikha ng bagong bind ng emote',
     bind_created = 'Ang %s ay na-bind na!',
     emote_list = 'Emote List',
+    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
     close = 'Close',
     not_valid_registered_emote = 'Ito ay hindi wastong rehistradong emote, mangyaring ipaalam sa may-ari ng server',
     no_player_nearby = 'Walang malapit na player!',
