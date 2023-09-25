@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Ito ay hindi wastong estilo ng paglakad',
     ragdoll_character = 'I-ragdoll ang iyong karakter',
     hands_up = 'Itaas ang iyong mga kamay',
-    crouch = 'Magdukot',
+    stance = 'Magdukot',
     point = 'Ituro',
     play_ptfx = 'I-play ang iyong pinili na particle effect',
     accept_deny = '[Y] - Tanggapin, [N] - Tanggihan: %s',

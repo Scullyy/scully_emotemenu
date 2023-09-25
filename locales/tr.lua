@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Bu geçerli bir yürüme stili değil',
     ragdoll_character = 'Karakterini etkisiz hale getir',
     hands_up = 'Ellerini yukarı kaldır',
-    crouch = 'Çömel',
+    stance = 'Çömel',
     point = 'İşaret et',
     play_ptfx = 'Seçili partikül efektini oynat',
     accept_deny = '[E] - Kabul Et, [H] - Reddet: %s',

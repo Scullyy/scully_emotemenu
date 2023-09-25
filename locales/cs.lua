@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Toto není platný styl chůze',
     ragdoll_character = 'Vyvolat pád postavy',
     hands_up = 'Zvednout ruce',
-    crouch = 'Pokleknout',
+    stance = 'Pokleknout',
     point = 'Ukázat',
     play_ptfx = 'Přehrát vybraný částicový efekt',
     accept_deny = '[Y] - Přijmout, [N] - Odmítnout: %s',

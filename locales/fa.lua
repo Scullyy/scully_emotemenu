@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'این یک استایل راه رفتن معتبر نیست',
     ragdoll_character = 'شخصیت خود را جسم سست کنید',
     hands_up = 'دستانتان را بالا ببرید',
-    crouch = 'زانو زنید',
+    stance = 'زانو زنید',
     point = 'اشاره کنید',
     play_ptfx = 'پخش اثر ذرات انتخابی شما',
     accept_deny = '[Y] - قبول، [N] - رد: %s',

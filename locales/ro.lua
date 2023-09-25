@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Acesta nu este un stil de mers valid',
     ragdoll_character = 'Înjosește caracterul tău',
     hands_up = 'Ridică mâinile',
-    crouch = 'Apleacă-te',
+    stance = 'Apleacă-te',
     point = 'Arată cu degetul',
     play_ptfx = 'Redă efectul particulelor selectat',
     accept_deny = '[Y] - Acceptă, [N] - Respinge: %s',

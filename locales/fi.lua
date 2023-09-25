@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Se ei ole kelvollinen kävelytyyli',
     ragdoll_character = 'Kaada hahmosi',
     hands_up = 'Nosta kädet ylös',
-    crouch = 'Kyykisty',
+    stance = 'Kyykisty',
     point = 'Osoita',
     play_ptfx = 'Toista valittu partikkeliefekti',
     accept_deny = '[Y] - Hyväksy, [N] - Hylkää: %s',

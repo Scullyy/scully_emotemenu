@@ -1,6 +1,6 @@
 local gameBuild, currentWalk, currentExpression = GetGameBuildNumber(), GetResourceKvpString('animations_walkstyle') or 'default', GetResourceKvpString('animations_expression') or 'default'
 local emoteBinds, isActionsLimited, isPlayingAnimation = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false
-local isRagdoll, isCrouched, isPointing = false, false, false
+local isRagdoll, isPointing, returnStance = false, false, false
 local lastEmote, lastVariant, ptfxCanHold, otherPlayer, clone = nil, nil, false, nil, nil
 local playerParticles, keybinds, registeredEmotes, cloneProps = {}, {}, {}, {}
 local lang = require('locales.' .. Config.Language)
@@ -945,42 +945,50 @@ end
 
 local IsPedFalling = IsPedFalling
 local IsPedJumping = IsPedJumping
+local IsAimCamActive = IsAimCamActive
+local SetPedMaxMoveBlendRatio = SetPedMaxMoveBlendRatio
 local IsPedUsingActionMode = IsPedUsingActionMode
 local SetPedUsingActionMode = SetPedUsingActionMode
 local SetPedCanPlayAmbientAnims = SetPedCanPlayAmbientAnims
+local DisableFirstPersonCamThisFrame = DisableFirstPersonCamThisFrame
 
 ---Crouch loop
 function crouchLoop()
     CreateThread(function()
-        while isCrouched do
+        while LocalPlayer.state.stance == 2 do
             Wait(0)
             
             if cache.vehicle then 
-                isCrouched = false
+                LocalPlayer.state:set('stance', 0, false)
                 break
             end
 
             if IsPedFalling(cache.ped) then 
-                isCrouched = false
+                LocalPlayer.state:set('stance', 0, false)
                 break
             end
 
             if IsPedJumping(cache.ped) then 
-                isCrouched = false
+                LocalPlayer.state:set('stance', 0, false)
                 break
             end
 
-            if IsPedUsingActionMode(cache.ped) == 1 then
+            if IsAimCamActive() then
+                SetPedMaxMoveBlendRatio(cache.ped, 0.15)
+            end
+
+            if IsPedUsingActionMode(cache.ped) then
                 SetPedUsingActionMode(cache.ped, false, -1, 'DEFAULT_ACTION')
             end
 
             SetPedCanPlayAmbientAnims(cache.ped, false)
+            DisableFirstPersonCamThisFrame()
         end
     end)
 end
 
--- Disable the crouch controls
-function disableCrouchControls()
+-- Disable the stance controls
+function disableStanceControls()
     lib.disableControls:Add({36, 26})
 
     CreateThread(function()
@@ -1390,37 +1398,33 @@ if Config.HandsUpKey ~= '' then
     })
 end
 
-if Config.CrouchKey ~= '' then
-    keybinds.Crouch = lib.addKeybind({
-        name = 'crouch',
-        description = lang.crouch,
-        defaultKey = Config.CrouchKey,
+if Config.StanceKey ~= '' then
+    LocalPlayer.state:set('stance', 0, false)
+
+    keybinds.Stance = lib.addKeybind({
+        name = 'stance',
+        description = lang.stance,
+        defaultKey = Config.StanceKey,
         onPressed = function(key)
             if isActionsLimited or cache.vehicle then return end
 
             DisableControlAction(0, 36, true)
             DisableControlAction(0, 26, true)
-            disableCrouchControls()
+            disableStanceControls()
 
-            isCrouched = not isCrouched
+            local stanceLevel = LocalPlayer.state.stance
 
-            if isCrouched then
-                lib.requestAnimSet('move_ped_crouched', 1000)
-                SetPedMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
-                SetPedWeaponMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
-                SetPedStrafeClipset(cache.ped, 'move_ped_crouched_strafing', 1.0)
-                crouchLoop()
+            if returnStance then
+                stanceLevel -= 1
+
+                if stanceLevel == 0 then returnStance = false end
             else
-                if currentWalk == 'default' then
-                    ResetPedMovementClipset(cache.ped, 1.0)
-                else
-                    lib.requestAnimSet(currentWalk, 1000)
-                    SetPedMovementClipset(cache.ped, currentWalk, 1.0)
-                end
+                stanceLevel += 1
 
-                ResetPedWeaponMovementClipset(cache.ped)
-                ResetPedStrafeClipset(cache.ped)
+                if stanceLevel == 2 then returnStance = true end
             end
+
+            LocalPlayer.state:set('stance', stanceLevel, false)
         end
     })
 end
@@ -1564,6 +1568,30 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
         StopParticleFxLooped(playerParticles[serverId], false)
         RemoveNamedPtfxAsset(stateBag.ptfxAsset)
         playerParticles[serverId] = nil
+    end
+end)
+
+AddStateBagChangeHandler('stance', nil, function(bagName, key, value, _unused, replicated)
+    if value == 0 then -- Regular
+        SetPedStealthMovement(cache.ped, false, 0)
+    elseif value == 1 then -- Stealth
+        if currentWalk == 'default' then
+            ResetPedMovementClipset(cache.ped, 1.0)
+        else
+            lib.requestAnimSet(currentWalk, 1000)
+            SetPedMovementClipset(cache.ped, currentWalk, 1.0)
+        end
+
+        ResetPedWeaponMovementClipset(cache.ped)
+        ResetPedStrafeClipset(cache.ped)
+        SetPedStealthMovement(cache.ped, true, 0)
+    elseif value == 2 then -- Crouched
+        lib.requestAnimSet('move_ped_crouched', 1000)
+        SetPedStealthMovement(cache.ped, false, 0)
+        SetPedMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
+        SetPedWeaponMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
+        SetPedStrafeClipset(cache.ped, 'move_ped_crouched_strafing', 1.0)
+        crouchLoop()
     end
 end)
 

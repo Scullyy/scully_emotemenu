@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Dit is geen geldige loopstijl',
     ragdoll_character = 'Laat je personage vallen',
     hands_up = 'Doe je handen omhoog',
-    crouch = 'Ga gebukt',
+    stance = 'Ga gebukt',
     point = 'Wijzen',
     play_ptfx = 'Speel het geselecteerde deeltjeseffect af',
     accept_deny = '[Y] - Accepteren, [N] - Weigeren: %s',

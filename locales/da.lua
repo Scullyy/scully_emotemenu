@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Det er ikke en gyldig gåstil',
     ragdoll_character = 'Lav din karakter om til en dukke',
     hands_up = 'Løft dine hænder',
-    crouch = 'Kryb',
+    stance = 'Kryb',
     point = 'Peg',
     play_ptfx = 'Afspil den valgte partikeleffekt',
     accept_deny = '[Y] - Accepter, [N] - Afvis: %s',

@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'See ei ole kehtiv kõndimisstiil',
     ragdoll_character = 'Kukku maha',
     hands_up = 'Pane käed ülesse',
-    crouch = 'Kükita',
+    stance = 'Kükita',
     point = 'Näita näpuga',
     play_ptfx = 'Mängi valitud osakeste efekti',
     accept_deny = '[Y] - Võta vastu, [N] - Keeldu: %s',

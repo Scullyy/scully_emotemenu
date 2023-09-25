@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Itu bukan gaya berjalan yang valid',
     ragdoll_character = 'Ragdoll karakter Anda',
     hands_up = 'Angkat tangan Anda',
-    crouch = 'Cungkur',
+    stance = 'Cungkur',
     point = 'Tunjuk',
     play_ptfx = 'Mainkan efek partikel yang dipilih',
     accept_deny = '[Y] - Terima, [N] - Tolak: %s',

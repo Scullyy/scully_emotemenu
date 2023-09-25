@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Ez nem érvényes sétálási stílus',
     ragdoll_character = 'Ragdoll állapotba helyezi a karaktert',
     hands_up = 'Kéz fel',
-    crouch = 'Lecuccol',
+    stance = 'Lecuccol',
     point = 'Mutat',
     play_ptfx = 'Lejátszás kiválasztott részecskeeffekttel',
     accept_deny = '[Y] - Elfogadás, [N] - Elutasítás: %s',

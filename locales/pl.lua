@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'To nie jest prawidłowy styl chodzenia',
     ragdoll_character = 'Rzuć postacią na ziemię',
     hands_up = 'Podnieś ręce',
-    crouch = 'Przykucnij',
+    stance = 'Przykucnij',
     point = 'Wskazuj',
     play_ptfx = 'Odtwórz wybrany efekt cząsteczkowy',
     accept_deny = '[Y] - Akceptuj, [N] - Odrzuć: %s',

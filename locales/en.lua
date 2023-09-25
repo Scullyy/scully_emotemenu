@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'That isn\'t a valid walk style',
     ragdoll_character = 'Ragdoll your character',
     hands_up = 'Put your hands up',
-    crouch = 'Crouch',
+    stance = 'Stance',
     point = 'Point',
     play_ptfx = 'Play your selected particle effect',
     accept_deny = '[Y] - Accept, [N] - Deny: %s',

@@ -50,7 +50,7 @@ return {
     not_valid_walk = '這不是有效的行走樣式',
     ragdoll_character = '使你的角色倒下',
     hands_up = '舉起雙手',
-    crouch = '蹲下',
+    stance = '蹲下',
     point = '指點',
     play_ptfx = '播放所選粒子效果',
     accept_deny = '[Y] - 接受, [N] - 拒絕：%s',

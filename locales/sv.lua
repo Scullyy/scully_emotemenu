@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Det är inte en giltig gångstil',
     ragdoll_character = 'Kasta karaktären',
     hands_up = 'Håll händerna upp',
-    crouch = 'Kryp',
+    stance = 'Kryp',
     point = 'Peka',
     play_ptfx = 'Spela upp vald partikeleffekt',
     accept_deny = '[Y] - Acceptera, [N] - Neka: %s',

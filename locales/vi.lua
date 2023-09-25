@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Đó không phải là kiểu đi bộ hợp lệ',
     ragdoll_character = 'Làm ngã người của bạn',
     hands_up = 'Giơ tay lên',
-    crouch = 'Xổm',
+    stance = 'Xổm',
     point = 'Chỉ tay',
     play_ptfx = 'Phát hiệu ứng hạt đã chọn của bạn',
     accept_deny = '[Y] - Chấp nhận, [N] - Từ chối: %s',

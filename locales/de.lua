@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Dies ist kein gültiger Gehstil',
     ragdoll_character = 'Deinen Charakter fallen lassen',
     hands_up = 'Hände hoch',
-    crouch = 'Ducken',
+    stance = 'Ducken',
     point = 'Zeigen',
     play_ptfx = 'Spiele den ausgewählten Partikel-Effekt ab',
     accept_deny = '[Y] - Akzeptieren, [N] - Ablehnen: %s',

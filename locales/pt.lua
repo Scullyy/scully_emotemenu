@@ -50,7 +50,7 @@ return {
     not_valid_walk = 'Esse não é um estilo de caminhada válido',
     ragdoll_character = 'Deixar seu personagem em "ragdoll"',
     hands_up = 'Levantar as mãos',
-    crouch = 'Abaixar-se',
+    stance = 'Abaixar-se',
     point = 'Apontar',
     play_ptfx = 'Reproduzir o efeito de partícula selecionado',
     accept_deny = '[Y] - Aceitar, [N] - Negar: %s',
