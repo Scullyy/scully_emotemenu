@@ -157,6 +157,7 @@ function notify(_type, message)
         iconColor = _type == 'error' and '#D30000' or '#2ea4f7'
     })
 end
+exports('customNotifyFn', function(fn) if fn then notify = fn end end)
 
 ---Displays a text UI
 ---@param icon string
@@ -172,6 +173,7 @@ function showHelpAlert(icon, text)
         }
     })
 end
+exports('customHelpAlertFn', function(fn) if fn then showHelpAlert = fn end end)
 
 ---Register emotes to be used within external resources
 ---@param emote table

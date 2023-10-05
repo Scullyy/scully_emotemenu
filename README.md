@@ -85,6 +85,8 @@ For support join my discord here: https://discord.gg/scully
 | [isLimited](docs/exports/client/isLimited.md) | None | Client | Check if the player is currently limited |
 | [setLimitation](docs/exports/client/setLimitation.md) | Boolean (Limited) | Client | Toggle player limitations |
 | [listEmotes](docs/exports/client/listEmotes.md) | String (Emote Type) | Client | List emotes from any category |
+| [customNotifyFn](docs/exports/client/customNotifyFn.md) | Function (Emote Notification) | Client | Set a custom notification function |
+| [customHelpAlertFn](docs/exports/client/customHelpAlertFn.md) | Function (Emote Help Alert) | Client | Set a custom help alert function |
 
 # Events
 
