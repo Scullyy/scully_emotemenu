@@ -49,7 +49,7 @@ AnimationList = {
 -- Import customs animations
 for _type, emoteList in pairs(custom) do
     for i = 1, #emoteList do
-        AnimationList[_type][#AnimationList[_type] + 1] = emoteList[i] 
+        AnimationList[_type][#AnimationList[_type] + 1] = emoteList[i]
     end
 end
 
@@ -277,7 +277,7 @@ function addEmotesToRadial(_type, id, icon, cancel)
                 icon = icon,
                 onSelect = function()
                     if isActionsLimited then return end
-                    
+
                     if _type == 'Walks' then
                         setWalk(emote.Walk)
                     else
@@ -390,7 +390,7 @@ function playEmote(data, variation)
 
     if Config.EnableWeaponBlock and IsPedArmed(cache.ped, 7) then
         notify('error', lang.not_with_weapon)
-        return 
+        return
     end
 
     local duration, movementFlag = nil, cache.vehicle and 51 or 0
@@ -432,9 +432,9 @@ function playEmote(data, variation)
     end
 
     if data.NSFW and (type(Config.EnableNSFWEmotes) == 'string' and Config.EnableNSFWEmotes == 'limited') then
-        if not LocalPlayer.state.allowNSFWEmotes then 
+        if not LocalPlayer.state.allowNSFWEmotes then
             notify('error', lang.nsfw_limited)
-            return 
+            return
         end
     end
 
@@ -444,7 +444,7 @@ function playEmote(data, variation)
         if data.Options.Delay then Wait(data.Options.Delay) end
 
         if not cache.vehicle and data.Options.Flags then
-            if data.Options.Flags.Loop then 
+            if data.Options.Flags.Loop then
                 movementFlag = 1
 
                 lastEmote, lastVariant = data, variation
@@ -495,9 +495,9 @@ function playEmote(data, variation)
                 end
 
                 propList[#propList + 1] = {
-                    hash = joaat(prop.Name), 
-                    bone = prop.Bone, 
-                    placement = prop.Placement, 
+                    hash = joaat(prop.Name),
+                    bone = prop.Bone,
+                    placement = prop.Placement,
                     variant = variant,
                     hasPTFX = (i == 1) and (data.Options.Ptfx and data.Options.Ptfx.AttachToProp)
                 }
@@ -509,9 +509,22 @@ function playEmote(data, variation)
                 for i = 1, #props do
                     local prop = props[i]
                     local object = NetworkGetEntityFromNetworkId(prop.object)
-    
+
                     if DoesEntityExist(object) then
-                        addPropToPlayer(object, prop.bone, prop.placement, prop.variant)
+                        local hasControl = lib.waitFor(function()
+                            local hasControl = NetworkGetEntityOwner(object) == cache.playerId
+
+                            if hasControl then
+                                return true
+                            end
+
+                            NetworkRequestControlOfEntity(object)
+                        end, ('Failed to gain entity control of entity'), 3000)
+
+
+                        if hasControl then
+                            addPropToPlayer(object, prop.bone, prop.placement, prop.variant)
+                        end
                     end
                 end
             end
@@ -606,8 +619,8 @@ function initCloneEmote(data)
                 end
 
                 propList[#propList + 1] = {
-                    hash = joaat(prop.Name), 
-                    bone = prop.Bone, 
+                    hash = joaat(prop.Name),
+                    bone = prop.Bone,
                     placement = prop.Placement
                 }
             end
@@ -615,16 +628,15 @@ function initCloneEmote(data)
             if #propList > 0 then
                 for i = 1, #propList do
                     local prop = propList[i]
-                    
-                    lib.requestModel(prop.hash, 1000)
-                    
-                    local object = CreateObject(prop.hash, clonePos.x, clonePos.y, clonePos.z, false, false, false)
 
+                    lib.requestModel(prop.hash, 1000)
+
+                    local object = CreateObject(prop.hash, clonePos.x, clonePos.y, clonePos.z, false, false, false)
                     SetEntityCollision(object, false, false)
                     AttachEntityToEntity(object, clone, GetPedBoneIndex(clone, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
 
                     cloneProps[#cloneProps + 1] = object
-                    
+
                     SetModelAsNoLongerNeeded(prop.hash)
                 end
             end
@@ -649,7 +661,7 @@ function initCloneEmote(data)
 end
 
 ---Cancel the animation you're currently playing
----@param skipReset boolean 
+---@param skipReset boolean
 function cancelEmote(skipReset)
     if isPlayingAnimation then
         if IsPedUsingAnyScenario(cache.ped) then ClearPedTasksImmediately(cache.ped) end
@@ -923,7 +935,7 @@ function openBindMenu()
             if not query then return end
 
             local _type, emote = getEmoteByCommand(query[1])
-            
+
             if not _type or (_type == 'Walks') then
                 notify('error', lang.not_valid_emote)
                 return
@@ -959,18 +971,18 @@ function crouchLoop()
     CreateThread(function()
         while LocalPlayer.state.stance == 2 do
             Wait(0)
-            
-            if cache.vehicle then 
+
+            if cache.vehicle then
                 LocalPlayer.state:set('stance', 0, false)
                 break
             end
 
-            if IsPedFalling(cache.ped) then 
+            if IsPedFalling(cache.ped) then
                 LocalPlayer.state:set('stance', 0, false)
                 break
             end
 
-            if IsPedJumping(cache.ped) then 
+            if IsPedJumping(cache.ped) then
                 LocalPlayer.state:set('stance', 0, false)
                 break
             end
@@ -1777,7 +1789,7 @@ end)
 AddEventHandler('entityDamaged', function(entity)
     if cache.ped == entity then
         if not IsPedFatallyInjured(cache.ped) then return end
-        
+
         cancelEmote()
     end
 end)
@@ -1816,7 +1828,7 @@ AddEventHandler('CEventPlayerCollisionWithPed', function()
 
     hitTimeout, hittingPed = 500, true
 
-    while hitTimeout > 0 do 
+    while hitTimeout > 0 do
         Wait(100)
 
         hitTimeout -= 100
