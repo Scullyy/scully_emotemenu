@@ -138,9 +138,13 @@ lib.callback.register('scully_emotemenu:spawnProps', function(source, props)
         end, ('Failed to spawn prop %s'):format(prop.hash), 2000)
 
         if entityExsist then
-            local netObject = NetworkGetNetworkIdFromEntity(object)
+            if playerProps[source] then
+                deleteProps(src, props)
+            else
+                playerProps[source] = {}
+            end
 
-            if not playerProps[source] then playerProps[source] = {} end
+            local netObject = NetworkGetNetworkIdFromEntity(object)
 
             if prop.hasPTFX then Player(source).state:set('ptfxPropNet', netObject, true) end
 
