@@ -1,9 +1,10 @@
 local gameBuild, currentWalk, currentExpression = GetGameBuildNumber(), GetResourceKvpString('animations_walkstyle') or 'default', GetResourceKvpString('animations_expression') or 'default'
 local emoteBinds, isActionsLimited, isPlayingAnimation = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false
 local isRagdoll, isPointing, returnStance = false, false, false
-local lastEmote, lastVariant, ptfxCanHold, otherPlayer, clone = nil, nil, false, nil, nil
+local emoteCooldown, lastEmote, lastVariant, ptfxCanHold, otherPlayer, clone = 0, nil, nil, false, nil, nil
 local playerParticles, keybinds, registeredEmotes, cloneProps = {}, {}, {}, {}
 local lang = require('locales.' .. Config.Language)
+local pedTypes = require('data.ped_types')
 
 -- Menu Options
 local mainMenuOptions, emoteMenuOptions, emoteMenuBindsOptions = {
@@ -35,15 +36,15 @@ local mainMenuOptions, emoteMenuOptions, emoteMenuBindsOptions = {
 local custom = require('custom_emotes')
 
 AnimationList = {
-    Walks = require('animations.walks'),
-    Scenarios = require('animations.scenarios'),
-    Expressions = require('animations.expressions'),
-    Emotes = require('animations.emotes'),
-    PropEmotes = require('animations.prop_emotes'),
-    ConsumableEmotes = require('animations.consumable_emotes'),
-    DanceEmotes = require('animations.dance_emotes'),
-    SynchronizedEmotes = require('animations.synchronized_emotes'),
-    AnimalEmotes = require('animations.animal_emotes')
+    Walks = require('data.animations.walks'),
+    Scenarios = require('data.animations.scenarios'),
+    Expressions = require('data.animations.expressions'),
+    Emotes = require('data.animations.emotes'),
+    PropEmotes = require('data.animations.prop_emotes'),
+    ConsumableEmotes = require('data.animations.consumable_emotes'),
+    DanceEmotes = require('data.animations.dance_emotes'),
+    SynchronizedEmotes = require('data.animations.synchronized_emotes'),
+    AnimalEmotes = require('data.animations.animal_emotes')
 }
 
 -- Import customs animations
@@ -383,6 +384,36 @@ exports('playEmoteByCommand', playEmoteByCommand)
 ---@param data table
 ---@param variation number
 function playEmote(data, variation)
+    if data.PedTypes then
+        if IsPedHuman(cache.ped) then
+            notify('error', lang.not_valid_ped)
+            return
+        end
+
+        local validPed = false
+        local playerModel = GetEntityModel(cache.ped)
+
+        for i = 1, #data.PedTypes do
+            local allowedPeds = pedTypes[i]
+            local isContained = lib.table.contains(allowedPeds, playerModel)
+
+            if isContained then
+                validPed = true
+                break
+            end
+        end
+
+        if not validPed then
+            notify('error', lang.not_valid_ped)
+            return
+        end
+    end
+
+    if not data.PedTypes and not IsPedHuman(cache.ped) then
+        notify('error', lang.not_valid_ped)
+        return
+    end
+
     if data.Expression then
         setExpression(data.Expression)
         return
@@ -393,12 +424,29 @@ function playEmote(data, variation)
         return
     end
 
+    if Config.EnableAimShootBlock then
+        CreateThread(function()
+            while isPlayingAnimation do
+                Wait(0)
+
+                DisableControlAction(0, 25, true)
+                DisablePlayerFiring(cache.playerId, true)
+            end
+        end)
+    end
+
     local duration, movementFlag = nil, cache.vehicle and 51 or 0
 
     if not Config.AllowedInVehicles and cache.vehicle then
         notify('error', lang.no_animations_in_vehicle)
         return
     end
+
+    local gameTimer = GetGameTimer()
+
+    if (gameTimer - emoteCooldown) < Config.EmoteCooldown then return end
+
+    emoteCooldown = gameTimer
 
     TriggerServerEvent('scully_emotemenu:deleteProps')
 
@@ -549,14 +597,17 @@ function initCloneEmote(data)
         return
     end
 
-    local cloneModel = `mp_m_freemode_01`
+    local isMale = math.random(1, 100) >= 50
+    local cloneModel = isMale and `mp_m_freemode_01` or `mp_f_freemode_01`
     local clonePos = GetOffsetFromEntityInWorldCoords(cache.ped, 0.0, 4.5, 0.0)
     local cloneHeading = GetEntityHeading(cache.ped) + 180
 
     lib.requestModel(cloneModel, 1000)
 
-    clone = CreatePed(4, cloneModel, clonePos.x, clonePos.y, clonePos.z, cloneHeading, false, false)
+    clone = ClonePed(cache.ped, false, false, true)
 
+    SetEntityCoords(clone, clonePos.x, clonePos.y, clonePos.z)
+    SetEntityHeading(clone, cloneHeading)
     SetEntityAlpha(clone, 200)
 
     Wait(200)
@@ -597,8 +648,6 @@ function initCloneEmote(data)
 
     TaskPlayAnim(clone, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
     RemoveAnimDict(dictionaryName)
-
-    isPlayingAnimation = true
 
     if data.Options and data.Options.Props then
         local propCount = #data.Options.Props
@@ -1610,57 +1659,19 @@ AddStateBagChangeHandler('stance', nil, function(bagName, key, value, _unused, r
 end)
 
 -- Events
-RegisterNetEvent('scully_emotemenu:cancelEmote', function()
-    cancelEmote()
-end)
-
-RegisterNetEvent('scully_emotemenu:closeMenu', function()
-    closeMenu()
-end)
-
-RegisterNetEvent('scully_emotemenu:play', function(emoteData, emoteVariant)
-    playEmote(emoteData, emoteVariant)
-end)
-
-RegisterNetEvent('scully_emotemenu:playByCommand', function(emoteCommand, emoteVariant)
-    playEmoteByCommand(emoteCommand, emoteVariant)
-end)
-
-RegisterNetEvent('scully_emotemenu:playRegisteredEmote', function(emoteName)
-    playRegisteredEmote(emoteName)
-end)
-
-RegisterNetEvent('scully_emotemenu:registerEmote', function(emoteData)
-    registerEmote(emoteData)
-end)
-
-RegisterNetEvent('scully_emotemenu:resetExpression', function()
-    resetExpression()
-end)
-
-RegisterNetEvent('scully_emotemenu:setExpression', function(expression)
-    setExpression(expression)
-end)
-
-RegisterNetEvent('scully_emotemenu:resetWalk', function()
-    resetWalk()
-end)
-
-RegisterNetEvent('scully_emotemenu:setWalk', function(walk)
-    setWalk(walk)
-end)
-
-RegisterNetEvent('scully_emotemenu:toggleLimitation', function(_state)
-    setLimitation(_state)
-end)
-
-RegisterNetEvent('scully_emotemenu:listEmotes', function(_type)
-    listEmotes(_type)
-end)
-
-RegisterNetEvent('scully_emotemenu:toggleMenu', function()
-    toggleMenu()
-end)
+RegisterNetEvent('scully_emotemenu:cancelEmote', cancelEmote)
+RegisterNetEvent('scully_emotemenu:closeMenu', closeMenu)
+RegisterNetEvent('scully_emotemenu:play', playEmote)
+RegisterNetEvent('scully_emotemenu:playByCommand', playEmoteByCommand)
+RegisterNetEvent('scully_emotemenu:playRegisteredEmote', playRegisteredEmote)
+RegisterNetEvent('scully_emotemenu:registerEmote', registerEmote)
+RegisterNetEvent('scully_emotemenu:resetExpression', resetExpression)
+RegisterNetEvent('scully_emotemenu:setExpression', setExpression)
+RegisterNetEvent('scully_emotemenu:resetWalk', resetWalk)
+RegisterNetEvent('scully_emotemenu:setWalk', setWalk)
+RegisterNetEvent('scully_emotemenu:toggleLimitation', setLimitation)
+RegisterNetEvent('scully_emotemenu:listEmotes', listEmotes)
+RegisterNetEvent('scully_emotemenu:toggleMenu', toggleMenu)
 
 local IsControlJustPressed = IsControlJustPressed
 

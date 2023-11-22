@@ -54,5 +54,6 @@ return {
     point = 'اشاره کنید',
     play_ptfx = 'پخش اثر ذرات انتخابی شما',
     accept_deny = '[Y] - قبول، [N] - رد: %s',
-    emote_cancelled = 'اموت لغو شد!'
+    emote_cancelled = 'اموت لغو شد!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

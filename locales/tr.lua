@@ -54,5 +54,6 @@ return {
     point = 'İşaret et',
     play_ptfx = 'Seçili partikül efektini oynat',
     accept_deny = '[E] - Kabul Et, [H] - Reddet: %s',
-    emote_cancelled = 'Emote iptal edildi!'
+    emote_cancelled = 'Emote iptal edildi!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

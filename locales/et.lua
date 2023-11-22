@@ -54,5 +54,6 @@ return {
     point = 'Näita näpuga',
     play_ptfx = 'Mängi valitud osakeste efekti',
     accept_deny = '[Y] - Võta vastu, [N] - Keeldu: %s',
-    emote_cancelled = 'Animatsioon katkestati!'
+    emote_cancelled = 'Animatsioon katkestati!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

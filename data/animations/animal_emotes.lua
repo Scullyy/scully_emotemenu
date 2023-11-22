@@ -9,6 +9,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Beg (big dog)',
@@ -20,6 +21,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Beg 2 (big dog)',
@@ -31,6 +33,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Dump (big dog)',
@@ -52,6 +55,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Glow Stick (big dog)',
@@ -74,6 +78,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Glow Stick Sitting (big dog)',
@@ -95,6 +100,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Hump (big dog)',
@@ -106,6 +112,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
         NSFW = true
     },
     {
@@ -118,6 +125,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
         NSFW = true
     },
     {
@@ -128,6 +136,7 @@ return {
         Options = {
             Duration = 2000,
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Lay Down (big dog)',
@@ -139,6 +148,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Lay Down 2 (big dog)',
@@ -150,6 +160,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Pee (big dog)',
@@ -172,6 +183,7 @@ return {
                 Wait = 3000,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Pee 2 (big dog)',
@@ -194,6 +206,7 @@ return {
                 Wait = 3000,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Sit Pride A (big dog)',
@@ -223,6 +236,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -253,6 +267,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -283,6 +298,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -313,6 +329,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -343,6 +360,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -373,6 +391,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -403,6 +422,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -433,6 +453,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -463,6 +484,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -475,6 +497,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Sleep (big dog)',
@@ -486,6 +509,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Bark (small dog)',
@@ -497,6 +521,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Baseball (small dog)',
@@ -518,6 +543,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Burger (small dog)',
@@ -539,6 +565,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Controller (small dog)',
@@ -560,6 +587,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Dance (small dog)',
@@ -581,6 +609,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Dance 2 (small dog)',
@@ -610,6 +639,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Dance Pride A (small dog)',
@@ -639,6 +669,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -669,6 +700,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -699,6 +731,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -729,6 +762,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -759,6 +793,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -789,6 +824,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -819,6 +855,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -849,6 +886,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -879,6 +917,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -901,6 +940,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Dollar Bill Scrunched  (small dog)',
@@ -922,6 +962,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Money Stack  (small dog)',
@@ -943,6 +984,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Money Bag  (small dog)',
@@ -964,6 +1006,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Gun Gold (small dog)',
@@ -985,6 +1028,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Aviators (small dog)',
@@ -1006,6 +1050,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Aviators Sitting (small dog)',
@@ -1027,6 +1072,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Sunglasses (small dog)',
@@ -1048,6 +1094,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Sunglasses Sitting (small dog)',
@@ -1069,6 +1116,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Gun Gold Sit (small dog)',
@@ -1090,6 +1138,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Hat 1 (small dog)',
@@ -1119,6 +1168,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Hat 2 Sitting (small dog)',
@@ -1148,6 +1198,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Hot Dog (small dog)',
@@ -1169,6 +1220,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Hot Dog Sitting (small dog)',
@@ -1190,6 +1242,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Helmet 1 (small dog)',
@@ -1211,6 +1264,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Helmet 2 (small dog)',
@@ -1232,6 +1286,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Itch (small dog)',
@@ -1241,6 +1296,7 @@ return {
         Options = {
             Duration = 2000,
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Microphone (small dog)',
@@ -1262,6 +1318,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Pee (Small Dog)',
@@ -1284,6 +1341,7 @@ return {
                 Wait = 3000,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Pride A (small dog)',
@@ -1305,6 +1363,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1327,6 +1386,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1349,6 +1409,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1371,6 +1432,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1393,6 +1455,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1415,6 +1478,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1437,6 +1501,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1459,6 +1524,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1481,6 +1547,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1503,6 +1570,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1525,6 +1593,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1547,6 +1616,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1569,6 +1639,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1591,6 +1662,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1613,6 +1685,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1635,6 +1708,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1657,6 +1731,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1679,6 +1754,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
         SocialMovement = true,
     },
     {
@@ -1701,6 +1777,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Rose Sit (small dog)',
@@ -1722,6 +1799,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Shake (small dog)',
@@ -1733,6 +1811,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Sit (small dog)',
@@ -1744,6 +1823,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Sit Car (big dog)',
@@ -1755,6 +1835,7 @@ return {
                 Loop = true,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Steak (small dog)',
@@ -1776,6 +1857,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Steak 2 Lay Down (small dog)',
@@ -1797,6 +1879,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Stun Gun (small dog)',
@@ -1829,6 +1912,7 @@ return {
                 Wait = 200,
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Teddy (small dog)',
@@ -1850,6 +1934,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Teddy 2 (small dog)',
@@ -1871,6 +1956,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Tennis Ball (small dog)',
@@ -1892,6 +1978,7 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     },
     {
         Label = 'Tennis Racket (small dog)',
@@ -1913,5 +2000,6 @@ return {
                 },
             },
         },
+        PedTypes = {'dogs', 'cats'},
     }
 }

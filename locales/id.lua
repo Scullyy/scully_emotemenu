@@ -54,5 +54,6 @@ return {
     point = 'Tunjuk',
     play_ptfx = 'Mainkan efek partikel yang dipilih',
     accept_deny = '[Y] - Terima, [N] - Tolak: %s',
-    emote_cancelled = 'Emote dibatalkan!'
+    emote_cancelled = 'Emote dibatalkan!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

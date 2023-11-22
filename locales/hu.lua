@@ -54,5 +54,6 @@ return {
     point = 'Mutat',
     play_ptfx = 'Lejátszás kiválasztott részecskeeffekttel',
     accept_deny = '[Y] - Elfogadás, [N] - Elutasítás: %s',
-    emote_cancelled = 'Az emote megszakítva!'
+    emote_cancelled = 'Az emote megszakítva!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

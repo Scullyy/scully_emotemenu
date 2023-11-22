@@ -54,5 +54,6 @@ return {
     point = 'Señalar',
     play_ptfx = 'Reproducir el efecto de partículas seleccionado',
     accept_deny = '[Y] - Aceptar, [N] - Rechazar: %s',
-    emote_cancelled = '¡El emote ha sido cancelado!'
+    emote_cancelled = '¡El emote ha sido cancelado!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

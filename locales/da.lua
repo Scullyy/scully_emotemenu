@@ -54,5 +54,6 @@ return {
     point = 'Peg',
     play_ptfx = 'Afspil den valgte partikeleffekt',
     accept_deny = '[Y] - Accepter, [N] - Afvis: %s',
-    emote_cancelled = 'Emoten blev annulleret!'
+    emote_cancelled = 'Emoten blev annulleret!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

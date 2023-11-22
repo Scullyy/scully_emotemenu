@@ -54,5 +54,6 @@ return {
     point = 'Pek',
     play_ptfx = 'Spill av valgt partikkeleffekt',
     accept_deny = '[Y] - Aksepter, [N] - Avvis: %s',
-    emote_cancelled = 'Emoten ble avbrutt!'
+    emote_cancelled = 'Emoten ble avbrutt!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

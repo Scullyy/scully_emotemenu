@@ -54,5 +54,6 @@ return {
     point = 'Ituro',
     play_ptfx = 'I-play ang iyong pinili na particle effect',
     accept_deny = '[Y] - Tanggapin, [N] - Tanggihan: %s',
-    emote_cancelled = 'Ang emote ay kanselado!'
+    emote_cancelled = 'Ang emote ay kanselado!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

@@ -54,5 +54,6 @@ return {
     point = 'Zeigen',
     play_ptfx = 'Spiele den ausgewählten Partikel-Effekt ab',
     accept_deny = '[Y] - Akzeptieren, [N] - Ablehnen: %s',
-    emote_cancelled = 'Das Emote wurde abgebrochen!'
+    emote_cancelled = 'Das Emote wurde abgebrochen!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

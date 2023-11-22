@@ -5,7 +5,7 @@ game 'gta5'
 
 lua54 'yes'
 
-version '1.9.5'
+version '1.9.6'
 
 dependencies {
     '/server:5848',
@@ -15,7 +15,8 @@ dependencies {
 
 files {
     'locales/*.lua',
-    'animations/*.lua',
+    'data/*.lua',
+    'data/**/*.lua',
     'custom_emotes.lua',
     'prop_dump.lua'
 }

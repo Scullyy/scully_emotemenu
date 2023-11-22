@@ -54,5 +54,6 @@ return {
     point = '指點',
     play_ptfx = '播放所選粒子效果',
     accept_deny = '[Y] - 接受, [N] - 拒絕：%s',
-    emote_cancelled = '表情已取消！'
+    emote_cancelled = '表情已取消！',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

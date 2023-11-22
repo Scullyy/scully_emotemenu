@@ -54,5 +54,6 @@ return {
     point = 'Osoita',
     play_ptfx = 'Toista valittu partikkeliefekti',
     accept_deny = '[Y] - Hyväksy, [N] - Hylkää: %s',
-    emote_cancelled = 'Ele peruttiin!'
+    emote_cancelled = 'Ele peruttiin!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

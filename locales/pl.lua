@@ -54,5 +54,6 @@ return {
     point = 'Wskazuj',
     play_ptfx = 'Odtwórz wybrany efekt cząsteczkowy',
     accept_deny = '[Y] - Akceptuj, [N] - Odrzuć: %s',
-    emote_cancelled = 'Emote zostało anulowane!'
+    emote_cancelled = 'Emote zostało anulowane!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

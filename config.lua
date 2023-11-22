@@ -11,6 +11,8 @@ Config = {
     EnableEmoteBinds = true,
     -- Block players from using weapons while doing an emote.
     EnableWeaponBlock = false,
+    -- Block players from aiming and shooting while doing an emote.
+    EnableAimShootBlock = true,
     -- Set this to '' to disable the key.
     CancelEmoteKey = 'x', -- List of keys here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- Set this to '' to disable the key.
@@ -21,6 +23,8 @@ Config = {
     PointKey = 'b', -- List of keys here: https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- Set this if you really wanna disable emotes in vehicles, if enabled they only play the upper body part of the emote.
     AllowedInVehicles = true,
+    -- Cooldown in milliseconds between doing emotes.
+    EmoteCooldown = 500,
     -- Commands to play an emote.
     EmotePlayCommands = {'e', 'emote', 'eplay'},
     -- Commands to set a walk style.

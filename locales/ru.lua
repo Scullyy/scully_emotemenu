@@ -54,5 +54,6 @@ return {
     point = 'Указать',
     play_ptfx = 'Воспроизвести выбранный эффект частиц',
     accept_deny = '[Y] - Принять, [N] - Отклонить: %s',
-    emote_cancelled = 'Эмоция была отменена!'
+    emote_cancelled = 'Эмоция была отменена!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

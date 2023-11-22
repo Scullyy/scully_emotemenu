@@ -192,6 +192,16 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 **Description:** If you would like a shared emote to play without needing to request it you can add this to the emote table.
 </details>
 
+<details>
+<summary>PedTypes</summary>
+<br>
+
+**Key:** `PedTypes = {'dogs', 'cats', 'birds', 'marine_mammals', 'rodents', 'land_mammals', 'aquatic_animals'}`
+<br>
+
+**Description:** If you would like an emote to require a certain ped type you can add this to the emote table.
+</details>
+
 # Disclaimer & Credits
 
 All custom animations were added with permission from the creators. Credit to the following people for their animations / props and Dulpear for providing the original project that this is inspired by:
@@ -237,3 +247,9 @@ All custom animations were added with permission from the creators. Credit to th
 - [QueenSisters](https://www.gta5-mods.com/users/Queens%20Sister)
 
 - [Crunchycat](https://www.gta5-mods.com/users/crunchycat)
+
+We extend our heartfelt gratitude to everyone who played a part in shaping the project, including the valuable contributions from:
+
+- [FjamZoo](https://github.com/FjamZoo)
+
+Your involvement, regardless of the scale, has made a meaningful impact on the project's progress. We truly value the collaborative spirit and diverse skills that each contributor brings to the table. Thank you all for your contributions.

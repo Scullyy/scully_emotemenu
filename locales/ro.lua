@@ -54,5 +54,6 @@ return {
     point = 'Arată cu degetul',
     play_ptfx = 'Redă efectul particulelor selectat',
     accept_deny = '[Y] - Acceptă, [N] - Respinge: %s',
-    emote_cancelled = 'Emote-ul a fost anulat!'
+    emote_cancelled = 'Emote-ul a fost anulat!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

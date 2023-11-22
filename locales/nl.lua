@@ -54,5 +54,6 @@ return {
     point = 'Wijzen',
     play_ptfx = 'Speel het geselecteerde deeltjeseffect af',
     accept_deny = '[Y] - Accepteren, [N] - Weigeren: %s',
-    emote_cancelled = 'De emotie is geannuleerd!'
+    emote_cancelled = 'De emotie is geannuleerd!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

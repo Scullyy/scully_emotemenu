@@ -54,5 +54,6 @@ return {
     point = 'Point',
     play_ptfx = 'Play your selected particle effect',
     accept_deny = '[Y] - Accept, [N] - Deny: %s',
-    emote_cancelled = 'The emote was cancelled!'
+    emote_cancelled = 'The emote was cancelled!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

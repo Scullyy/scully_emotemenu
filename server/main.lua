@@ -126,6 +126,14 @@ lib.callback.register('scully_emotemenu:spawnProps', function(source, props)
     local ped = GetPlayerPed(source)
     local coords = GetEntityCoords(ped)
     local returnList = {}
+    local returnAmt = 0
+
+    local playerProp = playerProps[source] or {}
+
+    if next(playerProp) then
+        deleteProps(source, playerProp)
+        table.wipe(playerProp)
+    end
 
     for i = 1, #props do
         local prop = props[i]
@@ -138,23 +146,16 @@ lib.callback.register('scully_emotemenu:spawnProps', function(source, props)
         end, ('Failed to spawn prop %s'):format(prop.hash), 2000)
 
         if entityExsist then
-            if playerProps[source] then
-                deleteProps(src, props)
-            else
-                playerProps[source] = {}
-            end
-
             local netObject = NetworkGetNetworkIdFromEntity(object)
 
             if prop.hasPTFX then Player(source).state:set('ptfxPropNet', netObject, true) end
 
             SetEntityIgnoreRequestControlFilter(object, true)
 
-            local index = #returnList + 1
+            returnAmt += 1
+            playerProp[returnAmt] = object
 
-            playerProps[source][index] = object
-
-            returnList[index] = {
+            returnList[returnAmt] = {
                 object = netObject,
                 bone = prop.bone,
                 placement = prop.placement,
@@ -162,6 +163,8 @@ lib.callback.register('scully_emotemenu:spawnProps', function(source, props)
             }
         end
     end
+
+    playerProps[source] = playerProp
 
     return returnList
 end)

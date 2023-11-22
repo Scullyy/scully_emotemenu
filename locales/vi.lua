@@ -54,5 +54,6 @@ return {
     point = 'Chỉ tay',
     play_ptfx = 'Phát hiệu ứng hạt đã chọn của bạn',
     accept_deny = '[Y] - Chấp nhận, [N] - Từ chối: %s',
-    emote_cancelled = 'Emote đã bị hủy!'
+    emote_cancelled = 'Emote đã bị hủy!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

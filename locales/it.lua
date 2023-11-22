@@ -54,5 +54,6 @@ return {
     point = 'Punta',
     play_ptfx = 'Riproduci l\'effetto di particelle selezionato',
     accept_deny = '[Y] - Accetta, [N] - Rifiuta: %s',
-    emote_cancelled = 'L\'emote è stata annullata!'
+    emote_cancelled = 'L\'emote è stata annullata!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }

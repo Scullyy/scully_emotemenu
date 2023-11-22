@@ -54,5 +54,6 @@ return {
     point = 'Ukázat',
     play_ptfx = 'Přehrát vybraný částicový efekt',
     accept_deny = '[Y] - Přijmout, [N] - Odmítnout: %s',
-    emote_cancelled = 'Emóteka byla zrušena!'
+    emote_cancelled = 'Emóteka byla zrušena!',
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
 }
