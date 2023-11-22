@@ -2,15 +2,15 @@ local playerProps = {}
 local custom = require('custom_emotes')
 
 AnimationList = {
-    Walks = require('animations.walks'),
-    Scenarios = require('animations.scenarios'),
-    Expressions = require('animations.expressions'),
-    Emotes = require('animations.emotes'),
-    PropEmotes = require('animations.prop_emotes'),
-    ConsumableEmotes = require('animations.consumable_emotes'),
-    DanceEmotes = require('animations.dance_emotes'),
-    SynchronizedEmotes = require('animations.synchronized_emotes'),
-    AnimalEmotes = require('animations.animal_emotes')
+    Walks = require('data.animations.walks'),
+    Scenarios = require('data.animations.scenarios'),
+    Expressions = require('data.animations.expressions'),
+    Emotes = require('data.animations.emotes'),
+    PropEmotes = require('data.animations.prop_emotes'),
+    ConsumableEmotes = require('data.animations.consumable_emotes'),
+    DanceEmotes = require('data.animations.dance_emotes'),
+    SynchronizedEmotes = require('data.animations.synchronized_emotes'),
+    AnimalEmotes = require('data.animations.animal_emotes')
 }
 
 -- Import customs animations
