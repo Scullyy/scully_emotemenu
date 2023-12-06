@@ -208,6 +208,8 @@ All custom animations were added with permission from the creators. Credit to th
 
 - [Dullpear_dev](https://forum.cfx.re/u/dullpear_dev/summary)
 
+- [EP](https://github.com/EpKouhia)
+
 - [SMGMissy](https://forum.cfx.re/u/smgmissy/)
 
 - [Ultrahacx](https://forum.cfx.re/u/ultrahacx/summary)
