@@ -3282,6 +3282,57 @@ return {
         NSFW = true,
     },
     {
+        Label = 'Ice Fishing',
+        Command = 'icefishing',
+        Animation = 'base',
+        Dictionary = 'timetable@ron@ig_3_couch',
+        Options = {
+            Flags = {
+                Loop = true,
+            },
+            Props = {
+                {
+                    Bone = 0,
+                    Name = 'pprp_icefishing_box_02',
+                    Placement = {
+                        vector3(-0.050000, 0.000000, -0.630000),
+                        vector3(7.000000, 0.000000, 180.000000),
+                    },
+                },
+            },
+        },
+    },
+    {
+        Label = 'Ice Fishing 2',
+        Command = 'icefishing2',
+        Animation = 'idle',
+        Dictionary = 'move_weapon@jerrycan@generic',
+        Options = {
+            Flags = {
+                Loop = true,
+                Move = true,
+            },
+            Props = {
+                {
+                    Bone = 28422,
+                    Name = 'pprp_icefishing_box_01',
+                    Placement = {
+                        vector3(0.800000, 0.030000, 0.04000),
+                        vector3(0.000000, -90.000000, 100.000000),
+                    },
+                },
+                {
+                    Bone = 24818,
+                    Name = 'pprp_icefishing_augur',
+                    Placement = {
+                        vector3(-0.8, -0.2, 0.0),
+                        vector3(0.0, 90.0, 0.0)
+                    },
+                },
+            },
+        },
+    },
+    {
         Label = 'ID Card - Drivers License',
         Command = 'idcard',
         Animation = 'player_one_dual-8',
