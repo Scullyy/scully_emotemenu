@@ -524,54 +524,72 @@ function playEmote(data, variation)
 
     isPlayingAnimation = true
 
-    if data.Options and data.Options.Props then
-        local propCount = #data.Options.Props
+    if data.Options then
+        local secondaryEmote = data.Options.SecondaryEmote
 
-        if propCount > 0 then
-            Wait(duration or 0)
+        if secondaryEmote then
+            local isSecondaryValid = lib.requestAnimDict(secondaryEmote.Dictionary, 1000)
 
-            local propList = {}
-
-            for i = 1, propCount do
-                local prop = data.Options.Props[i]
-                local variant = prop.Variant
-
-                if variation then
-                    if prop.Variations and prop.Variations[variation] then
-                        variant = prop.Variations[variation]
-                    end
-                end
-
-                propList[#propList + 1] = {
-                    hash = joaat(prop.Name),
-                    bone = prop.Bone,
-                    placement = prop.Placement,
-                    variant = variant,
-                    hasPTFX = (i == 1) and (data.Options.Ptfx and data.Options.Ptfx.AttachToProp)
-                }
+            if not isSecondaryValid then
+                notify('error', lang.not_valid_emote)
+                return
             end
 
-            local props = lib.callback.await('scully_emotemenu:spawnProps', false, propList)
+            TaskPlayAnim(cache.ped, secondaryEmote.Dictionary, secondaryEmote.Animation, 2.0, 2.0, secondaryEmote.Duration or -1, 51, 0, false, false, false)
+            RemoveAnimDict(dictionaryName)
+        end
 
-            if props then
-                for i = 1, #props do
-                    local prop = props[i]
-                    local object = NetworkGetEntityFromNetworkId(prop.object)
+        local propData = data.Options.Props
 
-                    if DoesEntityExist(object) then
-                        local hasControl = lib.waitFor(function()
-                            local hasControl = NetworkGetEntityOwner(object) == cache.playerId
+        if propData then
+            local propCount = #propData
 
+            if propCount > 0 then
+                Wait(duration or 0)
+    
+                local propList = {}
+    
+                for i = 1, propCount do
+                    local prop = propData[i]
+                    local variant = prop.Variant
+    
+                    if variation then
+                        if prop.Variations and prop.Variations[variation] then
+                            variant = prop.Variations[variation]
+                        end
+                    end
+    
+                    propList[#propList + 1] = {
+                        hash = joaat(prop.Name),
+                        bone = prop.Bone,
+                        placement = prop.Placement,
+                        variant = variant,
+                        hasPTFX = (i == 1) and (data.Options.Ptfx and data.Options.Ptfx.AttachToProp)
+                    }
+                end
+    
+                local props = lib.callback.await('scully_emotemenu:spawnProps', false, propList)
+    
+                if props then
+                    for i = 1, #props do
+                        local prop = props[i]
+                        local object = NetworkGetEntityFromNetworkId(prop.object)
+    
+                        if DoesEntityExist(object) then
+                            local hasControl = lib.waitFor(function()
+                                local hasControl = NetworkGetEntityOwner(object) == cache.playerId
+    
+                                if hasControl then
+                                    return true
+                                end
+    
+                                NetworkRequestControlOfEntity(object)
+                            end, ('Failed to gain entity control of entity'), 3000)
+    
+    
                             if hasControl then
-                                return true
+                                addPropToPlayer(object, prop.bone, prop.placement, prop.variant)
                             end
-
-                            NetworkRequestControlOfEntity(object)
-                        end, ('Failed to gain entity control of entity'), 3000)
-
-
-                        if hasControl then
-                            addPropToPlayer(object, prop.bone, prop.placement, prop.variant)
                         end
                     end
                 end
@@ -649,44 +667,62 @@ function initCloneEmote(data)
     TaskPlayAnim(clone, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
     RemoveAnimDict(dictionaryName)
 
-    if data.Options and data.Options.Props then
-        local propCount = #data.Options.Props
+    if data.Options then
+        local secondaryEmote = data.Options.SecondaryEmote
 
-        if propCount > 0 then
-            Wait(duration or 0)
+        if secondaryEmote then
+            local isSecondaryValid = lib.requestAnimDict(secondaryEmote.Dictionary, 1000)
 
-            local propList = {}
-
-            for i = 1, propCount do
-                local prop = data.Options.Props[i]
-                local variant = prop.Variant
-
-                if variation then
-                    if prop.Variations and prop.Variations[variation] then
-                        variant = prop.Variations[variation]
-                    end
-                end
-
-                propList[#propList + 1] = {
-                    hash = joaat(prop.Name),
-                    bone = prop.Bone,
-                    placement = prop.Placement
-                }
+            if not isSecondaryValid then
+                notify('error', lang.not_valid_emote)
+                return
             end
 
-            if #propList > 0 then
-                for i = 1, #propList do
-                    local prop = propList[i]
+            TaskPlayAnim(clone, secondaryEmote.Dictionary, secondaryEmote.Animation, 2.0, 2.0, secondaryEmote.Duration or -1, 51, 0, false, false, false)
+            RemoveAnimDict(dictionaryName)
+        end
 
-                    lib.requestModel(prop.hash, 1000)
+        local propData = data.Options.Props
 
-                    local object = CreateObject(prop.hash, clonePos.x, clonePos.y, clonePos.z, false, false, false)
-                    SetEntityCollision(object, false, false)
-                    AttachEntityToEntity(object, clone, GetPedBoneIndex(clone, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
+        if propData then
+            local propCount = #propData
 
-                    cloneProps[#cloneProps + 1] = object
-
-                    SetModelAsNoLongerNeeded(prop.hash)
+            if propCount > 0 then
+                Wait(duration or 0)
+    
+                local propList = {}
+    
+                for i = 1, propCount do
+                    local prop = propData[i]
+                    local variant = prop.Variant
+    
+                    if variation then
+                        if prop.Variations and prop.Variations[variation] then
+                            variant = prop.Variations[variation]
+                        end
+                    end
+    
+                    propList[#propList + 1] = {
+                        hash = joaat(prop.Name),
+                        bone = prop.Bone,
+                        placement = prop.Placement
+                    }
+                end
+    
+                if #propList > 0 then
+                    for i = 1, #propList do
+                        local prop = propList[i]
+    
+                        lib.requestModel(prop.hash, 1000)
+    
+                        local object = CreateObject(prop.hash, clonePos.x, clonePos.y, clonePos.z, false, false, false)
+                        SetEntityCollision(object, false, false)
+                        AttachEntityToEntity(object, clone, GetPedBoneIndex(clone, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
+    
+                        cloneProps[#cloneProps + 1] = object
+    
+                        SetModelAsNoLongerNeeded(prop.hash)
+                    end
                 end
             end
         end
