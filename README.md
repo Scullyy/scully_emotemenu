@@ -63,6 +63,8 @@ For support join my discord here: https://discord.gg/scully
 
 - Compatibility with QBCore events
 
+- Ability to choose where you do your animation
+
 # Exports
 
 | Export Name | Parameter(s) | Type | Description |
@@ -202,6 +204,16 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 **Description:** If you would like an emote to require a certain ped type you can add this to the emote table.
 </details>
 
+<details>
+<summary>Placement</summary>
+<br>
+
+**Key:** `Placement = true`
+<br>
+
+**Description:** If you would like to be able to select the location of your emote you can add this to the emote table.
+</details>
+
 # Disclaimer & Credits
 
 All custom animations were added with permission from the creators. Credit to the following people for their animations / props and Dulpear for providing the original project that this is inspired by:
@@ -253,5 +265,6 @@ All custom animations were added with permission from the creators. Credit to th
 We extend our heartfelt gratitude to everyone who played a part in shaping the project, including the valuable contributions from:
 
 - [FjamZoo](https://github.com/FjamZoo)
+- [Snipe](https://github.com/snipe-scripts)
 
 Your involvement, regardless of the scale, has made a meaningful impact on the project's progress. We truly value the collaborative spirit and diverse skills that each contributor brings to the table. Thank you all for your contributions.

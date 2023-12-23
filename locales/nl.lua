@@ -55,5 +55,14 @@ return {
     play_ptfx = 'Speel het geselecteerde deeltjeseffect af',
     accept_deny = '[Y] - Accepteren, [N] - Weigeren: %s',
     emote_cancelled = 'De emotie is geannuleerd!',
-    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!',
+    right_click_to_cancel = '[Right Click] to cancel',
+    placement_text = {
+        '-- Placement --  \n',
+        '[E] Finish  \n',
+        '[X / Right Click] Cancel  \n',
+        '[Up/Down Arrows] Height \n',
+        '[SCROLL] Rotate  \n',
+    },
+    too_far = 'You are too far!'
 }

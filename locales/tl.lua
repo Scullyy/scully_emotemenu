@@ -55,5 +55,14 @@ return {
     play_ptfx = 'I-play ang iyong pinili na particle effect',
     accept_deny = '[Y] - Tanggapin, [N] - Tanggihan: %s',
     emote_cancelled = 'Ang emote ay kanselado!',
-    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!',
+    right_click_to_cancel = '[Right Click] to cancel',
+    placement_text = {
+        '-- Placement --  \n',
+        '[E] Finish  \n',
+        '[X / Right Click] Cancel  \n',
+        '[Up/Down Arrows] Height \n',
+        '[SCROLL] Rotate  \n',
+    },
+    too_far = 'You are too far!'
 }

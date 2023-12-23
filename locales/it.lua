@@ -55,5 +55,14 @@ return {
     play_ptfx = 'Riproduci l\'effetto di particelle selezionato',
     accept_deny = '[Y] - Accetta, [N] - Rifiuta: %s',
     emote_cancelled = 'L\'emote è stata annullata!',
-    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!',
+    right_click_to_cancel = '[Right Click] to cancel',
+    placement_text = {
+        '-- Placement --  \n',
+        '[E] Finish  \n',
+        '[X / Right Click] Cancel  \n',
+        '[Up/Down Arrows] Height \n',
+        '[SCROLL] Rotate  \n',
+    },
+    too_far = 'You are too far!'
 }

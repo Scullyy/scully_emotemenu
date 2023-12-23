@@ -463,6 +463,12 @@ function playEmote(data, variation)
         return
     end
 
+    if Config.EnableEmotePlacement and data.Placement and not data.Advanced then
+        startPlacementThread(data)
+
+        return
+    end
+
     local hasAutomatedPtfx, dictionaryName, animationName = false, data.Dictionary, data.Animation
 
     if (type(dictionaryName) == 'table') and (type(animationName) == 'table') then
@@ -519,7 +525,14 @@ function playEmote(data, variation)
         end
     end
 
-    TaskPlayAnim(cache.ped, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
+    if data.Advanced then
+        local coords = data.Advanced.Coords
+        
+        TaskPlayAnimAdvanced(cache.ped, dictionaryName, animationName, coords.x, coords.y, coords.z, 0, 0, data.Advanced.Heading, 2.0, 2.0, duration or -1, movementFlag, 1.0, false, false)
+    else
+        TaskPlayAnim(cache.ped, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
+    end
+
     RemoveAnimDict(dictionaryName)
 
     isPlayingAnimation = true
@@ -615,12 +628,8 @@ function initCloneEmote(data)
         return
     end
 
-    local isMale = math.random(1, 100) >= 50
-    local cloneModel = isMale and `mp_m_freemode_01` or `mp_f_freemode_01`
     local clonePos = GetOffsetFromEntityInWorldCoords(cache.ped, 0.0, 4.5, 0.0)
     local cloneHeading = GetEntityHeading(cache.ped) + 180
-
-    lib.requestModel(cloneModel, 1000)
 
     clone = ClonePed(cache.ped, false, false, true)
 
@@ -664,7 +673,14 @@ function initCloneEmote(data)
 
     local cloneDuration = GetAnimDuration(dictionaryName, animationName)
 
-    TaskPlayAnim(clone, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
+    if data.Advanced then
+        local coords = data.Advanced.Coords
+        
+        TaskPlayAnimAdvanced(clone, dictionaryName, animationName, coords.x, coords.y, coords.z, 0, 0, data.Advanced.Heading, 2.0, 2.0, duration or -1, movementFlag, 1.0, false, false)
+    else
+        TaskPlayAnim(clone, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
+    end
+
     RemoveAnimDict(dictionaryName)
 
     if data.Options then
@@ -825,6 +841,246 @@ function resetWalk()
     currentWalk = 'default'
 end
 exports('resetWalk', resetWalk)
+
+---Get direction from rotation
+---@param rotation table
+local function rotationToDirection(rotation)
+	local adjustedRotation = {
+		x = (math.pi / 180) * rotation.x,
+		y = (math.pi / 180) * rotation.y,
+		z = (math.pi / 180) * rotation.z
+	}
+
+	local direction = {
+		x = -math.sin(adjustedRotation.z) * math.abs(math.cos(adjustedRotation.x)),
+		y = math.cos(adjustedRotation.z) * math.abs(math.cos(adjustedRotation.x)),
+		z = math.sin(adjustedRotation.x)
+	}
+
+	return direction
+end
+
+---Get placement from camera
+function placementCamera()
+    local cameraRotation = GetGameplayCamRot()
+	local cameraCoord = GetGameplayCamCoord()
+	local direction = rotationToDirection(cameraRotation)
+	local destination = {
+		x = cameraCoord.x + direction.x * 10.0,
+		y = cameraCoord.y + direction.y * 10.0,
+		z = cameraCoord.z + direction.z * 10.0
+	}
+
+    local sphereCast = StartShapeTestSweptSphere(
+        cameraCoord.x,
+        cameraCoord.y,
+        cameraCoord.z,
+        destination.x,
+        destination.y,
+        destination.z,
+        0.2,
+        339,
+        clone,
+        4
+    )
+
+    return GetShapeTestResultIncludingMaterial(sphereCast);
+end
+
+---Finish the animation placement
+---@param location table
+---@param heading number
+---@param data table
+function finishPlacementEmote(location, heading, data)
+    if DoesEntityExist(clone) then DeleteEntity(clone) end
+
+    clone = nil
+
+    lib.hideTextUI()
+
+    TaskGoToCoordAnyMeans(cache.ped, location.x, location.y, location.z, 1.0, 0, 0, 786603, 0xbf800000)
+
+    local coords = GetEntityCoords(cache.ped)
+
+    showHelpAlert(nil, lang.right_click_to_cancel)
+
+    while #(coords - location) > 1.5 do
+        Wait(0)
+
+        coords = GetEntityCoords(cache.ped)
+
+        if IsControlJustPressed(0, 177) then
+            lib.hideTextUI()
+
+            ClearPedTasksImmediately(cache.ped)
+
+            break
+        end
+    end
+
+    lib.hideTextUI()
+
+    SetEntityCoords(cache.ped, location.x, location.y, location.z, 0.0, 0.0, 0.0, false)
+
+    data.Advanced = {
+        Coords = location,
+        Heading = heading
+    }
+
+    playEmote(data)
+end
+
+---Start the animation placement
+---@param data table
+function startPlacementThread(data)
+    clone = ClonePed(cache.ped, false, false, true)
+
+    FreezeEntityPosition(clone, true)
+    SetEntityAlpha(clone, 0)
+
+    local dictionaryName, animationName = data.Dictionary, data.Animation
+    local isValid = lib.requestAnimDict(dictionaryName, 1000)
+
+    if not isValid then
+        notify('error', lang.not_valid_emote)
+        return
+    end
+
+    if data.Options then
+        duration = data.Options.Duration
+
+        if data.Options.Delay then Wait(data.Options.Delay) end
+
+        if not cache.vehicle and data.Options.Flags then
+            if data.Options.Flags.Loop then movementFlag = 1 end
+            if data.Options.Flags.Move then movementFlag = 51 end
+            if data.Options.Flags.Stuck then movementFlag = 50 end
+        end
+    end
+
+    TaskPlayAnim(clone, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
+    RemoveAnimDict(dictionaryName)
+
+    if data.Options then
+        local secondaryEmote = data.Options.SecondaryEmote
+
+        if secondaryEmote then
+            local isSecondaryValid = lib.requestAnimDict(secondaryEmote.Dictionary, 1000)
+
+            if not isSecondaryValid then
+                notify('error', lang.not_valid_emote)
+                return
+            end
+
+            TaskPlayAnim(clone, secondaryEmote.Dictionary, secondaryEmote.Animation, 2.0, 2.0, secondaryEmote.Duration or -1, 51, 0, false, false, false)
+            RemoveAnimDict(dictionaryName)
+        end
+
+        local propData = data.Options.Props
+
+        if propData then
+            local propCount = #propData
+
+            if propCount > 0 then
+                Wait(duration or 0)
+    
+                local propList = {}
+    
+                for i = 1, propCount do
+                    local prop = propData[i]
+                    local variant = prop.Variant
+    
+                    if variation then
+                        if prop.Variations and prop.Variations[variation] then
+                            variant = prop.Variations[variation]
+                        end
+                    end
+    
+                    propList[#propList + 1] = {
+                        hash = joaat(prop.Name),
+                        bone = prop.Bone,
+                        placement = prop.Placement
+                    }
+                end
+    
+                if #propList > 0 then
+                    for i = 1, #propList do
+                        local prop = propList[i]
+    
+                        lib.requestModel(prop.hash, 1000)
+    
+                        local object = CreateObject(prop.hash, clonePos.x, clonePos.y, clonePos.z, false, false, false)
+                        SetEntityCollision(object, false, false)
+                        AttachEntityToEntity(object, clone, GetPedBoneIndex(clone, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
+    
+                        cloneProps[#cloneProps + 1] = object
+    
+                        SetModelAsNoLongerNeeded(prop.hash)
+                    end
+                end
+            end
+        end
+    end
+
+    SetEntityCollision(clone, false, false)
+    SetEntityAlpha(clone, 200)
+    SetBlockingOfNonTemporaryEvents(clone, true)
+
+    local currentCoords = nil
+    local heading = GetEntityHeading(cache.ped) + 90.0
+
+    showHelpAlert(nil, table.concat(lang.placement_text))
+
+    SetTimeout(0, function()
+        local offsetZ = 0.0
+
+        while clone ~= nil do
+            Wait(0)
+
+            DisableControlAction(0, 22, true)
+
+            local _, hit, endCoords, _, _, _ = placementCamera()
+            
+            if hit then
+                currentCoords = endCoords
+
+                SetEntityCoords(clone, currentCoords.x, currentCoords.y, currentCoords.z + offsetZ)
+                SetEntityHeading(clone, heading)
+            end
+
+            if IsDisabledControlJustPressed(0, 14) then
+                heading = heading + 5
+
+                if heading > 360 then heading = 0.0 end
+            end
+
+            if IsDisabledControlPressed(0, 27) then
+                offsetZ = offsetZ + 0.01
+            end
+
+            if IsDisabledControlPressed(0, 173) then
+                offsetZ = offsetZ - 0.01
+            end
+
+            if IsDisabledControlJustPressed(0, 15) then
+                heading = heading - 5
+
+                if heading < 0 then heading = 360.0 end
+            end
+
+            if IsControlJustPressed(0, 38) then
+                local coords = GetEntityCoords(cache.ped)
+                local distance = #(coords - currentCoords)
+
+                if distance < 5.0 then
+                    finishPlacementEmote(GetEntityCoords(clone), GetEntityHeading(clone), lib.table.deepclone(data))
+                else
+                    notify('error', lang.too_far)
+                end
+            end
+        end
+    end)
+end
 
 ---Attach a prop to the player
 ---@param object number

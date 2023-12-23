@@ -3771,6 +3771,7 @@ return {
                 Loop = true,
             },
         },
+        Placement = true
     },
     {
         Label = 'Sit Chair 2',
@@ -3782,6 +3783,7 @@ return {
                 Loop = true,
             },
         },
+        Placement = true
     },
     {
         Label = 'Sit Chair 3',
@@ -3793,6 +3795,7 @@ return {
                 Loop = true,
             },
         },
+        Placement = true
     },
     {
         Label = 'Sit Chair 4',
@@ -3804,6 +3807,7 @@ return {
                 Loop = true,
             },
         },
+        Placement = true
     },
     {
         Label = 'Sit Chair 5',
@@ -3815,6 +3819,7 @@ return {
                 Loop = true,
             },
         },
+        Placement = true
     },
     {
         Label = 'Sit Chair 6',
@@ -3826,6 +3831,7 @@ return {
                 Loop = true,
             },
         },
+        Placement = true
     },
     {
         Label = 'Sit Chair 7',
@@ -3837,6 +3843,7 @@ return {
                 Loop = true,
             },
         },
+        Placement = true
     },
     {
         Label = 'Sit Drunk',

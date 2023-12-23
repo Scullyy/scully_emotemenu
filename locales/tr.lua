@@ -55,5 +55,14 @@ return {
     play_ptfx = 'Seçili partikül efektini oynat',
     accept_deny = '[E] - Kabul Et, [H] - Reddet: %s',
     emote_cancelled = 'Emote iptal edildi!',
-    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!'
+    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!',
+    right_click_to_cancel = '[Right Click] to cancel',
+    placement_text = {
+        '-- Placement --  \n',
+        '[E] Finish  \n',
+        '[X / Right Click] Cancel  \n',
+        '[Up/Down Arrows] Height \n',
+        '[SCROLL] Rotate  \n',
+    },
+    too_far = 'You are too far!'
 }
