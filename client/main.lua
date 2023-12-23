@@ -394,7 +394,7 @@ function playEmote(data, variation)
         local playerModel = GetEntityModel(cache.ped)
 
         for i = 1, #data.PedTypes do
-            local allowedPeds = pedTypes[i]
+            local allowedPeds = pedTypes[data.PedTypes[i]]
             local isContained = lib.table.contains(allowedPeds, playerModel)
 
             if isContained then
