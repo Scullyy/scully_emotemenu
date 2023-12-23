@@ -51,4 +51,5 @@ data_file 'DLC_ITYP_REQUEST' 'bzzz_prop_give_gift.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'bzzz_package_pizzahut.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'ultra_ringcase.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'bzzz_food_xmas22.ytyp'
+data_file 'DLC_ITYP_REQUEST' 'pprp_icefishing.ytyp'
 
