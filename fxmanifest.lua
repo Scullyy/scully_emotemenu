@@ -5,7 +5,7 @@ game 'gta5'
 
 lua54 'yes'
 
-version '1.9.8'
+version '1.9.9'
 
 dependencies {
     '/server:5848',

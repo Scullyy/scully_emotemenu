@@ -464,6 +464,8 @@ function playEmote(data, variation)
     end
 
     if Config.EnableEmotePlacement and data.Placement and not data.Advanced then
+        lib.hideMenu()
+
         startPlacementThread(data)
 
         return
@@ -988,6 +990,7 @@ function startPlacementThread(data)
     SetTimeout(0, function()
         local offsetZ = 0.0
         local hit, _, endCoords
+        
         CreateThread(function()
             while clone ~= nil do
                 hit, _, endCoords = lib.raycast.cam(4294967295, 7)
