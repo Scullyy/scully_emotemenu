@@ -56,13 +56,12 @@ return {
     accept_deny = '[Y] - Accept, [N] - Deny: %s',
     emote_cancelled = 'The emote was cancelled!',
     not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!',
-    right_click_to_cancel = '[Right Click] to cancel',
+    right_click_to_cancel = '[Right Click] Cancel',
     placement_text = {
-        '-- Placement --  \n',
-        '[E] Finish  \n',
-        '[X / Right Click] Cancel  \n',
-        '[Up/Down Arrows] Height \n',
-        '[SCROLL] Rotate  \n',
+        '[Enter] Finish  \n',
+        '[Backspace / Right Click] Cancel  \n',
+        '[Up/Down Arrows] Height  \n',
+        '[Mouse Scroll] Rotate',
     },
-    too_far = 'You are too far!'
+    too_far = 'You are too far!',
 }

@@ -842,62 +842,15 @@ function resetWalk()
 end
 exports('resetWalk', resetWalk)
 
----Get direction from rotation
----@param rotation table
-local function rotationToDirection(rotation)
-	local adjustedRotation = {
-		x = (math.pi / 180) * rotation.x,
-		y = (math.pi / 180) * rotation.y,
-		z = (math.pi / 180) * rotation.z
-	}
-
-	local direction = {
-		x = -math.sin(adjustedRotation.z) * math.abs(math.cos(adjustedRotation.x)),
-		y = math.cos(adjustedRotation.z) * math.abs(math.cos(adjustedRotation.x)),
-		z = math.sin(adjustedRotation.x)
-	}
-
-	return direction
-end
-
----Get placement from camera
-function placementCamera()
-    local cameraRotation = GetGameplayCamRot()
-	local cameraCoord = GetGameplayCamCoord()
-	local direction = rotationToDirection(cameraRotation)
-	local destination = {
-		x = cameraCoord.x + direction.x * 10.0,
-		y = cameraCoord.y + direction.y * 10.0,
-		z = cameraCoord.z + direction.z * 10.0
-	}
-
-    local sphereCast = StartShapeTestSweptSphere(
-        cameraCoord.x,
-        cameraCoord.y,
-        cameraCoord.z,
-        destination.x,
-        destination.y,
-        destination.z,
-        0.2,
-        339,
-        clone,
-        4
-    )
-
-    return GetShapeTestResultIncludingMaterial(sphereCast);
-end
-
 ---Finish the animation placement
 ---@param location table
 ---@param heading number
 ---@param data table
 function finishPlacementEmote(location, heading, data)
     if DoesEntityExist(clone) then DeleteEntity(clone) end
-
     clone = nil
 
     lib.hideTextUI()
-
     TaskGoToCoordAnyMeans(cache.ped, location.x, location.y, location.z, 1.0, 0, 0, 786603, 0xbf800000)
 
     local coords = GetEntityCoords(cache.ped)
@@ -911,23 +864,24 @@ function finishPlacementEmote(location, heading, data)
 
         if IsControlJustPressed(0, 177) then
             lib.hideTextUI()
-
-            ClearPedTasksImmediately(cache.ped)
+            ClearPedTasks(cache.ped)
+            location = nil
 
             break
         end
     end
 
     lib.hideTextUI()
+    if location then
+        SetEntityCoords(cache.ped, location.x, location.y, location.z, 0.0, 0.0, 0.0, false)
 
-    SetEntityCoords(cache.ped, location.x, location.y, location.z, 0.0, 0.0, 0.0, false)
+        data.Advanced = {
+            Coords = location,
+            Heading = heading,
+        }
 
-    data.Advanced = {
-        Coords = location,
-        Heading = heading
-    }
-
-    playEmote(data)
+        playEmote(data)
+    end
 end
 
 ---Start the animation placement
@@ -1033,14 +987,19 @@ function startPlacementThread(data)
 
     SetTimeout(0, function()
         local offsetZ = 0.0
+        local hit, _, endCoords
+        CreateThread(function()
+            while clone ~= nil do
+                hit, _, endCoords = lib.raycast.cam(4294967295, 7)
+                Wait(5)
+            end
+        end)
 
         while clone ~= nil do
             Wait(0)
 
             DisableControlAction(0, 22, true)
 
-            local _, hit, endCoords, _, _, _ = placementCamera()
-            
             if hit then
                 currentCoords = endCoords
 
@@ -1052,23 +1011,21 @@ function startPlacementThread(data)
                 heading = heading + 5
 
                 if heading > 360 then heading = 0.0 end
-            end
-
-            if IsDisabledControlPressed(0, 27) then
-                offsetZ = offsetZ + 0.01
-            end
-
-            if IsDisabledControlPressed(0, 173) then
-                offsetZ = offsetZ - 0.01
-            end
-
-            if IsDisabledControlJustPressed(0, 15) then
+            elseif IsDisabledControlJustPressed(0, 15) then
                 heading = heading - 5
 
                 if heading < 0 then heading = 360.0 end
+            elseif IsDisabledControlPressed(0, 27) then
+                offsetZ = offsetZ + 0.01
+
+                if offsetZ > 1.0 then offsetZ = 1.0 end
+            elseif IsDisabledControlPressed(0, 173) then
+                offsetZ = offsetZ - 0.01
+
+                if offsetZ < -1.0 then offsetZ = -1.0 end
             end
 
-            if IsControlJustPressed(0, 38) then
+            if IsControlJustPressed(0, 201) then
                 local coords = GetEntityCoords(cache.ped)
                 local distance = #(coords - currentCoords)
 
@@ -1077,6 +1034,10 @@ function startPlacementThread(data)
                 else
                     notify('error', lang.too_far)
                 end
+            elseif IsControlJustPressed(0, 177) then
+                if DoesEntityExist(clone) then DeleteEntity(clone) end
+                clone = nil
+                lib.hideTextUI()
             end
         end
     end)
