@@ -51,7 +51,7 @@ local function dumpPropsToFile()
 
     local propDump = {}
 
-    for _type, emoteList in pairs(AnimationList) do
+    for _, emoteList in pairs(AnimationList) do
         for i = 1, #emoteList do
             local emote = emoteList[i]
 
@@ -62,19 +62,19 @@ local function dumpPropsToFile()
                     for k = 1, propCount do
                         local prop = emote.Options.Props[k]
 
-                        propDump[prop.Name] = true
+                        propDump[#propDump + 1] = prop.Name
                     end
                 end
             end
         end
     end
 
+    table.sort(propDump)
+
     local contents = 'return {\n'
 
-    for prop, _bool in pairs(propDump) do
-        local entry = '\t[`' .. tostring(prop) .. '`] = ' .. tostring(_bool) .. ',\n'
-
-        contents = contents .. entry
+    for i = 1, #propDump do
+        contents = contents .. '\t[`' .. tostring(propDump[i]) .. '`] = true,\n'
     end
 
     contents = contents .. '}'
