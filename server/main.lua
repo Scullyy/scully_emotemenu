@@ -50,6 +50,7 @@ local function dumpPropsToFile()
     if not Config.EnablePropDump then return end
 
     local propDump = {}
+    local addedProps = {}
 
     for _, emoteList in pairs(AnimationList) do
         for i = 1, #emoteList do
@@ -61,8 +62,10 @@ local function dumpPropsToFile()
                 if propCount > 0 then
                     for k = 1, propCount do
                         local prop = emote.Options.Props[k]
-
-                        propDump[#propDump + 1] = prop.Name
+                        if not addedProps[prop.Name] then
+                            propDump[#propDump + 1] = prop.Name
+                            addedProps[prop.Name] = true
+                        end
                     end
                 end
             end
