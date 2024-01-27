@@ -58,10 +58,9 @@ end
 ---Closes the animation menu
 function closeMenu()
     local currentMenu = lib.getOpenMenu()
+    if currentMenu ~= 'animations_main_menu' and currentMenu ~= 'animations_emote_menu' then return end
 
-    if (currentMenu == 'animations_main_menu') or (currentMenu == 'animations_emote_menu') then
-        lib.hideMenu()
-    end
+    lib.hideMenu()
 end
 exports('closeMenu', closeMenu)
 
@@ -129,7 +128,7 @@ function removeFromTable(_table, keep)
 
     for i = 1, #_table do
         if keep(_table, i) then
-            if (i ~= _index) then
+            if i ~= _index then
                 _table[_index] = _table[i]
                 _table[i] = nil
             end
@@ -161,7 +160,7 @@ end
 exports('customNotifyFn', function(fn) if fn then notify = fn end end)
 
 ---Displays a text UI
----@param icon string
+---@param icon? string
 ---@param text string
 function showHelpAlert(icon, text)
     lib.showTextUI(text, {
@@ -258,8 +257,9 @@ end
 
 ---Add emotes to the radial menu
 ---@param _type string
----@param label string
+---@param id string
 ---@param icon string
+---@param cancel RadialItem
 function addEmotesToRadial(_type, id, icon, cancel)
     local options = {{
         label = lang.emote_list,
@@ -297,8 +297,8 @@ end
 
 ---Get an emote based on the command
 ---@param name string
----@return string _type Emote type
----@return table _emote Emote table
+---@return string? _type Emote type
+---@return table? _emote Emote table
 function getEmoteByCommand(name)
     local _type, _emote, checkMenus = nil, nil, {
         'Walks',
@@ -335,7 +335,7 @@ end
 exports('isInEmote', isInEmote)
 
 ---Get the last emote a player used
----@return table
+---@return table?, number?
 function getLastEmote()
     return lastEmote, lastVariant
 end
@@ -343,7 +343,7 @@ exports('getLastEmote', getLastEmote)
 
 function requestSynchronizedEmote(senderData)
     local playerPos = GetEntityCoords(cache.ped)
-    local targetId, targetPed, targetPos = lib.getClosestPlayer(playerPos, 3.0, false)
+    local targetId = lib.getClosestPlayer(playerPos, 3.0, false)
 
     if not targetId then
         notify('error', lang.no_player_nearby)
@@ -362,11 +362,11 @@ end
 
 ---Play an emote by command
 ---@param command string
----@param variant number
+---@param variant? number
 function playEmoteByCommand(command, variant)
     local _type, emote = getEmoteByCommand(command)
 
-    if not _type or (_type == 'Walks') then
+    if not _type or _type == 'Walks' then
         notify('error', lang.not_valid_emote)
         return
     end
@@ -376,13 +376,13 @@ function playEmoteByCommand(command, variant)
         return
     end
 
-    playEmote(emote, variant)
+    playEmote(emote --[[@as table]], variant)
 end
 exports('playEmoteByCommand', playEmoteByCommand)
 
 ---Play an animation
 ---@param data table
----@param variation number
+---@param variation? number
 function playEmote(data, variation)
     if data.PedTypes then
         if IsPedHuman(cache.ped) then
@@ -426,12 +426,14 @@ function playEmote(data, variation)
 
     if Config.EnableAimShootBlock then
         CreateThread(function()
-            while isPlayingAnimation do
+            while isPlayingAnimation and not IsPedRagdoll(cache.ped) do
                 Wait(0)
 
                 DisableControlAction(0, 25, true)
                 DisablePlayerFiring(cache.playerId, true)
             end
+
+            cancelEmote(false)
         end)
     end
 
@@ -473,7 +475,7 @@ function playEmote(data, variation)
 
     local hasAutomatedPtfx, dictionaryName, animationName = false, data.Dictionary, data.Animation
 
-    if (type(dictionaryName) == 'table') and (type(animationName) == 'table') then
+    if type(dictionaryName) == 'table' and type(animationName) == 'table' then
         local randomIndex = math.random(1, #animationName)
 
         dictionaryName = dictionaryName[randomIndex]
@@ -487,11 +489,9 @@ function playEmote(data, variation)
         return
     end
 
-    if data.NSFW and (type(Config.EnableNSFWEmotes) == 'string' and Config.EnableNSFWEmotes == 'limited') then
-        if not LocalPlayer.state.allowNSFWEmotes then
-            notify('error', lang.nsfw_limited)
-            return
-        end
+    if data.NSFW and type(Config.EnableNSFWEmotes) == 'string' and Config.EnableNSFWEmotes == 'limited' and not LocalPlayer.state.allowNSFWEmotes then
+        notify('error', lang.nsfw_limited)
+        return
     end
 
     if data.Options then
@@ -500,14 +500,10 @@ function playEmote(data, variation)
         if data.Options.Delay then Wait(data.Options.Delay) end
 
         if not cache.vehicle and data.Options.Flags then
+            movementFlag = data.Options.Flags.Stuck and 50 or data.Options.Flags.Move and 51 or data.Options.Flags.Loop and 1 or movementFlag
             if data.Options.Flags.Loop then
-                movementFlag = 1
-
                 lastEmote, lastVariant = data, variation
             end
-
-            if data.Options.Flags.Move then movementFlag = 51 end
-            if data.Options.Flags.Stuck then movementFlag = 50 end
         end
 
         if data.Options.Ptfx then
@@ -516,7 +512,7 @@ function playEmote(data, variation)
 
             if Config.PtfxKeybind and not hasAutomatedPtfx then
                 keybinds.PlayPtfx:disable(false)
-                notify('success', (lang.press_for_effect):format(GetControlInstructionalButton(0, joaat('+playptfx') | 0x80000000, 1):sub(3)))
+                notify('success', (lang.press_for_effect):format(GetControlInstructionalButton(0, joaat('+playptfx') | 0x80000000, true):sub(3)))
             else
                 keybinds.PlayPtfx:disable(true)
             end
@@ -529,7 +525,7 @@ function playEmote(data, variation)
 
     if data.Advanced then
         local coords = data.Advanced.Coords
-        
+
         TaskPlayAnimAdvanced(cache.ped, dictionaryName, animationName, coords.x, coords.y, coords.z, 0, 0, data.Advanced.Heading, 2.0, 2.0, duration or -1, movementFlag, 1.0, false, false)
     else
         TaskPlayAnim(cache.ped, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
@@ -561,47 +557,47 @@ function playEmote(data, variation)
 
             if propCount > 0 then
                 Wait(duration or 0)
-    
+
                 local propList = {}
-    
+
                 for i = 1, propCount do
                     local prop = propData[i]
                     local variant = prop.Variant
-    
+
                     if variation then
                         if prop.Variations and prop.Variations[variation] then
                             variant = prop.Variations[variation]
                         end
                     end
-    
+
                     propList[#propList + 1] = {
                         hash = joaat(prop.Name),
                         bone = prop.Bone,
                         placement = prop.Placement,
                         variant = variant,
-                        hasPTFX = (i == 1) and (data.Options.Ptfx and data.Options.Ptfx.AttachToProp)
+                        hasPTFX = i == 1 and data.Options.Ptfx and data.Options.Ptfx.AttachToProp
                     }
                 end
-    
+
                 local props = lib.callback.await('scully_emotemenu:spawnProps', false, propList)
-    
+
                 if props then
                     for i = 1, #props do
                         local prop = props[i]
                         local object = NetworkGetEntityFromNetworkId(prop.object)
-    
+
                         if DoesEntityExist(object) then
                             local hasControl = lib.waitFor(function()
                                 local hasControl = NetworkGetEntityOwner(object) == cache.playerId
-    
+
                                 if hasControl then
                                     return true
                                 end
-    
+
                                 NetworkRequestControlOfEntity(object)
                             end, ('Failed to gain entity control of entity'), 3000)
-    
-    
+
+
                             if hasControl then
                                 addPropToPlayer(object, prop.bone, prop.placement, prop.variant)
                             end
@@ -623,7 +619,7 @@ exports('playEmote', playEmote)
 ---Play an animation using a clone
 ---@param data table
 function initCloneEmote(data)
-    if DoesEntityExist(clone) then return end
+    if DoesEntityExist(clone --[[@as number]]) then return end
 
     if cache.vehicle then
         notify('error', lang.no_animations_in_vehicle)
@@ -635,15 +631,15 @@ function initCloneEmote(data)
 
     clone = ClonePed(cache.ped, false, false, true)
 
-    SetEntityCoords(clone, clonePos.x, clonePos.y, clonePos.z)
+    SetEntityCoords(clone, clonePos.x, clonePos.y, clonePos.z, false, false, false, false)
     SetEntityHeading(clone, cloneHeading)
-    SetEntityAlpha(clone, 200)
+    SetEntityAlpha(clone, 200, false)
 
     Wait(200)
 
     local hasAutomatedPtfx, dictionaryName, animationName = false, data.Dictionary, data.Animation
 
-    if (type(dictionaryName) == 'table') and (type(animationName) == 'table') then
+    if type(dictionaryName) == 'table' and type(animationName) == 'table' then
         local randomIndex = math.random(1, #animationName)
 
         dictionaryName = dictionaryName[randomIndex]
@@ -677,7 +673,7 @@ function initCloneEmote(data)
 
     if data.Advanced then
         local coords = data.Advanced.Coords
-        
+
         TaskPlayAnimAdvanced(clone, dictionaryName, animationName, coords.x, coords.y, coords.z, 0, 0, data.Advanced.Heading, 2.0, 2.0, duration or -1, movementFlag, 1.0, false, false)
     else
         TaskPlayAnim(clone, dictionaryName, animationName, 2.0, 2.0, duration or -1, movementFlag, 0, false, false, false)
@@ -707,38 +703,39 @@ function initCloneEmote(data)
 
             if propCount > 0 then
                 Wait(duration or 0)
-    
+
                 local propList = {}
-    
+
                 for i = 1, propCount do
                     local prop = propData[i]
                     local variant = prop.Variant
-    
+
                     if variation then
                         if prop.Variations and prop.Variations[variation] then
                             variant = prop.Variations[variation]
                         end
                     end
-    
+
                     propList[#propList + 1] = {
                         hash = joaat(prop.Name),
                         bone = prop.Bone,
-                        placement = prop.Placement
+                        placement = prop.Placement,
+                        variant = variant
                     }
                 end
-    
+
                 if #propList > 0 then
                     for i = 1, #propList do
                         local prop = propList[i]
-    
+
                         lib.requestModel(prop.hash, 1000)
-    
+
                         local object = CreateObject(prop.hash, clonePos.x, clonePos.y, clonePos.z, false, false, false)
                         SetEntityCollision(object, false, false)
                         AttachEntityToEntity(object, clone, GetPedBoneIndex(clone, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
-    
+
                         cloneProps[#cloneProps + 1] = object
-    
+
                         SetModelAsNoLongerNeeded(prop.hash)
                     end
                 end
@@ -800,6 +797,7 @@ exports('getCurrentExpression', getCurrentExpression)
 ---Set the players current expression
 ---@param name string
 function setExpression(name)
+    ---@diagnostic disable-next-line: param-type-mismatch
     SetFacialIdleAnimOverride(cache.ped, name, 0)
     SetResourceKvp('animations_expression', name)
 
@@ -837,7 +835,7 @@ exports('setWalk', setWalk)
 
 ---Reset the players walk style
 function resetWalk()
-    ResetPedMovementClipset(cache.ped)
+    ResetPedMovementClipset(cache.ped, 0)
     SetResourceKvp('animations_walkstyle', 'default')
 
     currentWalk = 'default'
@@ -845,15 +843,15 @@ end
 exports('resetWalk', resetWalk)
 
 ---Finish the animation placement
----@param location table
+---@param location vector3
 ---@param heading number
 ---@param data table
 function finishPlacementEmote(location, heading, data)
-    if DoesEntityExist(clone) then DeleteEntity(clone) end
+    if DoesEntityExist(clone --[[@as number]]) then DeleteEntity(clone --[[@as number]]) end
     clone = nil
 
     lib.hideTextUI()
-    TaskGoToCoordAnyMeans(cache.ped, location.x, location.y, location.z, 1.0, 0, 0, 786603, 0xbf800000)
+    TaskGoToCoordAnyMeans(cache.ped, location.x, location.y, location.z, 1.0, 0, false, 786603, 0xbf800000)
 
     local coords = GetEntityCoords(cache.ped)
 
@@ -867,15 +865,15 @@ function finishPlacementEmote(location, heading, data)
         if IsControlJustPressed(0, 177) then
             lib.hideTextUI()
             ClearPedTasks(cache.ped)
-            location = nil
+            location = vec3(0)
 
             break
         end
     end
 
     lib.hideTextUI()
-    if location then
-        SetEntityCoords(cache.ped, location.x, location.y, location.z, 0.0, 0.0, 0.0, false)
+    if location ~= vec3(0) then
+        SetEntityCoords(cache.ped, location.x, location.y, location.z, false, false, false, false)
 
         data.Advanced = {
             Coords = location,
@@ -892,7 +890,7 @@ function startPlacementThread(data)
     clone = ClonePed(cache.ped, false, false, true)
 
     FreezeEntityPosition(clone, true)
-    SetEntityAlpha(clone, 0)
+    SetEntityAlpha(clone, 0, false)
 
     local dictionaryName, animationName = data.Dictionary, data.Animation
     local isValid = lib.requestAnimDict(dictionaryName, 1000)
@@ -939,38 +937,39 @@ function startPlacementThread(data)
 
             if propCount > 0 then
                 Wait(duration or 0)
-    
+
                 local propList = {}
-    
+
                 for i = 1, propCount do
                     local prop = propData[i]
                     local variant = prop.Variant
-    
+
                     if variation then
                         if prop.Variations and prop.Variations[variation] then
                             variant = prop.Variations[variation]
                         end
                     end
-    
+
                     propList[#propList + 1] = {
                         hash = joaat(prop.Name),
                         bone = prop.Bone,
-                        placement = prop.Placement
+                        placement = prop.Placement,
+                        variant = variant
                     }
                 end
-    
+
                 if #propList > 0 then
                     for i = 1, #propList do
                         local prop = propList[i]
-    
+
                         lib.requestModel(prop.hash, 1000)
-    
+
                         local object = CreateObject(prop.hash, clonePos.x, clonePos.y, clonePos.z, false, false, false)
                         SetEntityCollision(object, false, false)
                         AttachEntityToEntity(object, clone, GetPedBoneIndex(clone, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
-    
+
                         cloneProps[#cloneProps + 1] = object
-    
+
                         SetModelAsNoLongerNeeded(prop.hash)
                     end
                 end
@@ -979,7 +978,7 @@ function startPlacementThread(data)
     end
 
     SetEntityCollision(clone, false, false)
-    SetEntityAlpha(clone, 200)
+    SetEntityAlpha(clone, 200, false)
     SetBlockingOfNonTemporaryEvents(clone, true)
 
     local currentCoords = nil
@@ -990,15 +989,15 @@ function startPlacementThread(data)
     SetTimeout(0, function()
         local offsetZ = 0.0
         local hit, _, endCoords
-        
+
         CreateThread(function()
-            while clone ~= nil do
-                hit, _, endCoords = lib.raycast.cam(4294967295, 7)
+            while clone do
+                hit, _, endCoords = lib.raycast.cam(511, 7)
                 Wait(5)
             end
         end)
 
-        while clone ~= nil do
+        while clone do
             Wait(0)
 
             DisableControlAction(0, 22, true)
@@ -1006,24 +1005,24 @@ function startPlacementThread(data)
             if hit then
                 currentCoords = endCoords
 
-                SetEntityCoords(clone, currentCoords.x, currentCoords.y, currentCoords.z + offsetZ)
+                SetEntityCoords(clone, currentCoords.x, currentCoords.y, currentCoords.z + offsetZ, false, false, false, false)
                 SetEntityHeading(clone, heading)
             end
 
             if IsDisabledControlJustPressed(0, 14) then
-                heading = heading + 5
+                heading += 5
 
                 if heading > 360 then heading = 0.0 end
             elseif IsDisabledControlJustPressed(0, 15) then
-                heading = heading - 5
+                heading -= 5
 
                 if heading < 0 then heading = 360.0 end
             elseif IsDisabledControlPressed(0, 27) then
-                offsetZ = offsetZ + 0.01
+                offsetZ += 0.01
 
                 if offsetZ > 1.0 then offsetZ = 1.0 end
             elseif IsDisabledControlPressed(0, 173) then
-                offsetZ = offsetZ - 0.01
+                offsetZ -= 0.01
 
                 if offsetZ < -1.0 then offsetZ = -1.0 end
             end
@@ -1051,7 +1050,6 @@ end
 ---@param bone number
 ---@param placement table
 ---@param variant number
----@return number object Entity handle
 function addPropToPlayer(object, bone, placement, variant)
     SetEntityCollision(object, false, false)
 
@@ -1099,7 +1097,7 @@ function removeUnsupportedEmotes()
                     end
 
                     if not doesExist then
-                        print((lang.gamebuild_not_supported):format(animation.Label))
+                        print(lang.gamebuild_not_supported:format(animation.Label))
                     end
                 end
 
@@ -1134,7 +1132,7 @@ function searchMenu(query)
             for emote = 1, #animList do
                 local anim = animList[emote]
 
-                if anim and (anim.Command and string.find(string.lower(anim.Command), query)) then
+                if anim and anim.Command and string.find(string.lower(anim.Command), query) then
                     anim.CommandHandle = animType == 'Walks' and Config.WalkSetCommands[1] or Config.EmotePlayCommands[1]
                     anim.Type = animType
                     foundEmotes[#foundEmotes + 1] = anim
@@ -1143,7 +1141,7 @@ function searchMenu(query)
         end
     end
 
-    if #foundEmotes < 1 then
+    if #foundEmotes == 0 then
         notify('error', lang.no_animations_found)
         lib.showMenu('animations_main_menu')
         return
@@ -1164,10 +1162,10 @@ function searchMenu(query)
         title = 'Animation Menu',
         position = Config.MenuPosition,
         options = options,
-        onClose = function(_)
+        onClose = function()
             lib.showMenu('animations_main_menu')
         end,
-    }, function(selected, scrollIndex, option)
+    }, function(_, _, option)
         if isActionsLimited then return end
 
         local _type, emote = getEmoteByCommand(option)
@@ -1178,7 +1176,7 @@ function searchMenu(query)
         end
 
         if _type == 'Walks' then
-            setWalk(emote.Walk)
+            setWalk(emote?.Walk)
             return
         end
 
@@ -1187,7 +1185,7 @@ function searchMenu(query)
             return
         end
 
-        playEmote(emote)
+        playEmote(emote --[[@as table]])
     end)
     lib.showMenu('animations_search_menu')
 end
@@ -1228,10 +1226,10 @@ function openBindMenu()
         title = lang.emote_menu,
         position = Config.MenuPosition,
         options = emoteMenuBindsOptions,
-        onClose = function(_)
+        onClose = function()
             lib.showMenu('animations_main_menu')
         end,
-    }, function(selected, scrollIndex, option)
+    }, function(selected, _, option)
         if isActionsLimited then return end
 
         if option == 'animations_create_bind' then
@@ -1239,19 +1237,19 @@ function openBindMenu()
 
             if not query then return end
 
-            local _type, emote = getEmoteByCommand(query[1])
+            local _type, emote = getEmoteByCommand(query[1] --[[@as string]])
 
-            if not _type or (_type == 'Walks') then
+            if not _type or _type == 'Walks' then
                 notify('error', lang.not_valid_emote)
                 return
             end
 
-            if emote.BlockBinding then
+            if emote?.BlockBinding then
                 notify('error', lang.not_allowed_to_bind)
                 return
             end
 
-            createBind(selected, emote)
+            createBind(selected, emote --[[@as table]])
 
             return
         end
@@ -1464,7 +1462,7 @@ lib.registerMenu({
     title = lang.emote_menu,
     position = Config.MenuPosition,
     options = mainMenuOptions,
-}, function(selected, scrollIndex, option)
+}, function(_, scrollIndex, option)
     if isActionsLimited then return end
 
     if option == 'animations_search' then
@@ -1472,7 +1470,7 @@ lib.registerMenu({
 
         if not query then return end
 
-        searchMenu(string.lower(query[1]))
+        searchMenu(string.lower(query[1] --[[@as string]]))
 
         return
     elseif option == 'animations_emote_binds_menu' then
@@ -1485,13 +1483,13 @@ lib.registerMenu({
         return
     elseif option == 'cancel' then
         if scrollIndex == 1 then
-            cancelEmote()
+            cancelEmote(false)
         elseif scrollIndex == 2 then
             resetWalk()
         elseif scrollIndex == 3 then
             resetExpression()
         elseif scrollIndex == 4 then
-            cancelEmote()
+            cancelEmote(false)
             resetWalk()
             resetExpression()
         end
@@ -1522,7 +1520,7 @@ lib.registerMenu({
     title = lang.emote_menu,
     position = Config.MenuPosition,
     options = emoteMenuOptions,
-    onClose = function(_)
+    onClose = function()
         lib.showMenu('animations_main_menu')
     end,
 }, function(selected, scrollIndex, option)
@@ -1572,7 +1570,7 @@ for i = 1, #Config.EmotePlayCommands do
         local emoteName = args[1]:lower()
 
         if emoteName == 'c' then
-            cancelEmote()
+            cancelEmote(false)
 
             return
         end
@@ -1585,7 +1583,7 @@ for i = 1, #Config.EmotePlayCommands do
 
         local _type, emote = getEmoteByCommand(emoteName)
 
-        if not _type or (_type == 'Walks') then
+        if not _type or _type == 'Walks' then
             notify('error', lang.not_valid_emote)
 
             return
@@ -1606,12 +1604,12 @@ for i = 1, #Config.EmotePlayCommands do
             if index then variant = index end
         end
 
-        playEmote(emote, variant)
+        playEmote(emote --[[@as table]], variant)
     end, false)
 end
 
 for i = 1, #Config.WalkSetCommands do
-    RegisterCommand(Config.WalkSetCommands[i], function(source, args, rawCommand)
+    RegisterCommand(Config.WalkSetCommands[i], function(_, args)
         if isActionsLimited then return end
 
         if not args[1] then
@@ -1642,7 +1640,7 @@ for i = 1, #Config.WalkSetCommands do
             return
         end
 
-        setWalk(emote.Walk)
+        setWalk(emote?.Walk)
     end, false)
 end
 
@@ -1658,8 +1656,8 @@ if Config.CancelEmoteKey ~= '' then
         name = 'ecancel',
         description = lang.cancel_your_emote,
         defaultKey = Config.CancelEmoteKey,
-        onPressed = function(key)
-            cancelEmote()
+        onPressed = function()
+            cancelEmote(false)
         end
     })
 end
@@ -1672,7 +1670,7 @@ if Config.RagdollKeybind ~= '' then
         name = 'ragdoll',
         description = lang.ragdoll_character,
         defaultKey = Config.RagdollKeybind,
-        onPressed = function(key)
+        onPressed = function()
             if isActionsLimited or isPlayingAnimation then return end
 
             isRagdoll = not isRagdoll
@@ -1685,7 +1683,7 @@ if Config.RagdollKeybind ~= '' then
                 end
 
                 if IsPedOnFoot(cache.ped) then
-                    SetPedToRagdoll(cache.ped, 1000, 1000, 0, 0, 0, 0)
+                    SetPedToRagdoll(cache.ped, 1000, 1000, 0, false, false, false)
                 end
             end
         end
@@ -1697,7 +1695,7 @@ if Config.HandsUpKey ~= '' then
         name = 'handsup',
         description = lang.hands_up,
         defaultKey = Config.HandsUpKey,
-        onPressed = function(key)
+        onPressed = function()
             if isActionsLimited then return end
 
             local onBike = false
@@ -1709,9 +1707,10 @@ if Config.HandsUpKey ~= '' then
             end
 
             lib.requestAnimDict('random@mugging3', 1000)
+            ---@diagnostic disable-next-line: param-type-mismatch
             TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
         end,
-        onReleased = function(key)
+        onReleased = function()
             ClearPedTasks(cache.ped)
         end
     })
@@ -1724,7 +1723,7 @@ if Config.StanceKey ~= '' then
         name = 'stance',
         description = lang.stance,
         defaultKey = Config.StanceKey,
-        onPressed = function(key)
+        onPressed = function()
             if isActionsLimited or cache.vehicle then return end
 
             DisableControlAction(0, 36, true)
@@ -1765,7 +1764,7 @@ if Config.PointKey ~= '' then
         name = 'point',
         description = lang.point,
         defaultKey = Config.PointKey,
-        onPressed = function(key)
+        onPressed = function()
             if isActionsLimited then return end
 
             isPointing = not isPointing
@@ -1774,8 +1773,8 @@ if Config.PointKey ~= '' then
                 if cache.vehicle then return end
 
                 lib.requestAnimDict('anim@mp_point', 1000)
-                SetPedCurrentWeaponVisible(cache.ped, 0, true, true, true)
-                SetPedConfigFlag(cache.ped, 36, 1)
+                SetPedCurrentWeaponVisible(cache.ped, false, true, true, true)
+                SetPedConfigFlag(cache.ped, 36, true)
                 TaskMoveNetworkByName(cache.ped, 'task_mp_pointing', 0.5, false, 'anim@mp_point', 24)
                 RemoveAnimDict('anim@mp_point')
                 CreateThread(function()
@@ -1817,7 +1816,7 @@ if Config.PointKey ~= '' then
                 RequestTaskMoveNetworkStateTransition(cache.ped, 'Stop')
 
                 if not IsPedInjured(cache.ped) then ClearPedSecondaryTask(cache.ped) end
-                if not cache.vehicle then SetPedCurrentWeaponVisible(cache.ped, 1, true, true, true) end
+                if not cache.vehicle then SetPedCurrentWeaponVisible(cache.ped, true, true, true, true) end
 
                 SetPedConfigFlag(cache.ped, 36, false)
                 ClearPedSecondaryTask(cache.ped)
@@ -1832,14 +1831,14 @@ if Config.PtfxKeybind then
         disabled = true,
         description = lang.play_ptfx,
         defaultKey = Config.PtfxKeybind,
-        onPressed = function(key)
+        onPressed = function()
             LocalPlayer.state:set('ptfx', true, true)
 
             if not ptfxCanHold then
                 LocalPlayer.state:set('ptfx', false, true)
             end
         end,
-        onReleased = function(key)
+        onReleased = function()
             if ptfxCanHold then
                 LocalPlayer.state:set('ptfx', false, true)
             end
@@ -1848,7 +1847,8 @@ if Config.PtfxKeybind then
 end
 
 -- State Bag Handlers
-AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, replicated)
+---@diagnostic disable-next-line: param-type-mismatch
+AddStateBagChangeHandler('ptfx', nil, function(bagName, _, value)
     local serverId = tonumber(bagName:gsub('player:', ''), 10)
 
     if (playerParticles[serverId] and value) or (not playerParticles[serverId] and not value) then return end
@@ -1890,8 +1890,10 @@ AddStateBagChangeHandler('ptfx', nil, function(bagName, key, value, _unused, rep
     end
 end)
 
-AddStateBagChangeHandler('stance', nil, function(bagName, key, value, _unused, replicated)
+---@diagnostic disable-next-line: param-type-mismatch
+AddStateBagChangeHandler('stance', nil, function(_, _, value)
     if value == 0 then -- Regular
+        ---@diagnostic disable-next-line: param-type-mismatch
         SetPedStealthMovement(cache.ped, false, 0)
     elseif value == 1 then -- Stealth
         if currentWalk == 'default' then
@@ -1903,13 +1905,15 @@ AddStateBagChangeHandler('stance', nil, function(bagName, key, value, _unused, r
 
         ResetPedWeaponMovementClipset(cache.ped)
         ResetPedStrafeClipset(cache.ped)
+        ---@diagnostic disable-next-line: param-type-mismatch
         SetPedStealthMovement(cache.ped, true, 0)
     elseif value == 2 then -- Crouched
         lib.requestAnimSet('move_ped_crouched', 1000)
+        ---@diagnostic disable-next-line: param-type-mismatch
         SetPedStealthMovement(cache.ped, false, 0)
         SetPedMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
-        SetPedWeaponMovementClipset(cache.ped, 'move_ped_crouched', 1.0)
-        SetPedStrafeClipset(cache.ped, 'move_ped_crouched_strafing', 1.0)
+        SetPedWeaponMovementClipset(cache.ped, 'move_ped_crouched')
+        SetPedStrafeClipset(cache.ped, 'move_ped_crouched_strafing')
         crouchLoop()
     end
 end)
@@ -1932,7 +1936,7 @@ RegisterNetEvent('scully_emotemenu:toggleMenu', toggleMenu)
 local IsControlJustPressed = IsControlJustPressed
 
 RegisterNetEvent('scully_emotemenu:synchronizedEmoteRequest', function(sender, senderData, targetData)
-    PlaySoundFrontend(-1, 'NAV', 'HUD_AMMO_SHOP_SOUNDSET', 0)
+    PlaySoundFrontend(-1, 'NAV', 'HUD_AMMO_SHOP_SOUNDSET', false)
     showHelpAlert('fa-solid fa-question', (lang.accept_deny):format(targetData.Label))
 
     while true do
@@ -2016,7 +2020,7 @@ RegisterNetEvent('scully_emotemenu:senderStartSynchronizedEmote', function(targe
     local targetHeading = GetEntityHeading(targetPed)
 
     SetEntityHeading(cache.ped, targetHeading - headingOffset)
-    SetEntityCoordsNoOffset(cache.ped, targetCoords.x, targetCoords.y, targetCoords.z, 0)
+    SetEntityCoordsNoOffset(cache.ped, targetCoords.x, targetCoords.y, targetCoords.z, false, false, false)
     playEmote(senderData)
 
     otherPlayer = target
@@ -2026,7 +2030,7 @@ RegisterNetEvent('scully_emotemenu:cancelSynchronizedEmote', function()
     otherPlayer = nil
 
     notify('error', lang.emote_cancelled)
-    cancelEmote()
+    cancelEmote(false)
 end)
 
 -- Cache
@@ -2057,7 +2061,7 @@ AddEventHandler('entityDamaged', function(entity)
     if cache.ped == entity then
         if not IsPedFatallyInjured(cache.ped) then return end
 
-        cancelEmote()
+        cancelEmote(false)
     end
 end)
 
@@ -2112,6 +2116,6 @@ end)
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
-        cancelEmote()
+        cancelEmote(false)
     end
 end)
