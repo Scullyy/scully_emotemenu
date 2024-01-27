@@ -4,6 +4,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 lua54 'yes'
+use_experimental_fxv2_oal 'yes'
 
 version '1.9.9'
 
@@ -52,4 +53,3 @@ data_file 'DLC_ITYP_REQUEST' 'bzzz_package_pizzahut.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'ultra_ringcase.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'bzzz_food_xmas22.ytyp'
 data_file 'DLC_ITYP_REQUEST' 'pprp_icefishing.ytyp'
-
