@@ -20,28 +20,22 @@ for _type, emoteList in pairs(custom) do
     end
 end
 
-local function emoteMenuPrint(_type, log)
-    local color = _type == 'success' and '^2' or '^1'
-
-    print(('^5[scully_emotemenu]%s %s^7'):format(color, log))
-end
-
 local function CheckMenuVersion()
     PerformHttpRequest('https://raw.githubusercontent.com/scullyy/scully_emotemenu/master/version.txt', function(err, text, headers)
         local currentVersion = GetResourceMetadata(GetCurrentResourceName(), 'version')
 
         if not text then
-            emoteMenuPrint('error', 'Currently unable to run a version check.')
+            lib.print.error('Currently unable to run a version check.')
             return
         end
 
-        emoteMenuPrint('success', ('Current Version: %s'):format(currentVersion))
-        emoteMenuPrint('success', ('Latest Version: %s'):format(text))
+        lib.print.info(('Current Version: %s'):format(currentVersion))
+        lib.print.info(('Latest Version: %s'):format(text))
 
         if text == currentVersion then
-            emoteMenuPrint('success', 'You are running the latest version.')
+            lib.print.info('You are running the latest version.')
         else
-            emoteMenuPrint('error', ('You are currently running an outdated version, please update to version %s'):format(text))
+            lib.print.error(('You are currently running an outdated version, please update to version %s'):format(text))
         end
     end)
 end
@@ -82,9 +76,9 @@ local function dumpPropsToFile()
     local success = SaveResourceFile(GetCurrentResourceName(), 'prop_dump.lua', contents, -1)
 
     if success then
-        emoteMenuPrint('success', 'Prop dump created.')
+        lib.print.info('Prop dump created.')
     else
-        emoteMenuPrint('error', 'Could not save prop_dump.lua file.')
+        lib.print.error('Could not save prop_dump.lua file.')
     end
 end
 
@@ -200,7 +194,7 @@ end)
 
 RegisterNetEvent('scully_emotemenu:syncPtfx', function(asset, name, placement, bone, color)
     if (type(asset) ~= 'string') or (type(name) ~= 'string') or (type(placement) ~= 'table') then
-        emoteMenuPrint('error', 'Invalid arguments for PTFX.')
+        lib.print.error('Invalid arguments for PTFX.')
         return
     end
 
