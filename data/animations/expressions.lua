@@ -10,14 +10,14 @@ return {
         Expression = 'mood_angry_1',
     },
     {
-        Label = 'Crying',
-        Command = 'crying',
-        Expression = 'console_wasnt_fun_end_loop_floyd_facial',
-    },
-    {
         Label = 'Burning',
         Command = 'burning',
         Expression = 'burning_1',
+    },
+    {
+        Label = 'Crying',
+        Command = 'crying',
+        Expression = 'console_wasnt_fun_end_loop_floyd_facial',
     },
     {
         Label = 'Dead',

@@ -190,6 +190,11 @@ return {
         Walk = 'move_m@drunk@moderatedrunk',
     },
     {
+        Label = 'Drunk 6',
+        Command = 'drunk6',
+        Walk = 'move_m@drunk@moderatedrunk_head_up',
+    },
+    {
         Label = 'Fat',
         Command = 'fat',
         Walk = 'move_f@fat@a',
@@ -205,9 +210,19 @@ return {
         Walk = 'move_m@fat@bulky',
     },
     {
+        Label = 'Fat 4',
+        Command = 'fat4',
+        Walk = 'move_f@fat@a_no_add',
+    },
+    {
         Label = 'Femme',
         Command = 'femme',
         Walk = 'move_f@femme@',
+    },
+    {
+        Label = 'Femme 2',
+        Command = 'femme2',
+        Walk = 'move_m@femme@',
     },
     {
         Label = 'Fire',

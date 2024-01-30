@@ -6,7 +6,7 @@ game 'gta5'
 lua54 'yes'
 use_experimental_fxv2_oal 'yes'
 
-version '1.9.9'
+version '1.9.9f'
 
 dependencies {
     '/server:5848',
