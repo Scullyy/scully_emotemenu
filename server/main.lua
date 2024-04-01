@@ -44,6 +44,7 @@ local function dumpPropsToFile()
     if not Config.EnablePropDump then return end
 
     local propDump = {}
+    local duplicates = {}
 
     for _, emoteList in pairs(AnimationList) do
         for i = 1, #emoteList do
@@ -55,8 +56,11 @@ local function dumpPropsToFile()
                 if propCount > 0 then
                     for k = 1, propCount do
                         local prop = emote.Options.Props[k]
-
-                        propDump[#propDump + 1] = prop.Name
+                        
+                        if not duplicates[prop.Name] then
+                            duplicates[prop.Name] = true
+                            propDump[#propDump + 1] = prop.Name
+                        end
                     end
                 end
             end
