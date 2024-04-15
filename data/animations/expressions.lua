@@ -150,4 +150,3 @@ return {
         Expression = 'effort_3',
     }
 }
-

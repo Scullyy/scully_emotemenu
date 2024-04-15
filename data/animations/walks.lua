@@ -670,4 +670,3 @@ return {
         Walk = 'move_m@bag',
     }
 }
-

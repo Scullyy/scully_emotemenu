@@ -547,7 +547,7 @@ function playEmote(data, variation)
             end
 
             TaskPlayAnim(cache.ped, secondaryEmote.Dictionary, secondaryEmote.Animation, 2.0, 2.0, secondaryEmote.Duration or -1, 51, 0, false, false, false)
-            RemoveAnimDict(dictionaryName)
+            RemoveAnimDict(secondaryEmote.Dictionary)
         end
 
         local propData = data.Options.Props
@@ -693,7 +693,7 @@ function initCloneEmote(data)
             end
 
             TaskPlayAnim(clone, secondaryEmote.Dictionary, secondaryEmote.Animation, 2.0, 2.0, secondaryEmote.Duration or -1, 51, 0, false, false, false)
-            RemoveAnimDict(dictionaryName)
+            RemoveAnimDict(secondaryEmote.Dictionary)
         end
 
         local propData = data.Options.Props
@@ -927,7 +927,7 @@ function startPlacementThread(data)
             end
 
             TaskPlayAnim(clone, secondaryEmote.Dictionary, secondaryEmote.Animation, 2.0, 2.0, secondaryEmote.Duration or -1, 51, 0, false, false, false)
-            RemoveAnimDict(dictionaryName)
+            RemoveAnimDict(secondaryEmote.Dictionary)
         end
 
         local propData = data.Options.Props

@@ -240,4 +240,3 @@ return {
         Scenario = 'WORLD_HUMAN_YOGA',
     }
 }
-
