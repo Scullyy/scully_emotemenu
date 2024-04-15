@@ -56,7 +56,9 @@ local function dumpPropsToFile()
                     for k = 1, propCount do
                         local prop = emote.Options.Props[k]
 
-                        propDump[#propDump + 1] = prop.Name
+                        if not lib.table.contains(propDump, prop.Name) then
+                            propDump[#propDump + 1] = prop.Name
+                        end
                     end
                 end
             end
