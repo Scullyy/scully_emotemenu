@@ -763,7 +763,7 @@ end
 ---Cancel the animation you're currently playing
 ---@param skipReset boolean
 function cancelEmote(skipReset)
-    if isPlayingAnimation then
+    if isPlayingAnimation and not isActionsLimited then
         if IsPedUsingAnyScenario(cache.ped) then ClearPedTasksImmediately(cache.ped) end
         if LocalPlayer.state.ptfx then LocalPlayer.state:set('ptfx', false, true) end
         if Config.PtfxKeybind then keybinds.PlayPtfx:disable(true) end
@@ -1711,6 +1711,8 @@ if Config.HandsUpKey ~= '' then
             TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
         end,
         onReleased = function()
+            if isActionsLimited then return end
+            
             ClearPedTasks(cache.ped)
         end
     })
