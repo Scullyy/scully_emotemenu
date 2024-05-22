@@ -1,4 +1,3 @@
--- Dutch
 return {
     search = 'Zoeken',
     search_for_animation = 'Zoek naar animaties',
@@ -29,9 +28,9 @@ return {
     bind_deleted = 'De koppeling is verwijderd!',
     new_bind = 'Selecteer om een nieuwe emotie-koppeling te maken',
     bind_created = '%s is gekoppeld!',
-    emote_list = 'Emote List',
-    nsfw_limited = 'You\'re not allowed to do NSFW emotes right now!',
-    close = 'Close',
+    emote_list = 'Emotielijst',
+    nsfw_limited = 'Je mag op dit moment geen NSFW-emoties doen!',
+    close = 'Sluiten',
     not_valid_registered_emote = 'Dit is geen geldige geregistreerde emotie, informeer alsjeblieft de server eigenaar',
     no_player_nearby = 'Geen speler in de buurt!',
     not_valid_synced_emote = 'Dit is geen geldige gesynchroniseerde emotie, informeer alsjeblieft de server eigenaar',
@@ -55,14 +54,15 @@ return {
     play_ptfx = 'Speel het geselecteerde deeltjeseffect af',
     accept_deny = '[Y] - Accepteren, [N] - Weigeren: %s',
     emote_cancelled = 'De emotie is geannuleerd!',
-    not_valid_ped = 'You\'re not allowed to do that emote with your current ped model!',
-    right_click_to_cancel = '[Right Click] to cancel',
+    not_valid_ped = 'Je mag dat emotie niet doen met je huidige ped model!',
+    right_click_to_cancel = '[Rechtsklik] om te annuleren',
     placement_text = {
-        '-- Placement --  \n',
-        '[E] Finish  \n',
-        '[X / Right Click] Cancel  \n',
-        '[Up/Down Arrows] Height \n',
-        '[SCROLL] Rotate  \n',
+        '-- Plaatsing --  \n',
+        '[E] Voltooien  \n',
+        '[X / Rechtsklik] Annuleren  \n',
+        '[Pijltjes omhoog/omlaag] Hoogte \n',
+        '[SCROLL] Draaien  \n',
     },
-    too_far = 'You are too far!'
+    too_far = 'Je bent te ver weg!',
+    invalid_emote_data = 'Ongeldige emotie data',
 }
