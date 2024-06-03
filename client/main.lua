@@ -1,6 +1,6 @@
 local gameBuild, currentWalk, currentExpression = GetGameBuildNumber(), GetResourceKvpString('animations_walkstyle') or 'default', GetResourceKvpString('animations_expression') or 'default'
 local emoteBinds, isActionsLimited, isPlayingAnimation = json.decode(GetResourceKvpString('animations_binds')) or {}, false, false
-local isRagdoll, isPointing, returnStance = false, false, false
+local isRagdoll, isPointing, hasHandsUp, returnStance = false, false, false, false
 local emoteCooldown, lastEmote, lastVariant, ptfxCanHold, otherPlayer, clone = 0, nil, nil, false, nil, nil
 local playerParticles, keybinds, registeredEmotes, cloneProps = {}, {}, {}, {}
 local lang = require('locales.' .. Config.Language)
@@ -1709,14 +1709,22 @@ if Config.HandsUpKey ~= '' then
             lib.requestAnimDict('random@mugging3', 1000)
             ---@diagnostic disable-next-line: param-type-mismatch
             TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
+
+            hasHandsUp = true
         end,
         onReleased = function()
             if isActionsLimited then return end
-            
+
             ClearPedTasks(cache.ped)
+
+            hasHandsUp = false
         end
     })
 end
+
+exports('HasHandsUp', function()
+    return hasHandsUp
+end)
 
 if Config.StanceKey ~= '' then
     LocalPlayer.state:set('stance', 0, false)
