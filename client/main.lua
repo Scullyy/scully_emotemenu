@@ -1695,8 +1695,10 @@ if Config.HandsUpKey ~= '' then
         name = 'handsup',
         description = lang.hands_up,
         defaultKey = Config.HandsUpKey,
-        onPressed = function()
+        onPressed = function(data)
             if isActionsLimited then return end
+
+            if GetVehiclePedIsEntering(cache.ped) ~= 0 then return end -- return if ped trying to enter a vehicle
 
             local onBike = false
 
@@ -1709,11 +1711,14 @@ if Config.HandsUpKey ~= '' then
             lib.requestAnimDict('random@mugging3', 1000)
             ---@diagnostic disable-next-line: param-type-mismatch
             TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
+            data.isInAnim = true
         end,
-        onReleased = function()
+        onReleased = function(data)
             if isActionsLimited then return end
             
+            if not data.isInAnim then return end
             ClearPedTasks(cache.ped)
+            data.isInAnim = false
         end
     })
 end
