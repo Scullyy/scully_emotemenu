@@ -1,6 +1,11 @@
 # Get Current Walk
 
-Get the players current walk style, it will return 'default' if they didn't set one.
+Get the players current walk style
 ```lua
-local walk = exports.scully_emotemenu:getCurrentWalk()
+local scully_emotemenu = exports.scully_emotemenu
+local walk = scully_emotemenu:getCurrentWalk()
+
+if walk then
+    print(walk)
+end
 ```

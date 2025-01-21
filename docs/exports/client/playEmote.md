@@ -1,10 +1,10 @@
 # Play Emote
 
-Play an emote.
+Play an emote or scenario
 ```lua
-local EmoteData = {
-    Label = 'Leaning With Phone',
-    Command = 'leanphone',
+local scully_emotemenu = exports.scully_emotemenu
+local variant = 2
+local emoteData = {
     Animation = 'base',
     Dictionary = 'amb@world_human_leaning@male@wall@back@mobile@base',
     Options = {
@@ -26,5 +26,5 @@ local EmoteData = {
     }
 }
 
-exports.scully_emotemenu:playEmote(EmoteData, EmoteData.Variant) -- Variant is optional.
+scully_emotemenu:playEmote(emoteData, variant) -- Variant is optional.
 ```

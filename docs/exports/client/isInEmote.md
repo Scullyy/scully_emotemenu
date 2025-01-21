@@ -1,6 +1,7 @@
 # Is In Emote
 
-Check if the player is currently playing an emote.
+Check if the player is in an emote
 ```lua
-local isInAnim = exports.scully_emotemenu:isInEmote()
+local scully_emotemenu = exports.scully_emotemenu
+local isInEmote = scully_emotemenu:isInEmote()
 ```

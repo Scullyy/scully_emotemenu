@@ -1,6 +1,8 @@
 # Toggle Menu
 
-Toggle the emote menu.
+Toggle the emote menu
 ```lua
-exports.scully_emotemenu:toggleMenu()
+local scully_emotemenu = exports.scully_emotemenu
+
+scully_emotemenu:toggleMenu()
 ```

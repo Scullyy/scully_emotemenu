@@ -1,6 +1,6 @@
 # Set Expression
 
-Set the players expression.
+Set the players current expression
 ```lua
-TriggerClientEvent('scully_emotemenu:setExpression', source, 'mood_drunk_1')
+TriggerEvent('scully_emotemenu:setExpression', 'mood_drunk_1')
 ```

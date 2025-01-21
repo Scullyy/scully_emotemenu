@@ -1,10 +1,9 @@
 # Register Emote
 
-Register an animation to be used within other resources and excluded from the menu / commands.
+Register emotes to be used within external resources
 ```lua
-TriggerClientEvent('scully_emotemenu:registerEmote', source, {
+TriggerEvent('scully_emotemenu:registerEmote', {
     Name = 'shrug',
-    Type = 'Emotes',
     Animation = 'gesture_shrug_hard',
     Dictionary = 'gestures@f@standing@casual',
     Options = {

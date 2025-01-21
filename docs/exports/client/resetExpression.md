@@ -1,6 +1,8 @@
 # Reset Expression
 
-Reset the players expression to default.
+Reset the players expression
 ```lua
-exports.scully_emotemenu:resetExpression()
+local scully_emotemenu = exports.scully_emotemenu
+
+scully_emotemenu:resetExpression()
 ```

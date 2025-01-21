@@ -1,7 +1,9 @@
 # Custom Notification Function
 
-You can use the below export to set a custom notification function to make your changes update proof.
+Change the notification system
 ```lua
+local scully_emotemenu = exports.scully_emotemenu
+
 local function customEmoteNotification(_type, text)
     if _type == 'error' then
         print('^1ERROR: ' .. text)
@@ -10,5 +12,5 @@ local function customEmoteNotification(_type, text)
     end
 end
 
-exports.scully_emotemenu:customNotifyFn(customEmoteNotification)
+scully_emotemenu:customNotifyFn(customEmoteNotification)
 ```

@@ -1,6 +1,6 @@
 # Toggle Menu
 
-Toggle the animation menu.
+Toggle the emote menu
 ```lua
-TriggerClientEvent('scully_emotemenu:toggleMenu', source)
+TriggerEvent('scully_emotemenu:toggleMenu')
 ```

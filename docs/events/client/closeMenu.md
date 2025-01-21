@@ -1,6 +1,6 @@
 # Close Menu
 
-Close the animation menu.
+Close the emote menu
 ```lua
-TriggerClientEvent('scully_emotemenu:closeMenu', source)
+TriggerEvent('scully_emotemenu:closeMenu')
 ```

@@ -1,6 +1,8 @@
 # Cancel Emote
 
-Stop the emote the player is currently playing.
+Cancel an emote or scenario
 ```lua
-exports.scully_emotemenu:cancelEmote()
+local scully_emotemenu = exports.scully_emotemenu
+
+scully_emotemenu:cancelEmote()
 ```

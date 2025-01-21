@@ -1,6 +1,8 @@
 # Set Expression
 
-Set the players expression.
+Set the players current expression
 ```lua
-exports.scully_emotemenu:setExpression('mood_drunk_1')
+local scully_emotemenu = exports.scully_emotemenu
+
+scully_emotemenu:setExpression('mood_drunk_1')
 ```

@@ -1,7 +1,7 @@
-<img src='https://cdn.discordapp.com/attachments/1026222009060958279/1047036407731990568/image.png' width='750'>
+<img src='https://forum-cfx-re.akamaized.net/original/5X/2/c/6/3/2c6328a77cd53d782dd2b0860655df168bcc7922.png' width='750'>
 
 # Previews
-<img src='https://i.gyazo.com/80de82f9bd0574019069925b7ee64cf2.png'><img src='https://i.gyazo.com/7ee2779f736b3ddb88e6e40d7db46597.png'>
+<img src='https://i.gyazo.com/d9ebb83540de24ab4ebbd52b621077c8.png'><img src='https://i.gyazo.com/f98316732f8e22265830a4853ee36013.png'><img src='https://i.gyazo.com/259935e8349f0511bc4ae80b03ff1f34.png'>
 
 # Support:
 
@@ -9,7 +9,11 @@ For support join my discord here: https://discord.gg/scully
 
 # Installation Instructions:
 
-* add `ensure scully_emotemenu` to your `server.cfg`
+- Drag the resource into your `resources` folder
+- Configure the `scully_emotemenu.cfg` to your liking
+- Move the `scully_emotemenu.cfg` to the same location as your `server.cfg`
+- Add `exec scully_emotemenu.cfg` to the top of your `server.cfg`
+- Add `ensure scully_emotemenu` to your `server.cfg`
 
 # Requirements
 
@@ -17,19 +21,19 @@ For support join my discord here: https://discord.gg/scully
 
 # Features
 
-- Over 20 translations
+- Translation support
 
 - Search option
 
-- Custom animations
+- Custom emotes
 
-- Prop emotes
+- Prop emotes with props that spawn on the client via state bags
 
 - Consumable emotes
 
 - Animal emotes
 
-- Synchronized animations
+- Synchronized emotes (including dances)
 
 - Synchronized particle effects with optional automated feature and color support
 
@@ -37,15 +41,15 @@ For support join my discord here: https://discord.gg/scully
 
 - Easy to understand configuration file
 
-- Exports and events to integrate within other resources
+- Exports, state bags and events to integrate within other resources
 
-- Walk styles that save
+- Walk styles and facial expressions that save
 
 - Prop variation support
 
-- Hands up, Pointing and crouching
+- Hands up, pointing and stance system with a config option included to change it to a traditional crouch system
 
-- Ability to hide animations from the menu
+- Ability to hide emotes from the menu
 
 - Commands
 
@@ -57,13 +61,22 @@ For support join my discord here: https://discord.gg/scully
 
 - Ability to add walk styles and expressions to your radial menu
 
-- Prop extractor for anticheat systems
-
 - Emote preview system by holding `E` while selecting an emote
 
-- Compatibility with QBCore events
+- Placement system to choose where you do certain emotes
 
-- Ability to choose where you do your animation
+# State Bags
+| State Bag Name | Replicated | Description |
+| ------------- | ------------- | ------------- |
+| [allowNSFWEmotes](docs/statebags/allowNSFWEmotes.md) | Yes | Toggle if the player can use NSFW emotes or not |
+| [expression](docs/statebags/expression.md) | Yes | Get the players current expression |
+| [handsup](docs/statebags/handsup.md) | No | Check if the player has their hands up |
+| [inSynchronizedEmote](docs/statebags/inSynchronizedEmote.md) | Yes | Check if the player is in a synchronized emote |
+| [isInEmote](docs/statebags/isInEmote.md) | Yes | Check if the player is in an emote |
+| [isLimited](docs/statebags/isLimited.md) | Yes | Check if the player is currently limited |
+| [lastEmote](docs/statebags/lastEmote.md) | No | Get the last emote a player used |
+| [stance](docs/statebags/stance.md) | No | Set or check the players stance mode |
+| [walkstyle](docs/statebags/walkstyle.md) | Yes | Get the players current walk style |
 
 # Exports
 
@@ -71,58 +84,58 @@ For support join my discord here: https://discord.gg/scully
 | ------------- | ------------- | ------------- | ------------- |
 | [toggleMenu](docs/exports/client/toggleMenu.md) | None | Client | Toggle the emote menu |
 | [closeMenu](docs/exports/client/closeMenu.md) | None | Client | Close the emote menu |
-| [getCurrentExpression](docs/exports/client/getCurrentExpression.md) | None | Client | Get the players current expression |
-| [setExpression](docs/exports/client/setExpression.md) | String (Expression Name) | Client | Set the players expression |
-| [resetExpression](docs/exports/client/resetExpression.md) | None | Client | Reset the players expression to default |
+| [addEmoteMenuOption](docs/exports/client/addEmoteMenuOption.md) | Table | Client | Add a new menu option to the emote menu |
+| [isInEmote](docs/exports/client/isInEmote.md) | None | Client | Check if the player is in an emote |
+| [getLastEmote](docs/exports/client/getLastEmote.md) | None | Client | Get the last emote a player used |
+| [playEmote](docs/exports/client/playEmote.md) | Table, Number? | Client | Play an emote or scenario |
+| [cancelEmote](docs/exports/client/cancelEmote.md) | Boolean? | Client | Cancel an emote or scenario |
+| [playEmoteByCommand](docs/exports/client/playEmoteByCommand.md) | String, Number? | Client | Play an emote by command |
 | [getCurrentWalk](docs/exports/client/getCurrentWalk.md) | None | Client | Get the players current walk style |
-| [setWalk](docs/exports/client/setWalk.md) | String (Walk Name) | Client | Set the players walk style |
-| [resetWalk](docs/exports/client/resetWalk.md) | None | Client | Reset the players walk style to default |
-| [isInEmote](docs/exports/client/isInEmote.md) | None | Client | Check if the player is currently playing an animation |
-| [getLastEmote](docs/exports/client/getLastEmote.md) | None | Client | Get the emote a player last used |
-| [registerEmote](docs/exports/client/registerEmote.md) | Table (Emote Data) | Client | Register an animation from an external resource |
-| [playRegisteredEmote](docs/exports/client/playRegisteredEmote.md) | String (Emote Name) | Client | Play a registered animation |
-| [playEmote](docs/exports/client/playEmote.md) | Table (Emote Data), Number (Variant) | Client | Play an animation |
-| [playEmoteByCommand](docs/exports/client/playEmoteByCommand.md) | String (Emote Command), Number (Variant) | Client | Play an animation using the command |
-| [cancelEmote](docs/exports/client/cancelEmote.md) | None | Client | Stop playing an animation |
+| [setWalk](docs/exports/client/setWalk.md) | String | Client | Set the players current walk style |
+| [resetWalk](docs/exports/client/resetWalk.md) | None | Client | Reset the players walk style |
+| [setWalkByCommand](docs/exports/client/setWalkByCommand.md) | String | Client | Set the players current walk style using the command |
+| [getCurrentExpression](docs/exports/client/getCurrentExpression.md) | None | Client | Get the players current expression |
+| [setExpression](docs/exports/client/setExpression.md) | String | Client | Set the players current expression |
+| [resetExpression](docs/exports/client/resetExpression.md) | None | Client | Reset the players expression |
+| [setExpressionByCommand](docs/exports/client/setExpressionByCommand.md) | String | Client | Set the players current expression using the command |
+| [registerEmote](docs/exports/client/registerEmote.md) | Table | Client | Register emotes to be used within external resources |
+| [playRegisteredEmote](docs/exports/client/playRegisteredEmote.md) | String | Client | Play a registered emote |
+| [getEmoteProps](docs/exports/client/getEmoteProps.md) | None | Client | Get a list of props from your current emote |
+| [setLimitation](docs/exports/client/setLimitation.md) | Boolean | Client | Toggle player limitations |
 | [isLimited](docs/exports/client/isLimited.md) | None | Client | Check if the player is currently limited |
-| [setLimitation](docs/exports/client/setLimitation.md) | Boolean (Limited) | Client | Toggle player limitations |
-| [listEmotes](docs/exports/client/listEmotes.md) | String (Emote Type) | Client | List emotes from any category |
-| [customNotifyFn](docs/exports/client/customNotifyFn.md) | Function (Emote Notification) | Client | Set a custom notification function |
-| [customHelpAlertFn](docs/exports/client/customHelpAlertFn.md) | Function (Emote Help Alert) | Client | Set a custom help alert function |
+| [customNotifyFn](docs/exports/client/customNotifyFn.md) | Function | Client | Change the notification system |
 
 # Events
 
 | Event Name | Parameter(s) | Type | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| [scully_emotemenu:toggleMenu](docs/exports/client/toggleMenu.md) | None | Client | Toggle the animation menu |
-| [scully_emotemenu:closeMenu](docs/exports/client/closeMenu.md) | None | Client | Close the animation menu |
-| [scully_emotemenu:setExpression](docs/exports/client/setExpression.md) | String (Expression Name) | Client | Set the players expression |
-| [scully_emotemenu:resetExpression](docs/exports/client/resetExpression.md) | None | Client | Reset the players expression to default |
-| [scully_emotemenu:setWalk](docs/exports/client/setWalk.md) | String (Walk Name) | Client | Set the players walk style |
-| [scully_emotemenu:resetWalk](docs/exports/client/resetWalk.md) | None | Client | Reset the players walk style to default |
-| [scully_emotemenu:registerEmote](docs/exports/client/registerEmote.md) | Table (Emote Data) | Client | Register an animation from an external resource |
-| [scully_emotemenu:playRegisteredEmote](docs/exports/client/playRegisteredEmote.md) | String (Emote Name) | Client | Play a registered animation |
-| [scully_emotemenu:play](docs/exports/client/play.md) | Table (Emote Data), Number (Variant) | Client | Play an animation |
-| [scully_emotemenu:playByCommand](docs/exports/client/playByCommand.md) | String (Emote Command), Number (Variant) | Client | Play an animation using the command |
-| [scully_emotemenu:cancelAnimation](docs/exports/client/cancelAnimation.md) | None | Client | Stop playing an animation |
-| [scully_emotemenu:toggleLimitation](docs/exports/client/toggleLimitation.md) | Boolean (Limited) | Client | Toggle player limitations |
-| [scully_emotemenu:listEmotes](docs/exports/client/listEmotes.md) | String (Emote Type) | Client | List emotes from any category |
+| [scully_emotemenu:toggleMenu](docs/events/client/toggleMenu.md) | None | Client | Toggle the emote menu |
+| [scully_emotemenu:closeMenu](docs/events/client/closeMenu.md) | None | Client | Close the emote menu |
+| [scully_emotemenu:playEmote](docs/events/client/playEmote.md) | Table, Number? | Client | Play an emote or scenario |
+| [scully_emotemenu:cancelEmote](docs/events/client/cancelEmote.md) | Boolean? | Client | Cancel an emote or scenario |
+| [scully_emotemenu:playEmoteByCommand](docs/events/client/playEmoteByCommand.md) | String, Number? | Client | Play an emote by command |
+| [scully_emotemenu:setWalk](docs/events/client/setWalk.md) | String | Client | Set the players current walk style |
+| [scully_emotemenu:resetWalk](docs/events/client/resetWalk.md) | None | Client | Reset the players walk style |
+| [scully_emotemenu:setWalkByCommand](docs/events/client/setWalkByCommand.md) | String | Client | Set the players current walk style using the command |
+| [scully_emotemenu:setExpression](docs/events/client/setExpression.md) | String | Client | Set the players current expression |
+| [scully_emotemenu:resetExpression](docs/events/client/resetExpression.md) | None | Client | Reset the players expression |
+| [scully_emotemenu:setExpressionByCommand](docs/events/client/setExpressionByCommand.md) | String | Client | Set the players current expression using the command |
+| [scully_emotemenu:registerEmote](docs/events/client/registerEmote.md) | Table | Client | Register emotes to be used within external resources |
+| [scully_emotemenu:playRegisteredEmote](docs/events/client/playRegisteredEmote.md) | String | Client | Play a registered emote |
+| [scully_emotemenu:setLimitation](docs/events/client/setLimitation.md) | Boolean | Client | Toggle player limitations |
+| [scully_emotemenu:isLimited](docs/events/client/isLimited.md) | None | Client | Check if the player is currently limited |
 
 # Keybinds
 
 **Important Note:**
 
-By default the configured keybinds in the *initial* config.lua will be the default keys, however once the keybinds are set for a player, they'll stay and editing the keybinds in the config will change them for new players only. Previous players can set their own keybinds within `Esc > settings > keybinds > fivem`.
+By default the configured keybinds in the *initial* scully_emotemenu.cfg will be the default keys, however once the keybinds are set for a player, they'll stay and editing the keybinds in the config will change them for new players only. Previous players can set their own keybinds within `Esc > settings > keybinds > fivem`.
 
 # Emote Binds
 
-To use emote binds you need to have the `EnableEmoteBinds` option enabled in the config.lua, this will allow your players to bind emotes by opening the keybinds sub menu. Each option within the sub menu is binded to a key within `Esc > settings > keybinds > fivem` that your players can change to their own preferred keys to play emotes.
+Players can bind emotes by opening the keybinds sub menu. Each option within the sub menu is binded to a key within `Esc > settings > keybinds > fivem` that your players can change to their own preferred keys to play emotes.
 
-# Prop Extractor
-
-We've addressed concerns about anticheat scripts causing unintended bans or kicks by introducing a prop extractor config option. This automates the creation of a `prop_dump.lua` file in the resource folder, making it easier for server owners to manage props and mitigate false positives in the anticheat system. This enhancement aims to create a more secure and fair gaming environment for community members.
-
-# Additional Animation Options
+# Additional Emote Options
 
 <details>
 <summary>NSFW</summary>
@@ -131,7 +144,7 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 **Key:** `NSFW = true`
 <br>
 
-**Description:** NSFW animations are any animation that wouldn't be considered safe for anyone under the age of 18 to see, if you don't run an 18+ community I suggest keeping the `EnableNSFWEmotes` config option as false which will disable all animations with this added. You can also set `EnableNSFWEmotes` to `'limited'` which will make it so a state bag needs to be set so NSFW animations can be used. Info on the export can be found [here](docs/statebags/allowNSFWEmotes.md) and I would personally suggest making it so the animations can only be used when inside a house or apartment.
+**Description:** NSFW emotes are any emote that wouldn't be considered safe for anyone under the age of 18 to see, if you don't run an 18+ community I suggest keeping the `EnableNSFWEmotes` config option as false which will disable all emotes with this added. You can also set `EnableNSFWEmotes` to `'limited'` which will make it so a state bag needs to be set so NSFW emotes can be used. Info on the export can be found [here](docs/statebags/allowNSFWEmotes.md) and I would personally suggest making it so the emotes can only be used when inside a house or apartment.
 </details>
 
 <details>
@@ -141,7 +154,7 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 **Key:** `Gang = true`
 <br>
 
-**Description:** Gang animations are animations that can be used to identify your affiliation with a certain group, these animations can be disrespectful to certain people or cause controversial topics to arise so a config option was added to prevent such a thing from happening which will disable all animations with this added.
+**Description:** Gang emotes are emotes that can be used to identify your affiliation with a certain group, these emotes can be disrespectful to certain people or cause controversial topics to arise so a config option was added to prevent such a thing from happening which will disable all emotes with this added.
 </details>
 
 <details>
@@ -151,7 +164,7 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 **Key:** `SocialMovement = true`
 <br>
 
-**Description:** The social movement animations are any kind of animation that represents a group who advocates for change in society such as the LGBTQ and BLM animations in which their communities advocate for liberation, some communities might feel as if people will use them in an ironic manner or to troll which would be disrespectful and some servers might be based in countries where it is shunned due to their bigoted religion so a config option was implemented to respect both these communities and religious beliefs which will disable all animations with this added.
+**Description:** The social movement emotes are any kind of emote that represents a group who advocates for change in society such as the LGBTQ and BLM emotes in which their communities advocate for liberation, some communities might feel as if people will use them in an ironic manner or to troll which would be disrespectful and some servers might be based in countries where it is shunned due to their religion so a config option was implemented to respect both these communities and religious beliefs which will disable all emotes with this added.
 </details>
 
 <details>
@@ -161,7 +174,7 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 **Key:** `Hide = true`
 <br>
 
-**Description:** If you would like to hide an animation from the menu and have it only accessible by commands, exports or events you can add this to the emote table.
+**Description:** If you would like to hide an emote from the menu and have it only accessible by commands, exports or events you can add this to the emote table.
 </details>
 
 <details>
@@ -198,7 +211,7 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 <summary>PedTypes</summary>
 <br>
 
-**Key:** `PedTypes = {'dogs', 'cats', 'birds', 'marine_mammals', 'rodents', 'land_mammals', 'aquatic_animals'}`
+**Key:** `PedTypes = {'small_dogs', 'big_dogs', 'cats', 'birds', 'marine_mammals', 'rodents', 'land_mammals', 'aquatic_animals'}`
 <br>
 
 **Description:** If you would like an emote to require a certain ped type you can add this to the emote table.
@@ -216,7 +229,7 @@ We've addressed concerns about anticheat scripts causing unintended bans or kick
 
 # Disclaimer & Credits
 
-All custom animations were added with permission from the creators. Credit to the following people for their animations / props and Dulpear for providing the original project that this is inspired by:
+All custom animations were added with permission from the creators. Credit to the following people for their animations / props:
 
 - [Dullpear_dev](https://forum.cfx.re/u/dullpear_dev/summary)
 
@@ -262,9 +275,4 @@ All custom animations were added with permission from the creators. Credit to th
 
 - [Crunchycat](https://www.gta5-mods.com/users/crunchycat)
 
-We extend our heartfelt gratitude to everyone who played a part in shaping the project, including the valuable contributions from:
-
-- [FjamZoo](https://github.com/FjamZoo)
-- [Snipe](https://github.com/snipe-scripts)
-
-Your involvement, regardless of the scale, has made a meaningful impact on the project's progress. We truly value the collaborative spirit and diverse skills that each contributor brings to the table. Thank you all for your contributions.
+We extend our heartfelt gratitude to everyone who played a part in shaping the project. Your involvement, regardless of the scale, has made a meaningful impact on the project's progress. We truly value the collaborative spirit and diverse skills that each contributor brings to the table. Thank you all for your contributions.

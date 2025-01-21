@@ -1,6 +1,6 @@
 # Set Walk
 
-Set the players walk style.
+Set the players current walk style
 ```lua
-TriggerClientEvent('scully_emotemenu:setWalk', source, 'move_m@quick')
+TriggerEvent('scully_emotemenu:setWalk', 'move_m@quick')
 ```

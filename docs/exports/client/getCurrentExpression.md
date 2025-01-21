@@ -1,6 +1,11 @@
 # Get Current Expression
 
-Get the players current expression, it will return 'default' if they didn't set one.
+Get the players current expression
 ```lua
-local expression = exports.scully_emotemenu:getCurrentExpression()
+local scully_emotemenu = exports.scully_emotemenu
+local expression = scully_emotemenu:getCurrentExpression()
+
+if expression then
+    print(expression)
+end
 ```

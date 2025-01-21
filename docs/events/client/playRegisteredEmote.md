@@ -1,6 +1,6 @@
 # Play Registered Emote
 
-Play a registered animation.
+Play a registered emote
 ```lua
-TriggerClientEvent('scully_emotemenu:playRegisteredEmote', source, 'shrug')
+TriggerEvent('scully_emotemenu:playRegisteredEmote', 'shrug')
 ```

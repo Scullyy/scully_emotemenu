@@ -1,6 +1,7 @@
 # Is Limited
 
-Check if the player is currently limited.
+Check if the player is currently limited
 ```lua
-local IsLimited = exports.scully_emotemenu:isLimited()
+local scully_emotemenu = exports.scully_emotemenu
+local isLimited = scully_emotemenu:isLimited()
 ```

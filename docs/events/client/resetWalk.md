@@ -1,6 +1,6 @@
 # Reset Walk
 
-Reset the players walk style to default.
+Reset the players walk style
 ```lua
-TriggerClientEvent('scully_emotemenu:resetWalk', source)
+TriggerEvent('scully_emotemenu:resetWalk')
 ```

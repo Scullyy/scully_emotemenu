@@ -1,10 +1,12 @@
 # Allow NSFW Emotes
 
-Toggle if the player can use NSFW emotes or not. The EnableNSFWEmotes config option must be set to 'limited'.
+Toggle if the player can use NSFW emotes or not. The enableNSFWEmotes cfg option must be set to "limited"
 ```lua
+local playerState = LocalPlayer.state
+
 -- Allow NSFW Emotes
-LocalPlayer.state:set('allowNSFWEmotes', true, true)
+playerState:set('allowNSFWEmotes', true, true)
 
 -- Block NSFW Emotes
-LocalPlayer.state:set('allowNSFWEmotes', false, true)
+playerState:set('allowNSFWEmotes', false, true)
 ```
