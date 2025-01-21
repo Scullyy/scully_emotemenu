@@ -1,20 +1,20 @@
 lib.locale()
 
 KVP = require 'client.modules.kvp'
-PedTypes = require 'client.data.ped_types'
+PedTypes = lib.load('client.data.ped_types')
 Utils = require 'shared.modules.utils'
-Config = require 'shared.data.config'
-Walks = require 'shared.data.walks'
-Scenarios = require 'shared.data.scenarios'
-Expressions = require 'shared.data.expressions'
+Config = lib.load('shared.data.config')
+Walks = lib.load('shared.data.walks')
+Scenarios = lib.load('shared.data.scenarios')
+Expressions = lib.load('shared.data.expressions')
 Emotes = {
-    require 'shared.data.emotes.general_emotes',
-    require 'shared.data.emotes.prop_emotes',
-    require 'shared.data.emotes.consumable_emotes',
-    require 'shared.data.emotes.dance_emotes',
-    require 'shared.data.emotes.synchronized_emotes',
-    require 'shared.data.emotes.synchronized_dance_emotes',
-    require 'shared.data.emotes.animal_emotes'
+    lib.load('shared.data.emotes.general_emotes'),
+    lib.load('shared.data.emotes.prop_emotes'),
+    lib.load('shared.data.emotes.consumable_emotes'),
+    lib.load('shared.data.emotes.dance_emotes'),
+    lib.load('shared.data.emotes.synchronized_emotes'),
+    lib.load('shared.data.emotes.synchronized_dance_emotes'),
+    lib.load('shared.data.emotes.animal_emotes')
 }
 
 EmoteBinds = KVP.getTable('keybinds')
