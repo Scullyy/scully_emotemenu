@@ -1,5 +1,5 @@
 local options = {}
-local emotes = require 'shared.data.emotes.dance_emotes'
+local emotes = lib.load('shared.data.emotes.dance_emotes')
 
 for i = 1, #emotes.options do
     local emote = emotes.options[i]
