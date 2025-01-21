@@ -32,7 +32,8 @@ function preview.createPreviewPed(previewModel)
 
     SetEntityCollision(ped, false, true)
     SetEntityInvincible(ped, true)
-    SetBlockingOfNonTemporaryEvents(preview.ped, true)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+    SetEntityAlpha(ped, 254, false)
 
     local buffers = {}
 
@@ -154,6 +155,7 @@ function preview.showEmote(data)
 
                 SetEntityCollision(object, false, false)
                 AttachEntityToEntity(object, preview.ped, GetPedBoneIndex(preview.ped, previewProp.bone), previewProp.placement[1].x, previewProp.placement[1].y, previewProp.placement[1].z, previewProp.placement[2].x, previewProp.placement[2].y, previewProp.placement[2].z, true, true, false, true, 1, true)
+                SetEntityAlpha(object, 254, false)
                 SetModelAsNoLongerNeeded(previewProp.hash)
 
                 preview.props[i] = {
