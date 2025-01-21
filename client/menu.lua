@@ -86,6 +86,8 @@ function RegisterMenu()
             keepOption = false
         elseif option.name == 'Synchronized Emotes' and not Config.enableSynchronizedEmotes then
             keepOption = false
+        elseif option.name == 'Synchronized Dance Emotes' and not Config.enableSynchronizedEmotes then
+            keepOption = false
         elseif option.name == 'Animal Emotes' and not Config.enableAnimalEmotes then
             keepOption = false
         end
