@@ -917,21 +917,23 @@ if Config.ptfxKey then
     })
 end
 
-for i = 1, 5 do
-    local index = tostring(i)
-
-    lib.addKeybind({
-        name = ('emotebindKey-%s'):format(index),
-        description = locale('emote_bind', index),
-        defaultKey = '',
-        onPressed = function()
-            local emote = EmoteBinds[index]
-
-            if emote then
-                PlayEmote(emote)
+if Config.enableEmoteBinds then
+    for i = 1, 5 do
+        local index = tostring(i)
+    
+        lib.addKeybind({
+            name = ('emotebindKey-%s'):format(index),
+            description = locale('emote_bind', index),
+            defaultKey = '',
+            onPressed = function()
+                local emote = EmoteBinds[index]
+    
+                if emote then
+                    PlayEmote(emote)
+                end
             end
-        end
-    })
+        })
+    end
 end
 
 lib.onCache('ped', function(ped)
