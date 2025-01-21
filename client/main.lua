@@ -65,7 +65,7 @@ function PlayEmote(data, variation)
             for k = 1, #emotes.options do
                 local emote = emotes.options[k]
 
-                if emote.Command == data.Options.Shared.OtherAnimation then
+                if emote.Command == data.Options.Shared.OtherEmote then
                     otherEmote = emote
                     break
                 end
@@ -457,6 +457,40 @@ function PlayRegisteredEmote(emote)
 end
 exports('playRegisteredEmote', PlayRegisteredEmote)
 
+---Add an emote to the menu
+---@param data table
+function AddEmoteToMenu(menu, data)
+    for i = 1, #Emotes do
+        local emotes = Emotes[i]
+
+        if emotes.name == menu then
+            emotes.options[#emotes.options + 1] = data
+            break
+        end
+    end
+
+    RegisterMenu()
+end
+exports('addEmoteToMenu', AddEmoteToMenu)
+
+---Add multiple emotes to the menu
+---@param data table
+function AddEmotesToMenu(menu, data)
+    for i = 1, #Emotes do
+        local emotes = Emotes[i]
+
+        if emotes.name == menu then
+            for k = 1, #data do
+                emotes.options[#emotes.options + 1] = data[k]
+            end
+            break
+        end
+    end
+
+    RegisterMenu()
+end
+exports('addEmotesToMenu', AddEmotesToMenu)
+
 ---Get a list of props from your current emote
 ---@return table?
 function GetEmoteProps()
@@ -678,6 +712,8 @@ RegisterNetEvent('scully_emotemenu:setExpressionByCommand', SetExpressionByComma
 RegisterNetEvent('scully_emotemenu:registerEmote', RegisterEmote)
 RegisterNetEvent('scully_emotemenu:playRegisteredEmote', PlayRegisteredEmote)
 RegisterNetEvent('scully_emotemenu:setLimitation', SetLimitation)
+RegisterNetEvent('scully_emotemenu:addEmoteToMenu', AddEmoteToMenu)
+RegisterNetEvent('scully_emotemenu:addEmotesToMenu', AddEmotesToMenu)
 
 RegisterNetEvent('onPlayerDropped', function(serverId)
     DeleteProps(serverId)

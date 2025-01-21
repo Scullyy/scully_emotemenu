@@ -9,7 +9,7 @@ return {
             Dictionary = 'anim@arena@celeb@flat@paired@no_props@',
             Options = {
                 Shared = {
-                    OtherAnimation = 'sbaseballthrow',
+                    OtherEmote = 'sbaseballthrow',
                 },
             },
             Synchronized = true
@@ -21,7 +21,7 @@ return {
             Dictionary = 'anim@arena@celeb@flat@paired@no_props@',
             Options = {
                 Shared = {
-                    OtherAnimation = 'sbaseball',
+                    OtherEmote = 'sbaseball',
                 },
             },
             Synchronized = true
@@ -34,7 +34,7 @@ return {
             Options = {
                 Shared = {
                     FrontOffset = 1.14,
-                    OtherAnimation = 'sbro2',
+                    OtherEmote = 'sbro2',
                 },
             },
             Synchronized = true
@@ -47,7 +47,7 @@ return {
             Options = {
                 Shared = {
                     FrontOffset = 1.14,
-                    OtherAnimation = 'sbro',
+                    OtherEmote = 'sbro',
                 },
             },
             Synchronized = true
@@ -63,7 +63,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'scarried',
+                    OtherEmote = 'scarried',
                 },
             },
             SkipRequest = true,
@@ -81,7 +81,7 @@ return {
                 Shared = {
                     Attach = true,
                     Bone = 40269,
-                    OtherAnimation = 'scarry',
+                    OtherEmote = 'scarry',
                     Placement = {
                         vector3(-0.140000, 0.150000, 0.140000),
                         vector3(0.000000, -59.000000, -4.500000),
@@ -102,7 +102,7 @@ return {
                 },
                 Shared = {
                     Bone = 40269,
-                    OtherAnimation = 'scarried2',
+                    OtherEmote = 'scarried2',
                 },
             },
             SkipRequest = true,
@@ -120,7 +120,7 @@ return {
                 Shared = {
                     Attach = true,
                     Bone = 28252,
-                    OtherAnimation = 'carry2',
+                    OtherEmote = 'carry2',
                     Placement = {
                         vector3(0.350000, 0.150000, -0.150000),
                         vector3(-42.500000, -22.500000, 22.500000),
@@ -139,7 +139,7 @@ return {
                     Loop = true,
                 },
                 Shared = {
-                    OtherAnimation = 'carried3',
+                    OtherEmote = 'carried3',
                 },
             },
             Synchronized = true
@@ -156,7 +156,7 @@ return {
                 Shared = {
                     Attach = true,
                     Bone = 0,
-                    OtherAnimation = 'scarry3',
+                    OtherEmote = 'scarry3',
                     Placement = {
                         vector3(0.010000, 0.344000, -0.010000),
                         vector3(180.000000, 180.000000, -1.999900),
@@ -176,7 +176,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'scbdog2',
+                    OtherEmote = 'scbdog2',
                 },
             },
             Synchronized = true
@@ -192,7 +192,7 @@ return {
                 },
                 Shared = {
                     Attach = true,
-                    OtherAnimation = 'scbdog',
+                    OtherEmote = 'scbdog',
                     Placement = {
                         vector3(-0.100000, 0.650000, 0.430000),
                         vector3(0.000000, 0.000000, -100.000000),
@@ -221,7 +221,7 @@ return {
                     },
                 },
                 Shared = {
-                    OtherAnimation = 'scoupleanim2',
+                    OtherEmote = 'scoupleanim2',
                 },
             },
             Synchronized = true
@@ -247,7 +247,7 @@ return {
                 },
                 Shared = {
                     FrontOffset = 0.11,
-                    OtherAnimation = 'scoupleanim',
+                    OtherEmote = 'scoupleanim',
                     SideOffset = -0.04125,
                 },
             },
@@ -263,7 +263,7 @@ return {
                     Loop = true,
                 },
                 Shared = {
-                    OtherAnimation = 'scprs2',
+                    OtherEmote = 'scprs2',
                 },
             },
             Synchronized = true
@@ -279,7 +279,7 @@ return {
                 },
                 Shared = {
                     Attach = true,
-                    OtherAnimation = 'scprs',
+                    OtherEmote = 'scprs',
                     Placement = {
                         vector3(0.350000, 0.800000, 0.000000),
                         vector3(0.000000, 0.000000, 270.000000),
@@ -298,7 +298,7 @@ return {
                     Loop = true,
                 },
                 Shared = {
-                    OtherAnimation = 'scprs4',
+                    OtherEmote = 'scprs4',
                 },
             },
             Synchronized = true
@@ -314,7 +314,7 @@ return {
                 },
                 Shared = {
                     Attach = true,
-                    OtherAnimation = 'scprs3',
+                    OtherEmote = 'scprs3',
                     Placement = {
                         vector3(0.350000, 0.650000, 0.000000),
                         vector3(0.000000, 0.000000, 270.000000),
@@ -334,7 +334,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sgive2',
+                    OtherEmote = 'sgive2',
                 },
             },
             Synchronized = true
@@ -350,7 +350,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sgive',
+                    OtherEmote = 'sgive',
                 },
             },
             Synchronized = true
@@ -364,7 +364,7 @@ return {
                 Duration = 30000,
                 Shared = {
                     FrontOffset = 0.63,
-                    OtherAnimation = 'sreceiveblowjob',
+                    OtherEmote = 'sreceiveblowjob',
                 },
             },
             NSFW = true,
@@ -382,7 +382,7 @@ return {
                 },
                 Shared = {
                     FrontOffset = 0.9,
-                    OtherAnimation = 'shandshake2',
+                    OtherEmote = 'shandshake2',
                 },
             },
             Synchronized = true
@@ -398,7 +398,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'shandshake',
+                    OtherEmote = 'shandshake',
                 },
             },
             Synchronized = true
@@ -410,7 +410,7 @@ return {
             Dictionary = 'melee@unarmed@streamed_variations',
             Options = {
                 Shared = {
-                    OtherAnimation = 'sheadbutted',
+                    OtherEmote = 'sheadbutted',
                 },
             },
             Synchronized = true
@@ -422,7 +422,7 @@ return {
             Dictionary = 'melee@unarmed@streamed_variations',
             Options = {
                 Shared = {
-                    OtherAnimation = 'sheadbutt',
+                    OtherEmote = 'sheadbutt',
                 },
             },
             Synchronized = true
@@ -437,7 +437,7 @@ return {
                     Loop = true,
                 },
                 Shared = {
-                    OtherAnimation = 'hugtip2',
+                    OtherEmote = 'hugtip2',
                 },
             },
             Synchronized = true
@@ -452,7 +452,7 @@ return {
                     Loop = true,
                 },
                 Shared = {
-                    OtherAnimation = 'hugtip',
+                    OtherEmote = 'hugtip',
                 },
             },
             Synchronized = true
@@ -468,7 +468,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'shostage2',
+                    OtherEmote = 'shostage2',
                 },
             },
             Synchronized = true
@@ -484,7 +484,7 @@ return {
                 },
                 Shared = {
                     Attach = true,
-                    OtherAnimation = 'shostage',
+                    OtherEmote = 'shostage',
                     Placement = {
                         vector3(-0.300000, 0.100000, 0.000000),
                         vector3(0.000000, 0.000000, 0.000000),
@@ -502,7 +502,7 @@ return {
                 Duration = 5000,
                 Shared = {
                     FrontOffset = 1.05,
-                    OtherAnimation = 'shug2',
+                    OtherEmote = 'shug2',
                 },
             },
             Synchronized = true
@@ -516,7 +516,7 @@ return {
                 Duration = 5000,
                 Shared = {
                     FrontOffset = 1.18,
-                    OtherAnimation = 'shug',
+                    OtherEmote = 'shug',
                 },
             },
             Synchronized = true
@@ -532,7 +532,7 @@ return {
                 },
                 Shared = {
                     FrontOffset = 0.52,
-                    OtherAnimation = 'shug4',
+                    OtherEmote = 'shug4',
                     SideOffset = -0.05,
                 },
             },
@@ -549,7 +549,7 @@ return {
                 },
                 Shared = {
                     FrontOffset = 0.52,
-                    OtherAnimation = 'shug3',
+                    OtherEmote = 'shug3',
                     SideOffset = -0.05,
                 },
             },
@@ -564,7 +564,7 @@ return {
                 Duration = 10000,
                 Shared = {
                     FrontOffset = 0.08,
-                    OtherAnimation = 'skiss2',
+                    OtherEmote = 'skiss2',
                 },
             },
             Synchronized = true
@@ -578,7 +578,7 @@ return {
                 Duration = 10000,
                 Shared = {
                     FrontOffset = 0.08,
-                    OtherAnimation = 'skiss',
+                    OtherEmote = 'skiss',
                 },
             },
             Synchronized = true
@@ -592,7 +592,7 @@ return {
                 Duration = 10000,
                 Shared = {
                     FrontOffset = 0.08,
-                    OtherAnimation = 'skiss4',
+                    OtherEmote = 'skiss4',
                 },
             },
             Synchronized = true
@@ -606,7 +606,7 @@ return {
                 Duration = 10000,
                 Shared = {
                     FrontOffset = 0.08,
-                    OtherAnimation = 'skiss3',
+                    OtherEmote = 'skiss3',
                 },
             },
             Synchronized = true
@@ -621,7 +621,7 @@ return {
                     Loop = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sliftme2',
+                    OtherEmote = 'sliftme2',
                 },
             },
             Synchronized = true
@@ -638,7 +638,7 @@ return {
                 Shared = {
                     Attach = true,
                     Bone = 0,
-                    OtherAnimation = 'sliftme',
+                    OtherEmote = 'sliftme',
                     Placement = {
                         vector3(0.002000, 0.287000, 0.250000),
                         vector3(0.000000, 0.000000, 180.000000),
@@ -657,7 +657,7 @@ return {
                     Loop = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sliftme4',
+                    OtherEmote = 'sliftme4',
                 },
             },
             Synchronized = true
@@ -674,7 +674,7 @@ return {
                 Shared = {
                     Attach = true,
                     Bone = 0,
-                    OtherAnimation = 'sliftme3',
+                    OtherEmote = 'sliftme3',
                     Placement = {
                         vector3(0.010000, 0.480000, 0.530000),
                         vector3(0.000000, 0.000000, 180.000000),
@@ -693,7 +693,7 @@ return {
                     Loop = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sliftme6',
+                    OtherEmote = 'sliftme6',
                 },
             },
             Synchronized = true
@@ -710,7 +710,7 @@ return {
                 Shared = {
                     Attach = true,
                     Bone = 0,
-                    OtherAnimation = 'sliftme5',
+                    OtherEmote = 'sliftme5',
                     Placement = {
                         vector3(-0.212000, -0.540000, -0.100000),
                         vector3(0.000000, 0.000000, 0.000000),
@@ -730,7 +730,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'spback2',
+                    OtherEmote = 'spback2',
                 },
             },
             Synchronized = true
@@ -747,7 +747,7 @@ return {
                 Shared = {
                     Attach = true,
                     Bone = 0,
-                    OtherAnimation = 'spback',
+                    OtherEmote = 'spback',
                     Placement = {
                         vector3(0.020000, -0.439900, 0.420000),
                         vector3(0.000000, 0.000000, 0.000000),
@@ -767,7 +767,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'spback2',
+                    OtherEmote = 'spback2',
                 },
             },
             Synchronized = true
@@ -784,7 +784,7 @@ return {
                 Shared = {
                     Attach = true,
                     Bone = 0,
-                    OtherAnimation = 'spback',
+                    OtherEmote = 'spback',
                     Placement = {
                         vector3(0.000000, -0.700000, 0.400000),
                         vector3(0.000000, 0.000000, 0.000000),
@@ -800,7 +800,7 @@ return {
             Dictionary = 'melee@unarmed@streamed_variations',
             Options = {
                 Shared = {
-                    OtherAnimation = 'spunched',
+                    OtherEmote = 'spunched',
                 },
             },
             Synchronized = true
@@ -812,7 +812,7 @@ return {
             Dictionary = 'melee@unarmed@streamed_variations',
             Options = {
                 Shared = {
-                    OtherAnimation = 'spunch',
+                    OtherEmote = 'spunch',
                 },
             },
             Synchronized = true
@@ -826,7 +826,7 @@ return {
                 Duration = 30000,
                 Shared = {
                     FrontOffset = 0.63,
-                    OtherAnimation = 'sgiveblowjob',
+                    OtherEmote = 'sgiveblowjob',
                 },
             },
             NSFW = true,
@@ -842,7 +842,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'ssearch2',
+                    OtherEmote = 'ssearch2',
                 },
             },
             Synchronized = true
@@ -858,7 +858,7 @@ return {
                 },
                 Shared = {
                     Attach = true,
-                    OtherAnimation = 'ssearch',
+                    OtherEmote = 'ssearch',
                     Placement = {
                         vector3(0.000000, 0.500000, 0.000000),
                         vector3(0.000000, 0.000000, 0.000000),
@@ -879,7 +879,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sslapped',
+                    OtherEmote = 'sslapped',
                 },
             },
             Synchronized = true
@@ -896,7 +896,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sslapped2',
+                    OtherEmote = 'sslapped2',
                 },
             },
             Synchronized = true
@@ -908,7 +908,7 @@ return {
             Dictionary = 'melee@unarmed@streamed_variations',
             Options = {
                 Shared = {
-                    OtherAnimation = 'sslap',
+                    OtherEmote = 'sslap',
                 },
             },
             Synchronized = true
@@ -920,7 +920,7 @@ return {
             Dictionary = 'melee@unarmed@streamed_variations',
             Options = {
                 Shared = {
-                    OtherAnimation = 'sslap2',
+                    OtherEmote = 'sslap2',
                 },
             },
             Synchronized = true
@@ -936,7 +936,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sstickupscared',
+                    OtherEmote = 'sstickupscared',
                 },
             },
             Synchronized = true
@@ -952,7 +952,7 @@ return {
                     Move = true,
                 },
                 Shared = {
-                    OtherAnimation = 'sstickup',
+                    OtherEmote = 'sstickup',
                 },
             },
             Synchronized = true
@@ -968,7 +968,7 @@ return {
                 },
                 Shared = {
                     FrontOffset = 0.5,
-                    OtherAnimation = 'sstreetsexmale',
+                    OtherEmote = 'sstreetsexmale',
                 },
             },
             NSFW = true,
@@ -985,7 +985,7 @@ return {
                 },
                 Shared = {
                     FrontOffset = 0.5,
-                    OtherAnimation = 'sstreetsexfemale',
+                    OtherEmote = 'sstreetsexfemale',
                 },
             },
             NSFW = true,

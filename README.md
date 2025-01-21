@@ -103,6 +103,8 @@ For support join my discord here: https://discord.gg/scully
 | [getEmoteProps](docs/exports/client/getEmoteProps.md) | None | Client | Get a list of props from your current emote |
 | [setLimitation](docs/exports/client/setLimitation.md) | Boolean | Client | Toggle player limitations |
 | [isLimited](docs/exports/client/isLimited.md) | None | Client | Check if the player is currently limited |
+| [addEmoteToMenu](docs/exports/client/addEmoteToMenu.md) | String, Table | Client | Add an emote to the menu |
+| [addEmotesToMenu](docs/exports/client/addEmotesToMenu.md) | String, Table | Client | Add multiple emotes to the menu |
 | [customNotifyFn](docs/exports/client/customNotifyFn.md) | Function | Client | Change the notification system |
 
 # Events
@@ -111,6 +113,7 @@ For support join my discord here: https://discord.gg/scully
 | ------------- | ------------- | ------------- | ------------- |
 | [scully_emotemenu:toggleMenu](docs/events/client/toggleMenu.md) | None | Client | Toggle the emote menu |
 | [scully_emotemenu:closeMenu](docs/events/client/closeMenu.md) | None | Client | Close the emote menu |
+| [scully_emotemenu:addEmoteMenuOption](docs/events/client/addEmoteMenuOption.md) | Table | Client | Add a new menu option to the emote menu |
 | [scully_emotemenu:playEmote](docs/events/client/playEmote.md) | Table, Number? | Client | Play an emote or scenario |
 | [scully_emotemenu:cancelEmote](docs/events/client/cancelEmote.md) | Boolean? | Client | Cancel an emote or scenario |
 | [scully_emotemenu:playEmoteByCommand](docs/events/client/playEmoteByCommand.md) | String, Number? | Client | Play an emote by command |
@@ -123,7 +126,8 @@ For support join my discord here: https://discord.gg/scully
 | [scully_emotemenu:registerEmote](docs/events/client/registerEmote.md) | Table | Client | Register emotes to be used within external resources |
 | [scully_emotemenu:playRegisteredEmote](docs/events/client/playRegisteredEmote.md) | String | Client | Play a registered emote |
 | [scully_emotemenu:setLimitation](docs/events/client/setLimitation.md) | Boolean | Client | Toggle player limitations |
-| [scully_emotemenu:isLimited](docs/events/client/isLimited.md) | None | Client | Check if the player is currently limited |
+| [scully_emotemenu:addEmoteToMenu](docs/events/client/addEmoteToMenu.md) | String, Table | Client | Add an emote to the menu |
+| [scully_emotemenu:addEmotesToMenu](docs/events/client/addEmotesToMenu.md) | String, Table | Client | Add multiple emotes to the menu |
 
 # Keybinds
 
@@ -134,6 +138,10 @@ By default the configured keybinds in the *initial* scully_emotemenu.cfg will be
 # Emote Binds
 
 Players can bind emotes by opening the keybinds sub menu. Each option within the sub menu is binded to a key within `Esc > settings > keybinds > fivem` that your players can change to their own preferred keys to play emotes.
+
+# Custom Emotes
+
+You can add custom emotes to the menu by using the `addEmoteToMenu` and `addEmotesToMenu` exports or events. If you want to add a whole new custom section to the emote options submenu you can also use the `addEmoteMenuOption` export or event.
 
 # Additional Emote Options
 
@@ -225,6 +233,16 @@ Players can bind emotes by opening the keybinds sub menu. Each option within the
 <br>
 
 **Description:** If you would like to be able to select the location of your emote you can add this to the emote table.
+</details>
+
+<details>
+<summary>Synchronized</summary>
+<br>
+
+**Key:** `Synchronized = true`
+<br>
+
+**Description:** If you would like an emote to be a synchronized emote add this to the emote table, keep in mind you'll also need to define the OtherEmote in the Options table.
 </details>
 
 # Disclaimer & Credits

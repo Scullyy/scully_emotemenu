@@ -8,7 +8,7 @@ for i = 1, #emotes.options do
 
     if not emote.Options then emote.Options = {} end
 
-    emote.Options.Shared = { OtherAnimation = emote.Command }
+    emote.Options.Shared = { OtherEmote = emote.Command }
     emote.Synchronized = true
     options[i] = emote
 end
