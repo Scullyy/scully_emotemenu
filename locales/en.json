@@ -52,6 +52,7 @@
     "hold_to_preview": "Hold E and select to preview",
     "emotes": "Emotes",
     "no_players_nearby": "No players nearby",
+    "cancel_emote": "Cancel Emote",
     "accept_deny": "[Y] Accept  \n[N] Deny: %s",
     "emote_cancelled": "The emote was cancelled",
     "emote_command_help": "Play an emote",

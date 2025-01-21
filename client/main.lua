@@ -896,6 +896,17 @@ if Config.expressionCommands then
     end
 end
 
+if Config.emoteCancelKey then
+    lib.addKeybind({
+        name = 'emoteCancelKey',
+        description = locale('cancel_emote'),
+        defaultKey = Config.emoteCancelKey,
+        onPressed = function()
+            CancelEmote()
+        end
+    })
+end
+
 if Config.ptfxKey then
     keybinds.Ptfx = lib.addKeybind({
         name = 'ptfxKey',
