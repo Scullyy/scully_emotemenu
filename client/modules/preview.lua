@@ -1,5 +1,18 @@
 local preview = {}
 
+---Finish an emote preview
+function preview.finish()
+    for i = 1, #preview.props do
+        local entity = preview.props[i].entity
+
+        if DoesEntityExist(entity) then
+            DeleteEntity(entity)
+        end
+    end
+
+    DeleteEntity(preview.ped)
+end
+
 ---Create the preview ped
 ---@param previewModel? number
 function preview.createPreviewPed(previewModel)
@@ -58,7 +71,9 @@ end
 ---Preview an emote
 ---@param data table
 function preview.showEmote(data)
-    if preview.ped and DoesEntityExist(preview.ped) then return end
+    if preview.ped and DoesEntityExist(preview.ped) then
+        preview.finish()
+    end
 
     local previewModel
 
@@ -67,7 +82,13 @@ function preview.showEmote(data)
         previewModel = PedTypes[pedType][math.random(1, #PedTypes[pedType])]
     end
 
+    if not preview.id then preview.id = 0 end
+
+    local previewId = preview.id += 1
+
+    preview.id = previewId
     preview.ped = preview.createPreviewPed(previewModel)
+    preview.props = {}
 
     local duration, movementFlag = nil, 0
     local dictionaryName, animationName = data.Dictionary, data.Animation
@@ -93,7 +114,6 @@ function preview.showEmote(data)
         return
     end
 
-    local previewProps = {}
     local options = data.Options
 
     if options then
@@ -136,7 +156,7 @@ function preview.showEmote(data)
                 AttachEntityToEntity(object, preview.ped, GetPedBoneIndex(preview.ped, previewProp.bone), previewProp.placement[1].x, previewProp.placement[1].y, previewProp.placement[1].z, previewProp.placement[2].x, previewProp.placement[2].y, previewProp.placement[2].z, true, true, false, true, 1, true)
                 SetModelAsNoLongerNeeded(previewProp.hash)
 
-                previewProps[i] = {
+                preview.props[i] = {
                     entity = object,
                     hasPtfx = previewProp.hasPtfx
                 }
@@ -164,15 +184,9 @@ function preview.showEmote(data)
 
     Wait(5000)
 
-    for i = 1, #previewProps do
-        local entity = previewProps[i].entity
-
-        if DoesEntityExist(entity) then
-            DeleteEntity(entity)
-        end
+    if previewId == preview.id then
+        preview.finish()
     end
-
-    DeleteEntity(preview.ped)
 end
 
 return preview
