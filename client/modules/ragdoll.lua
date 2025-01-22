@@ -21,7 +21,7 @@ lib.addKeybind({
             end
 
             if IsPedOnFoot(cache.ped) then
-                SetPedToRagdoll(cache.ped, 1000, 1000, 1, true, true, false)
+                SetPedToRagdoll(cache.ped, 1000, 1000, 0, true, true, false)
             end
         end
     end
