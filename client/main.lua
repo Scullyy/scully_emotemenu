@@ -517,7 +517,7 @@ function CreateProps(ped, data)
         
         if prop.variant then SetObjectTextureVariation(object, prop.variant) end
         
-        AttachEntityToEntity(object, cache.ped, GetPedBoneIndex(cache.ped, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
+        AttachEntityToEntity(object, ped, GetPedBoneIndex(ped, prop.bone), prop.placement[1].x, prop.placement[1].y, prop.placement[1].z, prop.placement[2].x, prop.placement[2].y, prop.placement[2].z, true, true, false, true, 1, true)
         SetModelAsNoLongerNeeded(prop.hash)
 
         props[i] = {
