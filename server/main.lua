@@ -1,5 +1,3 @@
-lib.versionCheck('Scullyy/scully_emotemenu')
-
 RegisterNetEvent('scully_emotemenu:requestSynchronizedEmote', function(target, senderData, targetData)
     local src = source
 
