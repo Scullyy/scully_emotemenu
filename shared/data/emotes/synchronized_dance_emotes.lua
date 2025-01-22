@@ -1,6 +1,8 @@
 local options = {}
 local emotes = lib.load('shared.data.emotes.dance_emotes')
 
+emotes = lib.table.deepclone(emotes)
+
 for i = 1, #emotes.options do
     local emote = emotes.options[i]
 
