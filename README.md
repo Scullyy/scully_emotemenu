@@ -1,7 +1,7 @@
 <img src='https://forum-cfx-re.akamaized.net/original/5X/2/c/6/3/2c6328a77cd53d782dd2b0860655df168bcc7922.png' width='750'>
 
 # Previews
-<img src='https://i.gyazo.com/d9ebb83540de24ab4ebbd52b621077c8.png'><img src='https://i.gyazo.com/f98316732f8e22265830a4853ee36013.png'><img src='https://i.gyazo.com/259935e8349f0511bc4ae80b03ff1f34.png'>
+<img src='https://i.gyazo.com/df3b88e92beb3237380f17b1cfa6111d.png'><img src='https://i.gyazo.com/7e4d600d326f6fbde2be1d003abebb74.png'><img src='https://i.gyazo.com/42096b2c983e8145557a148c6d5b6819.png'>
 
 # Support:
 
