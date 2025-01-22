@@ -305,15 +305,26 @@ exports('cancelEmote', CancelEmote)
 function PlayEmoteByCommand(command, variant)
     local found
 
-    for i = 1, #Emotes do
-        local emotes = Emotes[i]
+    for i = 1, #Scenarios do
+        local scenario = Scenarios[i]
 
-        for k = 1, #emotes.options do
-            local emote = emotes.options[k]
+        if scenario.Command == command then
+            found = scenario
+            break
+        end
+    end
 
-            if emote.Command == command then
-                found = emote
-                break
+    if not found then
+        for i = 1, #Emotes do
+            local emotes = Emotes[i]
+    
+            for k = 1, #emotes.options do
+                local emote = emotes.options[k]
+    
+                if emote.Command == command then
+                    found = emote
+                    break
+                end
             end
         end
     end
