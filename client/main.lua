@@ -174,7 +174,7 @@ function PlayEmote(data, variation)
         return
     end
 
-    if data.NSFW and config.enableNSFWEmotes == 'limited' and not PlayerState.allowNSFWEmotes then
+    if data.NSFW and Config.enableNSFWEmotes == 'limited' and not PlayerState.allowNSFWEmotes then
         Utils.notify('error', locale('nsfw_limited'))
         return
     end
