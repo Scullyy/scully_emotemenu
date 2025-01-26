@@ -3,8 +3,8 @@ return {
     icon = 'fa-solid fa-person-running',
     options = {
         {
-            Label = 'Dance 1',
-            Command = 'dance1',
+            Label = 'Dance',
+            Command = 'dance',
             Animation = 'hi_dance_facedj_15_v1_male^6',
             Dictionary = 'anim@amb@nightclub@dancers@crowddance_facedj@hi_intensity',
             Options = {
@@ -13953,8 +13953,8 @@ return {
             },
         },
         {
-            Label = 'Dance Club 1',
-            Command = 'danceclub1',
+            Label = 'Dance Club',
+            Command = 'danceclub',
             Animation = 'ti_idle_c_f02',
             Dictionary = 'anim@amb@nightclub_island@dancers@club@',
             Options = {
@@ -16142,8 +16142,8 @@ return {
             },
         },
         {
-            Label = 'Dance Beach 1',
-            Command = 'dancebeach1',
+            Label = 'Dance Beach',
+            Command = 'dancebeach',
             Animation = 'hi_to_li_m05',
             Dictionary = 'anim@amb@nightclub_island@dancers@beachdance@',
             Options = {
@@ -16879,6 +16879,28 @@ return {
             },
         },
         {
+            Label = 'Dance Jump',
+            Command = 'dancejump',
+            Animation = 'high_left',
+            Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@jumper@',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Dance Jump 2',
+            Command = 'dancejump2',
+            Animation = 'low_center_down',
+            Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@jumper@',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
             Label = 'Dance Jump 3',
             Command = 'dancejump3',
             Animation = 'high_left_down',
@@ -17146,28 +17168,6 @@ return {
             Label = 'Dance Jump 27',
             Command = 'dancejump27',
             Animation = 'med_left',
-            Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@jumper@',
-            Options = {
-                Flags = {
-                    Loop = true,
-                },
-            },
-        },
-        {
-            Label = 'Dance Jump 28',
-            Command = 'dancejump28',
-            Animation = 'high_left',
-            Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@jumper@',
-            Options = {
-                Flags = {
-                    Loop = true,
-                },
-            },
-        },
-        {
-            Label = 'Dance Jump 29',
-            Command = 'dancejump29',
-            Animation = 'low_center_down',
             Dictionary = 'anim@amb@nightclub@mini@dance@dance_solo@jumper@',
             Options = {
                 Flags = {
