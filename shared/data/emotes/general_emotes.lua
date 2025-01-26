@@ -254,6 +254,17 @@ return {
             },
         },
         {
+            Label = 'Boxing 3',
+            Command = 'boxing3',
+            Animation = 'idle',
+            Dictionary = 'melee@unarmed@streamed_core_fps',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
             Label = 'Bring It On',
             Command = 'bringiton',
             Animation = 'bring_it_on',
@@ -270,8 +281,6 @@ return {
             Command = 'buzz',
             Animation = 'buzz_reg',
             Dictionary = 'anim@apt_trans@buzzer',
-            Options = {
-            },
         },
         {
             Label = 'Call Dog',
@@ -739,8 +748,6 @@ return {
             Command = 'dispenser',
             Animation = 'plyr_buy_drink_pt1',
             Dictionary = 'mini@sprunk',
-            Options = {
-            },
         },
         {
             Label = 'Dock',
@@ -4979,8 +4986,6 @@ return {
             Command = 'wank5',
             Animation = 'mp_player_int_wank',
             Dictionary = 'mp_player_intwank',
-            Options = {
-            },
             NSFW = true,
         },
         {

@@ -103,8 +103,8 @@ return {
                         Bone = 57005,
                         Name = 'prop_tool_pickaxe',
                         Placement = {
-                            vector3(0.080000, -0.400000, -0.100000),
-                            vector3(80.000000, -20.000000, 175.000000),
+                            vector3(0.080000, -0.100000, -0.040000),
+                            vector3(78.000000, -20.000000, 175.000000),
                         },
                     },
                 },
@@ -535,7 +535,7 @@ return {
                 Props = {
                     {
                         Bone = 18905,
-                        Name = 'hei_heist_sh_bong_01',
+                        Name = 'prop_bong_01',
                         Placement = {
                             vector3(0.100000, -0.250000, 0.000000),
                             vector3(95.000000, 190.000000, 180.000000),
