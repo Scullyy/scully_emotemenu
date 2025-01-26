@@ -185,6 +185,12 @@ function RegisterMenu()
                 end
             end
 
+            if #searchMenuOptions == 0 then
+                lib.showMenu('emotemenu_submenu_emotes')
+                Utils.notify('error', locale('not_valid_emote'))
+                return
+            end
+
             lib.registerMenu({
                 id = 'emotemenu_submenu_emotes_search',
                 title = locale('search_results'),
