@@ -133,7 +133,7 @@ function preview.showEmote(data)
         if options.Props then
             for i = 1, #options.Props do
                 local prop = options.Props[i]
-                
+
                 if variation then
                     if prop.Variations and prop.Variations[variation] then
                         prop.Variant = prop.Variations[variation]

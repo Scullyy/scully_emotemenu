@@ -147,7 +147,18 @@ function RegisterMenu()
         title = locale('emote_options'),
         position = Config.menuPosition,
         options = emoteMenuOptions,
+        onSelected = function(selected, scrollIndex, args)
+            if Config.enableAutoEmotePreview and args.emotes and args.emotes[scrollIndex] then
+                preview.showEmote(args.emotes[scrollIndex])
+            end
+        end,
+        onSideScroll = function (selected, scrollIndex, args, checked)
+            if Config.enableAutoEmotePreview then
+                preview.showEmote(args.emotes[scrollIndex])
+            end
+        end,
         onClose = function()
+            preview.finish()
             lib.showMenu('emotemenu_main_menu')
         end,
     }, function(_, scrollIndex, args)
@@ -167,7 +178,7 @@ function RegisterMenu()
                 local submenu = Emotes[i]
                 local emotes = {}
                 local foundEmotes = {}
-                
+
                 for k = 1, #submenu.options do
                     local emote = submenu.options[k]
 
@@ -196,8 +207,14 @@ function RegisterMenu()
                 title = locale('search_results'),
                 position = Config.menuPosition,
                 options = searchMenuOptions,
+                onSelected = function(selected, scrollIndex, args)
+                    if Config.enableAutoEmotePreview and args.emotes and args.emotes[scrollIndex] then
+                        preview.showEmote(args.emotes[scrollIndex])
+                    end
+                end,
                 onClose = function()
-                    lib.showMenu('emotemenu_submenu_emotes')
+                    preview.finish()
+                    lib.showMenu('emotemenu_main_menu')
                 end,
             }, function(_, scrollIndex, args)
                 if Config.enableEmotePreview and IsControlPressed(0, 38) then
@@ -237,7 +254,7 @@ function RegisterMenu()
 
                 if args.id == 'emotemenu_submenu_binds_new' then
                     local query = lib.inputDialog(locale('new_bind'), { locale('emote_command_to_bind') })
-                    
+
                     if not query then
                         lib.showMenu('emotemenu_submenu_binds')
                         return
@@ -249,16 +266,16 @@ function RegisterMenu()
 
                     for i = 1, #Emotes do
                         local emotes = Emotes[i]
-            
+
                         for k = 1, #emotes.options do
                             local emote = emotes.options[k]
-            
+
                             if emote.Command == query then
                                 bindEmote = emote
                                 break
                             end
                         end
-            
+
                         if bindEmote then break end
                     end
 
@@ -352,7 +369,7 @@ function RegisterRadialMenu()
             if isWalks then
                 for k = 1, #Walks do
                     local walk = Walks[k]
-    
+
                     radialOptions[#radialOptions + 1] = {
                         label = walk.Label,
                         icon = 'person-walking',
@@ -364,7 +381,7 @@ function RegisterRadialMenu()
             elseif isExpressions then
                 for k = 1, #Expressions do
                     local expression = Expressions[k]
-    
+
                     radialOptions[#radialOptions + 1] = {
                         label = expression.Label,
                         icon = 'face-angry',

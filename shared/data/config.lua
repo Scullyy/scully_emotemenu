@@ -4,6 +4,7 @@ return {
     menuKeybind = GetConvar('scully_emotemenu:menuKeybind', 'F5'),
     enableRadialMenu = GetConvar('scully_emotemenu:enableRadialMenu', 'true') == 'true',
     enableEmotePreview = GetConvar('scully_emotemenu:enableEmotePreview', 'true') == 'true',
+    enableAutoEmotePreview = GetConvar('scully_emotemenu:enableAutoEmotePreview', 'true') == 'true',
     enableEmoteBinds = GetConvar('scully_emotemenu:enableEmoteBinds', 'true') == 'true',
     emoteCommands = json.decode(GetConvar('scully_emotemenu:emoteCommands', '["e", "emote", "eplay"]')),
     emoteCancelKey = GetConvar('scully_emotemenu:emoteCancelKey', 'X'),
