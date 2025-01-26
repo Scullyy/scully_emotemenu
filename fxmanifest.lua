@@ -5,7 +5,7 @@ game 'gta5'
 
 name 'scully_emotemenu'
 author 'https://discord.gg/scully'
-version '2.0.5'
+version '2.0.6'
 
 dependencies {
     '/server:7290',
@@ -42,6 +42,7 @@ files {
     'shared/data/emotes/synchronized_emotes.lua',
     'shared/modules/utils.lua',
     'client/data/ped_types.lua',
+    'client/data/scenario_models.lua',
     'client/modules/handsup.lua',
     'client/modules/kvp.lua',
     'client/modules/placement.lua',

@@ -1,7 +1,6 @@
 lib.locale()
 
 KVP = require 'client.modules.kvp'
-PedTypes = lib.load('client.data.ped_types')
 Utils = require 'shared.modules.utils'
 Config = lib.load('shared.data.config')
 Walks = lib.load('shared.data.walks')
@@ -20,6 +19,8 @@ Emotes = {
 EmoteBinds = KVP.getTable('keybinds')
 PlayerState = LocalPlayer.state
 
+local pedTypes = lib.load('client.data.ped_types')
+local scenarioModels = lib.load('client.data.scenario_models')
 local placement = require 'client.modules.placement'
 local keybinds = {}
 local registeredEmotes = {}
@@ -93,7 +94,7 @@ function PlayEmote(data, variation)
         local model = GetEntityModel(cache.ped)
 
         for i = 1, #data.PedTypes do
-            local allowed = PedTypes[data.PedTypes[i]]
+            local allowed = pedTypes[data.PedTypes[i]]
             local found = lib.table.contains(allowed, model)
 
             if found then
@@ -279,7 +280,10 @@ exports('playEmote', PlayEmote)
 ---@param skipReset? boolean
 function CancelEmote(skipReset)
     if PlayerState.isInEmote and not PlayerState.isLimited then
-        SetPedShouldPlayImmediateScenarioExit(cache.ped)
+        local isScenario = IsPedUsingAnyScenario(cache.ped)
+
+        if isScenario then SetPedShouldPlayImmediateScenarioExit(cache.ped) end
+        
         ClearPedTasks(cache.ped)
         DetachEntity(cache.ped, true, false)
         PlayerState:set('isInEmote', false, true)
@@ -294,6 +298,20 @@ function CancelEmote(skipReset)
 
         if PlayerState.inSynchronizedEmote then
             PlayerState:set('inSynchronizedEmote', nil, true)
+        end
+
+        if isScenario then
+            local coords = GetEntityCoords(cache.ped)
+
+            for i = 1, #scenarioModels do
+                local model = scenarioModels[i]
+                local entity = GetClosestObjectOfType(coords.x, coords.y, coords.z, 1.0, model, false, true, true)
+
+                if entity ~= 0 then
+                    SetEntityAsMissionEntity(entity, false, true)
+                    DeleteEntity(entity)
+                end
+            end
         end
     end
 end
