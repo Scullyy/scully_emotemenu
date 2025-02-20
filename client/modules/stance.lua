@@ -63,6 +63,8 @@ local function crouchLoop()
             if IsPedUsingActionMode(cache.ped) then
                 SetPedUsingActionMode(cache.ped, false, -1, 'DEFAULT_ACTION')
             end
+
+            SetPedCanPlayAmbientIdles(cache.ped, true, false)
         end
 
         local walkstyle = PlayerState.walkstyle
