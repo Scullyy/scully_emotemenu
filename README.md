@@ -65,6 +65,8 @@ For support join my discord here: https://discord.gg/scully
 
 - Placement system to choose where you do certain emotes
 
+- Walk styles can't be abused to run faster
+
 # State Bags
 | State Bag Name | Replicated | Description |
 | ------------- | ------------- | ------------- |

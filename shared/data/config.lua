@@ -9,6 +9,7 @@ return {
     emoteCancelKey = GetConvar('scully_emotemenu:emoteCancelKey', 'X'),
     walkCommands = json.decode(GetConvar('scully_emotemenu:walkCommands', '["w", "walk"]')),
     expressionCommands = json.decode(GetConvar('scully_emotemenu:expressionCommands', '["f", "face"]')),
+    preventWalkStyleAbuse = GetConvar('scully_emotemenu:preventWalkStyleAbuse', 'true') == 'true',
     enableNSFWEmotes = GetConvar('scully_emotemenu:enableNSFWEmotes', 'false'),
     enableGangEmotes = GetConvar('scully_emotemenu:enableGangEmotes', 'false') == 'true',
     enableSocialMovementEmotes = GetConvar('scully_emotemenu:enableSocialMovementEmotes', 'false') == 'true',

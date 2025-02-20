@@ -369,6 +369,15 @@ function SetWalk(name)
     lib.requestAnimSet(name, 1000)
     SetPedMovementClipset(cache.ped, name, 0.2)
     RemoveAnimSet(name)
+
+    if Config.preventWalkStyleAbuse then
+        local dict = Utils.isPedMale(cache.ped) and 'move_m@multiplayer' or 'move_f@multiplayer'
+
+        lib.requestAnimDict(dict)
+        SetPedAlternateMovementAnim(cache.ped, 2, dict, 'run', 0, true)
+        RemoveAnimDict(dict)
+    end
+
     KVP.update('walkstyle', name)
     PlayerState:set('walkstyle', name, true)
 end
