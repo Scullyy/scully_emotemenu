@@ -5,7 +5,7 @@ game 'gta5'
 
 name 'scully_emotemenu'
 author 'https://discord.gg/scully'
-version '2.0.7'
+version '2.0.8'
 
 dependencies {
     '/server:7290',

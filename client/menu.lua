@@ -113,7 +113,9 @@ function RegisterMenu()
                         break
                     end
                 end
-            elseif emote.NSFW and Config.enableNSFWEmotes == 'false' then
+            end
+
+            if emote.NSFW and Config.enableNSFWEmotes == 'false' then
                 keepEmote = false
             elseif emote.Gang and not Config.enableGangEmotes then
                 keepEmote = false
@@ -442,8 +444,12 @@ if Config.menuKeybind ~= '' then
     end
 end
 
-RegisterMenu()
+CreateThread(function()
+    Wait(1000)
+    
+    RegisterMenu()
 
-if Config.enableRadialMenu then
-    RegisterRadialMenu()
-end
+    if Config.enableRadialMenu then
+        RegisterRadialMenu()
+    end
+end)
