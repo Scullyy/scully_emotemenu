@@ -4251,6 +4251,30 @@ return {
             },
         },
         {
+            Label = 'Sunlounger',
+            Command = 'sunlounger',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_sunlounger@female@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+            Placement = true
+        },
+        {
+            Label = 'Sunlounger 2',
+            Command = 'sunlounger2',
+            Animation = 'base',
+            Dictionary = 'amb@prop_human_seat_sunlounger@female@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+            Placement = true
+        },
+        {
             Label = 'Superhero',
             Command = 'superhero',
             Animation = 'base',
