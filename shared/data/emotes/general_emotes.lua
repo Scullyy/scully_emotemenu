@@ -4251,28 +4251,59 @@ return {
             },
         },
         {
-            Label = 'Sunlounger',
-            Command = 'sunlounger',
+            Label = 'Sunbathe 3',
+            Command = 'sunbathe3',
             Animation = 'idle_a',
-            Dictionary = 'amb@prop_human_seat_sunlounger@female@idle_a',
+            Dictionary = 'amb@world_human_sunbathe@male@back@idle_a',
             Options = {
                 Flags = {
                     Loop = true,
                 },
             },
-            Placement = true
         },
         {
-            Label = 'Sunlounger 2',
-            Command = 'sunlounger2',
-            Animation = 'base',
-            Dictionary = 'amb@prop_human_seat_sunlounger@female@base',
+            Label = 'Sunbathe 4',
+            Command = 'sunbathe4',
+            Animation = 'idle_a',
+            Dictionary = 'amb@world_human_sunbathe@female@back@idle_a',
             Options = {
                 Flags = {
                     Loop = true,
                 },
             },
-            Placement = true
+        },
+        {
+            Label = 'Sunbathe 5',
+            Command = 'sunbathe5',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_sunbathe@female@front@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Sunbathe 6',
+            Command = 'sunbathe6',
+            Animation = 'idle_c',
+            Dictionary = 'amb@world_human_sunbathe@female@front@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Sunbathe 7',
+            Command = 'sunbathe7',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_sunbathe@male@front@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
         },
         {
             Label = 'Superhero',
