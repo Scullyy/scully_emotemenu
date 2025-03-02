@@ -242,6 +242,72 @@ return {
             },
         },
         {
+            Label = 'Beach Bag',
+            Command = 'beachbag',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_beachbag_05',
+                        Placement = {
+                            vector3(0.400000, 0.030000, 0.010000),
+                            vector3(0.000000, -90.000000, 100.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Beach Bag 2',
+            Command = 'beachbag2',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_beachbag_06',
+                        Placement = {
+                            vector3(0.400000, 0.030000, 0.010000),
+                            vector3(0.000000, -90.000000, 100.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Beach Bag 3',
+            Command = 'beachbag3',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_beachbag_01',
+                        Placement = {
+                            vector3(0.400000, 0.030000, 0.010000),
+                            vector3(0.000000, -90.000000, 100.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
             Label = 'Beach Floatie',
             Command = 'beachring',
             Animation = 'beachanim_clip',
@@ -1961,6 +2027,50 @@ return {
             },
         },
         {
+            Label = 'Duffel Bag 2',
+            Command = 'dufbag2',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_big_bag_01',
+                        Placement = {
+                            vector3(0.250000, 0.040000, 0.000000),
+                            vector3(90.000000, 0.000000, -78.989998),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Duffel Bag 3',
+            Command = 'dufbag3',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'v_ret_gc_bag02',
+                        Placement = {
+                            vector3(0.330000, 0.040000, 0.000000),
+                            vector3(90.000000, 0.000000, -78.989998),
+                        },
+                    },
+                },
+            },
+        },
+        {
             Label = 'Fishing 1',
             Command = 'fishing1',
             Animation = 'idle_a',
@@ -3252,6 +3362,72 @@ return {
                         Placement = {
                             vector3(0.00, 0.00, 0.00),
                             vector3(0.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Handbag',
+            Command = 'handbag',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'v_ret_ps_bag_01',
+                        Placement = {
+                            vector3(0.40000, 0.030000, 0.00000),
+                            vector3(0.000000, -90.000000, 100.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Handbag 2',
+            Command = 'handbag2',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'v_ret_ps_bag_02',
+                        Placement = {
+                            vector3(0.52000, 0.030000, 0.00000),
+                            vector3(0.000000, -90.000000, 100.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Handbag 3',
+            Command = 'handbag3',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_amb_handbag_01',
+                        Placement = {
+                            vector3(0.35000, 0.030000, 0.00000),
+                            vector3(0.000000, -90.000000, 100.000000),
                         },
                     },
                 },
