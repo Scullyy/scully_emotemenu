@@ -1484,6 +1484,50 @@ return {
             },
         },
         {
+            Label = 'Champagne Waiter 2',
+            Command = 'champw2',
+            Animation = 'idle',
+            Dictionary = 'anim@move_f@waitress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'h4_prop_h4_champ_tray_01b',
+                        Placement = {
+                            vector3(0.000000, 0.000000, 0.010000),
+                            vector3(0.000000, 0.000000, 0.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Champagne Waiter 3',
+            Command = 'champw3',
+            Animation = 'idle',
+            Dictionary = 'anim@move_f@waitress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'h4_prop_h4_champ_tray_01c',
+                        Placement = {
+                            vector3(0.000000, 0.000000, 0.010000),
+                            vector3(0.000000, 0.000000, 0.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
             Label = 'Cig',
             Command = 'cig',
             Animation = 'enter',
