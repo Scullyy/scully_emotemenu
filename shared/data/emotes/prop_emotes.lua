@@ -3751,6 +3751,28 @@ return {
             },
         },
         {
+            Label = 'Medic Bag 2',
+            Command = 'medbag2',
+            Animation = 'idle',
+            Dictionary = 'move_weapon@jerrycan@generic',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 57005,
+                        Name = 'v_ret_ta_firstaid',
+                        Placement = {
+                            vector3(0.210000, 0.00000, -0.030000),
+                            vector3(-100.000000, -180.000000, -78.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
             Label = 'Megaphone',
             Command = 'megaphone',
             Animation = 'megaphone_clip',
@@ -7206,6 +7228,28 @@ return {
             },
         },
         {
+            Label = 'Doggy',
+            Command = 'doggy',
+            Animation = 'mp_m_waremech_01_dual-0',
+            Dictionary = 'impexp_int-0',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 24817,
+                        Name = 'xm3_prop_xm3_toy_dog_01a',
+                        Placement = {
+                            vector3(-0.100000, 0.460000, -0.016000),
+                            vector3(-180.000000, -90.000000, 0.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
             Label = 'Tennis Play',
             Command = 'tennisplay',
             Animation = 'idle',
@@ -7813,6 +7857,446 @@ return {
                         Placement = {
                             vector3(0.140000, 0.030000, 0.030000),
                             vector3(-105.877000, -10.943200, -33.721200),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Stick Hummingbird',
+            Command = 'stickhummingbird',
+            Animation = 'ped_a_enter_loop',
+            Dictionary = 'anim@heists@humane_labs@finale@keycards',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 18905,
+                        Name = 'prop_stickhbird',
+                        Placement = {
+                            vector3(0.11, 0.01, 0.01),
+                            vector3(-90.00, 90.00, -25.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Stick Butterfly',
+            Command = 'stickbutterfly',
+            Animation = 'ped_a_enter_loop',
+            Dictionary = 'anim@heists@humane_labs@finale@keycards',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 18905,
+                        Name = 'prop_stickbfly',
+                        Placement = {
+                            vector3(0.11, 0.01, 0.01),
+                            vector3(-90.00, 90.00, -25.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Vulture',
+            Command = 'vulture',
+            Animation = 'ped_a_enter_loop',
+            Dictionary = 'anim@heists@humane_labs@finale@keycards',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 18905,
+                        Name = 'ch_prop_arcade_gun_bird_01a',
+                        Placement = {
+                            vector3(0.65, -1.65, 0.55),
+                            vector3(-65.00, 180.00, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Present',
+            Command = 'present',
+            Animation = 'idle',
+            Dictionary = 'anim@heists@box_carry@',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'xm3_prop_xm3_present_01a',
+                        Placement = {
+                            vector3(0.00, -0.18, -0.16),
+                            vector3(0.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Vlog',
+            Command = 'vlog',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_mobile_film_shocking@male@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_ing_camera_01',
+                        Placement = {
+                            vector3(-0.07, -0.01, 0.00),
+                            vector3(0.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Vlog 2',
+            Command = 'vlog2',
+            Animation = 'ped_a_enter_loop',
+            Dictionary = 'anim@heists@humane_labs@finale@keycards',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 18905,
+                        Name = 'prop_ing_camera_01',
+                        Placement = {
+                            vector3(0.15, 0.03, 0.10),
+                            vector3(280.00, 110.00, -11.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Hoe',
+            Command = 'hoe',
+            Animation = 'base',
+            Dictionary = 'anim@amb@drug_field_workers@rake@male_a@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_shovel5',
+                        Placement = {
+                            vector3(0.00, 0.00, -0.50),
+                            vector3(-20.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Hoe 2',
+            Command = 'hoe2',
+            Animation = 'idle_b',
+            Dictionary = 'anim@amb@drug_field_workers@rake@male_a@idles',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_shovel5',
+                        Placement = {
+                            vector3(0.00, 0.00, -0.50),
+                            vector3(-20.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Hoe 3',
+            Command = 'hoe3',
+            Animation = 'base',
+            Dictionary = 'anim@amb@drug_field_workers@rake@male_b@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_shovel5',
+                        Placement = {
+                            vector3(0.00, 0.00, -0.50),
+                            vector3(-20.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Hoe 4',
+            Command = 'hoe4',
+            Animation = 'idle_d',
+            Dictionary = 'anim@amb@drug_field_workers@rake@male_b@idles',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_shovel5',
+                        Placement = {
+                            vector3(0.00, 0.00, -0.50),
+                            vector3(-20.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Hammer',
+            Command = 'hammer',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_hammering@male@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_hammer',
+                        Placement = {
+                            vector3(0.00, 0.00, 0.00),
+                            vector3(0.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Mallet',
+            Command = 'mallet',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_hammering@male@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_mallet',
+                        Placement = {
+                            vector3(0.00, 0.00, 0.00),
+                            vector3(0.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Drill',
+            Command = 'drilltool',
+            Animation = 'drill_straight_end',
+            Dictionary = 'anim@heists@fleeca_bank@drilling',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_drill',
+                        Placement = {
+                            vector3(0.00, 0.00, 0.00),
+                            vector3(0.00, 0.00, 90.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Nail gun',
+            Command = 'nailgun',
+            Animation = 'drill_straight_end',
+            Dictionary = 'anim@heists@fleeca_bank@drilling',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_nailgun',
+                        Placement = {
+                            vector3(0.00, 0.00, 0.00),
+                            vector3(0.00, 0.00, 90.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'JackHammer',
+            Command = 'jackhammer',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_const_drill@male@drill@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_jackham',
+                        Placement = {
+                            vector3(0.00, 0.00, 0.00),
+                            vector3(0.00, 0.00, 0.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Circular Saw',
+            Command = 'circularsaw',
+            Animation = 'drill_straight_fail',
+            Dictionary = 'anim@heists@fleeca_bank@drilling',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_tool_consaw',
+                        Placement = {
+                            vector3(0.00, 0.00, 0.00),
+                            vector3(0.00, 0.00, 90.00),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Syringe',
+            Command = 'syringe',
+            Animation = 'ped_a_enter_loop',
+            Dictionary = 'anim@heists@humane_labs@finale@keycards',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 18905,
+                        Name = 'prop_syringe_01',
+                        Placement = {
+                            vector3(0.11, 0.03, 0.01),
+                            vector3(90.0, 0.0, -50.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Cranial Saw',
+            Command = 'cranialsaw',
+            Animation = 'drill_straight_end',
+            Dictionary = 'anim@heists@fleeca_bank@drilling',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_cranial_saw',
+                        Placement = {
+                            vector3(0.0, 0.0, 0.05),
+                            vector3(90.0, 0.0, 90.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Scalpel',
+            Command = 'scalpel',
+            Animation = 'ped_a_enter_loop',
+            Dictionary = 'anim@heists@humane_labs@finale@keycards',
+            Options = {
+                Flags = {
+                    Loop = false,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 18905,
+                        Name = 'prop_scalpel',
+                        Placement = {
+                            vector3(0.11, 0.03, 0.01),
+                            vector3(0.0, 180.0, -70.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Bonesaw',
+            Command = 'bonesaw',
+            Animation = 'ped_a_enter_loop',
+            Dictionary = 'anim@heists@humane_labs@finale@keycards',
+            Options = {
+                Flags = {
+                    Loop = false,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 18905,
+                        Name = 'prop_bonesaw',
+                        Placement = {
+                            vector3(0.11, 0.03, 0.01),
+                            vector3(0.0, 180.0, -10.0),
                         },
                     },
                 },

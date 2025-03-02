@@ -1829,6 +1829,18 @@ return {
             },
         },
         {
+            Label = 'elbow',
+            Command = 'elbow',
+            Animation = 'sit_low_lowdoor',
+            Dictionary = 'anim@veh@lowrider@std@ds@arm@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+            },
+        },
+        {
             Label = 'Kneel Down',
             Command = 'kneel2',
             Animation = 'idle',
