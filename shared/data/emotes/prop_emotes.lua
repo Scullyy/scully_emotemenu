@@ -5054,6 +5054,75 @@ return {
             SocialMovement = true,
         },
         {
+            Label = 'Protest 4',
+            Command = 'protest4',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_bum_freeway@male@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 58868,
+                        Name = 'prop_cs_protest_sign_03',
+                        Placement = {
+                            vector3(0.25000, 0.180000, 0.000000),
+                            vector3(5.00, 0.00, 40.0),
+                        },
+                    },
+                },
+            },
+            SocialMovement = true,
+        },
+        {
+            Label = 'Protest 5',
+            Command = 'protest5',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_bum_freeway@male@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 58868,
+                        Name = 'prop_cs_protest_sign_04a',
+                        Placement = {
+                            vector3(0.25000, 0.180000, 0.000000),
+                            vector3(5.00, 0.00, 40.0),
+                        },
+                    },
+                },
+            },
+            SocialMovement = true,
+        },
+        {
+            Label = 'Protest 6',
+            Command = 'protest6',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_bum_freeway@male@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 58868,
+                        Name = 'prop_cs_protest_sign_04b',
+                        Placement = {
+                            vector3(0.25000, 0.180000, 0.000000),
+                            vector3(5.00, 0.00, 40.0),
+                        },
+                    },
+                },
+            },
+            SocialMovement = true,
+        },
+        {
             Label = 'Pumpkin',
             Command = 'pump',
             Animation = 'idle',
@@ -6942,6 +7011,72 @@ return {
             },
         },
         {
+            Label = 'Steal SpeedLimit 15 Sign',
+            Command = 'ssign10',
+            Animation = 'base_club_shoulder',
+            Dictionary = 'rcmnigel1d',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 60309,
+                        Name = 'prop_sign_road_06c',
+                        Placement = {
+                            vector3(0.00000, -0.060000, 0.100000),
+                            vector3(-67.331528, 145.062790, -4.431889),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Steal SpeedLimit 35 Sign',
+            Command = 'ssign11',
+            Animation = 'base_club_shoulder',
+            Dictionary = 'rcmnigel1d',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 60309,
+                        Name = 'prop_sign_road_06e',
+                        Placement = {
+                            vector3(0.00000, -0.060000, 0.100000),
+                            vector3(-67.331528, 145.062790, -4.431889),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Steal SpeedLimit 60 Sign',
+            Command = 'ssign12',
+            Animation = 'base_club_shoulder',
+            Dictionary = 'rcmnigel1d',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 60309,
+                        Name = 'prop_sign_road_06g',
+                        Placement = {
+                            vector3(0.00000, -0.060000, 0.100000),
+                            vector3(-67.331528, 145.062790, -4.431889),
+                        },
+                    },
+                },
+            },
+        },
+        {
             Label = 'Steal TV',
             Command = 'stealtv',
             Animation = 'beachanim_surf_clip',
@@ -7002,6 +7137,28 @@ return {
                         Placement = {
                             vector3(0.130000, 0.000000, -0.010000),
                             vector3(0.000000, 280.000000, 90.000000),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Suitcase 3',
+            Command = 'suitcase3',
+            Animation = 'idle',
+            Dictionary = 'anim@heists@narcotics@trash',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_suitcase_01c',
+                        Placement = {
+                            vector3(0.110000, -0.2100000, -0.430000),
+                            vector3(-11.8999, 0.000000, 30.000000),
                         },
                     },
                 },
