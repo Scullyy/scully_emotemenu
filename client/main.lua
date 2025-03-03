@@ -15,6 +15,7 @@ Emotes = {
     lib.load('shared.data.emotes.synchronized_dance_emotes'),
     lib.load('shared.data.emotes.animal_emotes')
 }
+ExitEmotes = lib.load('shared.data.emotes.exit_emotes')
 
 EmoteBinds = KVP.getTable('keybinds')
 PlayerState = LocalPlayer.state
@@ -280,21 +281,18 @@ exports('playEmote', PlayEmote)
 ---@param skipReset? boolean
 function CancelEmote(skipReset)
     if PlayerState.isInEmote and not PlayerState.isLimited then
+        :: cancelEmote ::
+
         local isScenario = IsPedUsingAnyScenario(cache.ped)
 
         if isScenario then SetPedShouldPlayImmediateScenarioExit(cache.ped) end
-        
-        ClearPedTasks(cache.ped)
+
         DetachEntity(cache.ped, true, false)
         PlayerState:set('isInEmote', false, true)
         PlayerState:set('emoteProps', nil, true)
         PlayerState:set('emotePtfx', false, true)
 
         if Config.ptfxKey then keybinds.Ptfx:disable(true) end
-
-        if not skipReset then
-            PlayerState.lastEmote = nil
-        end
 
         if PlayerState.inSynchronizedEmote then
             PlayerState:set('inSynchronizedEmote', nil, true)
@@ -313,6 +311,28 @@ function CancelEmote(skipReset)
                 end
             end
         end
+
+        local exitEmoteName = PlayerState?.lastEmote?[1]?.Options?.ExitEmote
+
+        if not skipReset then
+            PlayerState.lastEmote = nil
+            
+            if exitEmoteName then
+                local exitEmote = ExitEmotes[exitEmoteName]
+
+                PlayEmote(exitEmote)
+
+                if exitEmote?.Options?.Duration then
+                    Wait(exitEmote.Options.Duration)
+    
+                    goto cancelEmote
+                end
+                
+                return
+            end
+        end
+
+        ClearPedTasks(cache.ped)
     end
 end
 exports('cancelEmote', CancelEmote)

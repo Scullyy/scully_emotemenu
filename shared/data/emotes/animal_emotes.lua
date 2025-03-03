@@ -92,6 +92,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -220,6 +221,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -251,6 +253,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -282,6 +285,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -313,6 +317,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -344,6 +349,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -375,6 +381,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -406,6 +413,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -437,6 +445,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -468,6 +477,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -499,6 +509,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogup',
             },
             PedTypes = {'big_dogs'},
         },
@@ -511,6 +522,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'bdogupk',
             },
             PedTypes = {'big_dogs'},
         },
@@ -1064,6 +1076,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1108,6 +1121,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1130,6 +1144,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 12844,
@@ -1182,6 +1197,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1234,6 +1250,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1298,6 +1315,7 @@ return {
             Dictionary = 'creatures@pug@amb@world_dog_sitting@idle_a',
             Options = {
                 Duration = 2000,
+                ExitEmote = 'sdogup',
             },
             PedTypes = {'big_dogs'},
         },
@@ -1562,6 +1580,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1585,6 +1604,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1608,6 +1628,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1631,6 +1652,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1654,6 +1676,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1677,6 +1700,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1700,6 +1724,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1723,6 +1748,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1746,6 +1772,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1791,6 +1818,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 12844,
@@ -1825,6 +1853,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
             },
             PedTypes = {'small_dogs'},
         },
@@ -1871,6 +1900,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,
@@ -1948,6 +1978,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'sdogup',
                 Props = {
                     {
                         Bone = 31086,

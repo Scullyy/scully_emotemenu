@@ -40,6 +40,7 @@ files {
     'shared/data/emotes/prop_emotes.lua',
     'shared/data/emotes/synchronized_dance_emotes.lua',
     'shared/data/emotes/synchronized_emotes.lua',
+    'shared/data/emotes/exit_emotes.lua',
     'shared/modules/utils.lua',
     'client/data/ped_types.lua',
     'client/data/scenario_models.lua',

@@ -368,9 +368,11 @@ return {
             Animation = 'trev_scares_tramp_idle_tramp',
             Dictionary = 'switch@trevor@scares_tramp',
             Options = {
+                Delay = 200,
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -448,9 +450,11 @@ return {
             Animation = 'trev_annoys_sunbathers_loop_girl',
             Dictionary = 'switch@trevor@annoys_sunbathers',
             Options = {
+                Delay = 700,
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -462,6 +466,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -610,6 +615,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'meditateup',
             },
         },
         {
@@ -693,6 +699,32 @@ return {
                     Loop = true,
                     Move = true,
                 },
+            },
+        },
+        {
+            Label = 'Cuffed',
+            Command = 'cuffed',
+            Animation = 'idle',
+            Dictionary = 'anim@move_m@prisoner_cuffed',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                ExitEmote = 'uncuff_front'
+            },
+        },
+        {
+            Label = 'Cuffed 2',
+            Command = 'cuffed2',
+            Animation = 'idle',
+            Dictionary = 'mp_arresting',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+                ExitEmote = 'uncuff_back'
             },
         },
         {
@@ -1859,6 +1891,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'standup',
             },
         },
         {
@@ -2278,6 +2311,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -2322,6 +2356,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'meditateup',
             },
         },
         {
@@ -2333,6 +2368,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'meditateup',
             },
         },
         {
@@ -2344,6 +2380,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'meditateup',
             },
         },
         {
@@ -2665,6 +2702,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -2676,6 +2714,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -2687,6 +2726,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -2698,6 +2738,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -2709,6 +2750,43 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
+            },
+        },
+        {
+            Label = 'Passout 6',
+            Command = 'passout6',
+            Animation = 'fix_bil_ig2_chopper_crawl_loop_ped',
+            Dictionary = 'anim@scripted@data_leak@fix_bil_ig2_chopper_crawl@',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                ExitEmote = 'getup',
+            },
+        },
+        {
+            Label = 'Passout 7',
+            Command = 'passout7',
+            Animation = 'fix_bil_ig2_chopper_crawl_dead_loop_ped',
+            Dictionary = 'anim@scripted@data_leak@fix_bil_ig2_chopper_crawl@',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                ExitEmote = 'getup',
+            },
+        },
+        {
+            Label = 'Passout 8',
+            Command = 'passout8',
+            Animation = 'fix_bil_ig2_chopper_crawl_dead_loop_ped',
+            Dictionary = 'anim@scripted@data_leak@fix_bil_ig2_chopper_crawl@',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3122,9 +3200,11 @@ return {
             Animation = 'prone_dave',
             Dictionary = 'missfbi3_sniping',
             Options = {
+                Delay = 700,
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3493,6 +3573,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3637,6 +3718,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3648,6 +3730,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3659,6 +3742,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3670,6 +3754,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3681,6 +3766,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3692,6 +3778,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3703,6 +3790,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3714,6 +3802,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3725,6 +3814,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3780,6 +3870,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'offchair',
             },
             Placement = true
         },
@@ -3792,6 +3883,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'offchair',
             },
             Placement = true
         },
@@ -3804,6 +3896,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'offchair',
             },
             Placement = true
         },
@@ -3816,6 +3909,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'offchair',
             },
             Placement = true
         },
@@ -3828,6 +3922,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'offchair',
             },
             Placement = true
         },
@@ -3840,6 +3935,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'offchair',
             },
             Placement = true
         },
@@ -3852,6 +3948,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'offchair',
             },
             Placement = true
         },
@@ -3965,6 +4062,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3976,6 +4074,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3987,6 +4086,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -3998,6 +4098,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4009,6 +4110,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4020,6 +4122,19 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
+            },
+        },
+        {
+            Label = 'Sleep 7',
+            Command = 'sleep7',
+            Animation = 'idle_b',
+            Dictionary = 'amb@world_human_bum_slumped@male@laying_on_left_side@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4249,6 +4364,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4260,6 +4376,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4271,6 +4388,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4282,6 +4400,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4293,6 +4412,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4304,6 +4424,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4315,6 +4436,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4349,6 +4471,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'surrender_exit',
             },
         },
         {
@@ -4360,6 +4483,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4371,6 +4495,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4382,6 +4507,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4393,6 +4519,7 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
             },
         },
         {
@@ -4404,6 +4531,19 @@ return {
                 Flags = {
                     Loop = true,
                 },
+                ExitEmote = 'getup',
+            },
+        },
+        {
+            Label = 'Surrender 7',
+            Command = 'surrender7',
+            Animation = 'on_knee_idle_a',
+            Dictionary = 'anim@scripted@bty4@ig2_bounty_kneel@male@',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                ExitEmote = 'getup',
             },
         },
         {

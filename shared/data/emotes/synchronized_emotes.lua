@@ -259,6 +259,7 @@ return {
             Animation = 'cpr_pumpchest',
             Dictionary = 'mini@cpr@char_a@cpr_str',
             Options = {
+                Delay = 250,
                 Flags = {
                     Loop = true,
                 },
@@ -294,6 +295,7 @@ return {
             Animation = 'cpr_loop_paramedic',
             Dictionary = 'missheistfbi3b_ig8_2',
             Options = {
+                Delay = 250,
                 Flags = {
                     Loop = true,
                 },

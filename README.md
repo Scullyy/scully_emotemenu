@@ -67,6 +67,8 @@ For support join my discord here: https://discord.gg/scully
 
 - Walk styles can't be abused to run faster
 
+- Exit emotes
+
 # State Bags
 | State Bag Name | Replicated | Description |
 | ------------- | ------------- | ------------- |
