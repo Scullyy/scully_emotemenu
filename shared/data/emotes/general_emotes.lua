@@ -762,6 +762,18 @@ return {
             },
         },
         {
+            Label = 'Elbow',
+            Command = 'elbow',
+            Animation = 'sit_low_lowdoor',
+            Dictionary = 'anim@veh@lowrider@std@ds@arm@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+            },
+        },
+        {
             Label = 'Facepalm',
             Command = 'facepalm',
             Animation = 'agitated_idle_a',
