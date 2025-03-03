@@ -83,8 +83,8 @@ return {
                     Bone = 40269,
                     OtherEmote = 'scarry',
                     Placement = {
-                        vector3(-0.140000, 0.150000, 0.140000),
-                        vector3(0.000000, -59.000000, -4.500000),
+                        vec3(-0.14, 0.15, 0.14),
+                        vec3(0.0, -59.0, -4.5),
                     },
                 },
             },
@@ -122,8 +122,8 @@ return {
                     Bone = 28252,
                     OtherEmote = 'carry2',
                     Placement = {
-                        vector3(0.350000, 0.150000, -0.150000),
-                        vector3(-42.500000, -22.500000, 22.500000),
+                        vec3(0.35, 0.15, -0.15),
+                        vec3(-42.5, -22.5, 22.5),
                     },
                 },
             },
@@ -158,8 +158,8 @@ return {
                     Bone = 0,
                     OtherEmote = 'scarry3',
                     Placement = {
-                        vector3(0.010000, 0.344000, -0.010000),
-                        vector3(180.000000, 180.000000, -1.999900),
+                        vec3(0.01, 0.344, -0.01),
+                        vec3(180.0, 180.0, -1.999900),
                     },
                 },
             },
@@ -194,8 +194,8 @@ return {
                     Attach = true,
                     OtherEmote = 'scbdog',
                     Placement = {
-                        vector3(-0.100000, 0.650000, 0.430000),
-                        vector3(0.000000, 0.000000, -100.000000),
+                        vec3(-0.1, 0.65, 0.43),
+                        vec3(0.0, 0.0, -100.0),
                     },
                 },
             },
@@ -215,8 +215,8 @@ return {
                         Bone = 60309,
                         Name = 'p_wine_glass_s',
                         Placement = {
-                            vector3(-0.050000, -0.010000, -0.170000),
-                            vector3(0.000000, 0.000000, 0.000000),
+                            vec3(-0.05, -0.01, -0.17),
+                            vec3(0.0, 0.0, 0.0),
                         },
                     },
                 },
@@ -240,8 +240,8 @@ return {
                         Bone = 28422,
                         Name = 'p_wine_glass_s',
                         Placement = {
-                            vector3(0.000000, 0.000000, 0.000000),
-                            vector3(0.000000, 0.000000, 0.000000),
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
                         },
                     },
                 },
@@ -281,8 +281,8 @@ return {
                     Attach = true,
                     OtherEmote = 'scprs',
                     Placement = {
-                        vector3(0.350000, 0.800000, 0.000000),
-                        vector3(0.000000, 0.000000, 270.000000),
+                        vec3(0.35, 0.8, 0.0),
+                        vec3(0.0, 0.0, 270.0),
                     },
                 },
             },
@@ -316,8 +316,8 @@ return {
                     Attach = true,
                     OtherEmote = 'scprs3',
                     Placement = {
-                        vector3(0.350000, 0.650000, 0.000000),
-                        vector3(0.000000, 0.000000, 270.000000),
+                        vec3(0.35, 0.65, 0.0),
+                        vec3(0.0, 0.0, 270.0),
                     },
                 },
             },
@@ -361,7 +361,7 @@ return {
             Animation = 'pimpsex_hooker',
             Dictionary = 'misscarsteal2pimpsex',
             Options = {
-                Duration = 30000,
+                Duration = 3,
                 Shared = {
                     FrontOffset = 0.63,
                     OtherEmote = 'sreceiveblowjob',
@@ -486,8 +486,8 @@ return {
                     Attach = true,
                     OtherEmote = 'shostage',
                     Placement = {
-                        vector3(-0.300000, 0.100000, 0.000000),
-                        vector3(0.000000, 0.000000, 0.000000),
+                        vec3(-0.3, 0.1, 0.0),
+                        vec3(0.0, 0.0, 0.0),
                     },
                 },
             },
@@ -561,7 +561,7 @@ return {
             Animation = 'cs_lestercrest_3_dual-20',
             Dictionary = 'hs3_ext-20',
             Options = {
-                Duration = 10000,
+                Duration = 1,
                 Shared = {
                     FrontOffset = 0.08,
                     OtherEmote = 'skiss2',
@@ -575,7 +575,7 @@ return {
             Animation = 'csb_georginacheng_dual-20',
             Dictionary = 'hs3_ext-20',
             Options = {
-                Duration = 10000,
+                Duration = 1,
                 Shared = {
                     FrontOffset = 0.08,
                     OtherEmote = 'skiss',
@@ -589,7 +589,7 @@ return {
             Animation = 'cs_lestercrest_3_dual-19',
             Dictionary = 'hs3_ext-19',
             Options = {
-                Duration = 10000,
+                Duration = 1,
                 Shared = {
                     FrontOffset = 0.08,
                     OtherEmote = 'skiss4',
@@ -603,7 +603,7 @@ return {
             Animation = 'csb_georginacheng_dual-19',
             Dictionary = 'hs3_ext-19',
             Options = {
-                Duration = 10000,
+                Duration = 1,
                 Shared = {
                     FrontOffset = 0.08,
                     OtherEmote = 'skiss3',
@@ -640,8 +640,8 @@ return {
                     Bone = 0,
                     OtherEmote = 'sliftme',
                     Placement = {
-                        vector3(0.002000, 0.287000, 0.250000),
-                        vector3(0.000000, 0.000000, 180.000000),
+                        vec3(0.002, 0.287, 0.25),
+                        vec3(0.0, 0.0, 180.0),
                     },
                 },
             },
@@ -676,8 +676,8 @@ return {
                     Bone = 0,
                     OtherEmote = 'sliftme3',
                     Placement = {
-                        vector3(0.010000, 0.480000, 0.530000),
-                        vector3(0.000000, 0.000000, 180.000000),
+                        vec3(0.01, 0.48, 0.53),
+                        vec3(0.0, 0.0, 180.0),
                     },
                 },
             },
@@ -712,8 +712,8 @@ return {
                     Bone = 0,
                     OtherEmote = 'sliftme5',
                     Placement = {
-                        vector3(-0.212000, -0.540000, -0.100000),
-                        vector3(0.000000, 0.000000, 0.000000),
+                        vec3(-0.212, -0.54, -0.1),
+                        vec3(0.0, 0.0, 0.0),
                     },
                 },
             },
@@ -749,8 +749,8 @@ return {
                     Bone = 0,
                     OtherEmote = 'spback',
                     Placement = {
-                        vector3(0.020000, -0.439900, 0.420000),
-                        vector3(0.000000, 0.000000, 0.000000),
+                        vec3(0.02, -0.439900, 0.42),
+                        vec3(0.0, 0.0, 0.0),
                     },
                 },
             },
@@ -786,8 +786,8 @@ return {
                     Bone = 0,
                     OtherEmote = 'spback',
                     Placement = {
-                        vector3(0.000000, -0.700000, 0.400000),
-                        vector3(0.000000, 0.000000, 0.000000),
+                        vec3(0.0, -0.7, 0.4),
+                        vec3(0.0, 0.0, 0.0),
                     },
                 },
             },
@@ -823,7 +823,7 @@ return {
             Animation = 'pimpsex_punter',
             Dictionary = 'misscarsteal2pimpsex',
             Options = {
-                Duration = 30000,
+                Duration = 3,
                 Shared = {
                     FrontOffset = 0.63,
                     OtherEmote = 'sgiveblowjob',
@@ -860,8 +860,8 @@ return {
                     Attach = true,
                     OtherEmote = 'ssearch',
                     Placement = {
-                        vector3(0.000000, 0.500000, 0.000000),
-                        vector3(0.000000, 0.000000, 0.000000),
+                        vec3(0.0, 0.5, 0.0),
+                        vec3(0.0, 0.0, 0.0),
                     },
                 },
             },

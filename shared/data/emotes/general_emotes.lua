@@ -762,18 +762,6 @@ return {
             },
         },
         {
-            Label = 'Elbow',
-            Command = 'elbow',
-            Animation = 'sit_low_lowdoor',
-            Dictionary = 'anim@veh@lowrider@std@ds@arm@base',
-            Options = {
-                Flags = {
-                    Loop = true,
-                    Move = true,
-                },
-            },
-        },
-        {
             Label = 'Facepalm',
             Command = 'facepalm',
             Animation = 'agitated_idle_a',
@@ -1570,29 +1558,6 @@ return {
             },
         },
         {
-            Label = 'Idle 10',
-            Command = 'idle10',
-            Animation = 'idle',
-            Dictionary = 'mp_move@prostitute@m@french',
-            Options = {
-                Flags = {
-                    Loop = true,
-                    Move = true,
-                },
-            },
-        },
-        {
-            Label = 'Idle 11',
-            Command = 'idle11',
-            Animation = 'idle_a',
-            Dictionary = 'random@countrysiderobbery',
-            Options = {
-                Flags = {
-                    Loop = true,
-                },
-            },
-        },
-        {
             Label = 'Idle 2',
             Command = 'idle2',
             Animation = 'idle',
@@ -1669,6 +1634,29 @@ return {
             Command = 'idle9',
             Animation = 'base_idle',
             Dictionary = 'friends@fra@ig_1',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Idle 10',
+            Command = 'idle10',
+            Animation = 'idle',
+            Dictionary = 'mp_move@prostitute@m@french',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+            },
+        },
+        {
+            Label = 'Idle 11',
+            Command = 'idle11',
+            Animation = 'idle_a',
+            Dictionary = 'random@countrysiderobbery',
             Options = {
                 Flags = {
                     Loop = true,
@@ -1985,6 +1973,18 @@ return {
                 },
             },
             NSFW = true
+        },
+        {
+            Label = 'Lean',
+            Command = 'lean',
+            Animation = 'sit_low_lowdoor',
+            Dictionary = 'anim@veh@lowrider@std@ds@arm@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+            },
         },
         {
             Label = 'Lean 2',
@@ -2821,8 +2821,8 @@ return {
                     CanHold = true,
                     Name = 'ent_anim_dog_peeing',
                     Placement = {
-                        vector3(-0.050000, 0.300000, 0.000000),
-                        vector3(0.000000, 90.000000, 90.000000),
+                        vec3(-0.05, 0.3, 0.0),
+                        vec3(0.0, 90.0, 90.0),
                         1.0,
                     },
                     Wait = 3000,
@@ -2844,8 +2844,8 @@ return {
                     CanHold = true,
                     Name = 'ent_anim_dog_peeing',
                     Placement = {
-                        vector3(0.013000, 0.103000, 0.000000),
-                        vector3(0.000000, 90.000000, 90.000000),
+                        vec3(0.013, 0.103, 0.0),
+                        vec3(0.0, 90.0, 90.0),
                         1.0,
                     },
                     Wait = 3000,
