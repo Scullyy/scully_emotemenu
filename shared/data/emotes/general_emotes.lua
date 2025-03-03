@@ -776,6 +776,83 @@ return {
             },
         },
         {
+            Label = 'Dazzle Me',
+            Command = 'dazzleme',
+            Animation = 'pose1_clip',
+            Dictionary = 'lunyx@dazzleme',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Dazzle Me 2',
+            Command = 'dazzleme2',
+            Animation = 'pose2_clip',
+            Dictionary = 'lunyx@dazzleme',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Dazzle Me 3',
+            Command = 'dazzleme3',
+            Animation = 'pose3_clip',
+            Dictionary = 'lunyx@dazzleme',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Dazzle Me 4',
+            Command = 'dazzleme4',
+            Animation = 'pose4_clip',
+            Dictionary = 'lunyx@dazzleme',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Dazzle Me 5',
+            Command = 'dazzleme5',
+            Animation = 'pose5_clip',
+            Dictionary = 'lunyx@dazzleme',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Dazzle Me 6',
+            Command = 'dazzleme6',
+            Animation = 'pose6_clip',
+            Dictionary = 'lunyx@dazzleme',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Dazzle Me 7',
+            Command = 'dazzleme7',
+            Animation = 'pose7_clip',
+            Dictionary = 'lunyx@dazzleme',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
             Label = 'Dispenser',
             Command = 'dispenser',
             Animation = 'plyr_buy_drink_pt1',
@@ -882,6 +959,107 @@ return {
             Command = 'fallover5',
             Animation = 'victim_fail',
             Dictionary = 'anim@gangops@hostage@',
+        },
+        {
+            Label = 'Fashion Pose',
+            Command = 'fashionpose',
+            Animation = 'chic',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Fashion Pose 2',
+            Command = 'fashionpose2',
+            Animation = 'deathdrop',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                ExitEmote = 'standup',
+            },
+        },
+        {
+            Label = 'Fashion Pose 3',
+            Command = 'fashionpose3',
+            Animation = 'magica',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Fashion Pose 4',
+            Command = 'fashionpose4',
+            Animation = 'pose5',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Fashion Pose 5',
+            Command = 'fashionpose5',
+            Animation = 'pose8',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Fashion Pose 6',
+            Command = 'fashionpose6',
+            Animation = 'pose20',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Fashion Pose 7',
+            Command = 'fashionpose7',
+            Animation = 'pose28',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Fashion Pose 8',
+            Command = 'fashionpose8',
+            Animation = 'runoutofposes',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+            },
+        },
+        {
+            Label = 'Fashion Pose 9',
+            Command = 'fashionpose9',
+            Animation = 'split',
+            Dictionary = 'lunyxco@dresstoimpress',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                ExitEmote = 'standup',
+            },
         },
         {
             Label = 'Fight Me',
@@ -3299,6 +3477,18 @@ return {
             Command = 'reaching',
             Animation = 'idle',
             Dictionary = 'move_m@intimidation@cop@unarmed',
+            Options = {
+                Flags = {
+                    Loop = true,
+                    Move = true,
+                },
+            },
+        },
+        {
+            Label = 'Reaching 2',
+            Command = 'reaching2',
+            Animation = 'idle',
+            Dictionary = 'mads@police_reaching_holster',
             Options = {
                 Flags = {
                     Loop = true,
