@@ -391,7 +391,7 @@ function RegisterRadialMenu()
                 id = 'emotemenu_open',
                 label = locale('open_radial_menu'),
                 icon = 'person-walking',
-                onSelect = 'ToggleMenu'
+                onSelect = ToggleMenu
             },
             {
                 id = 'emotemenu_walks_submenu',
@@ -409,7 +409,7 @@ function RegisterRadialMenu()
                 id = 'emotemenu_cancel',
                 label = locale('cancel'),
                 icon = 'ban',
-                onSelect = 'CancelEmote'
+                onSelect = CancelEmote
             }
         }
     })
