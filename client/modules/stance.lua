@@ -27,6 +27,12 @@ local function disableStanceControls()
     end)
 end
 
+-- Reset stance state
+local function resetStance()
+    returnStance = false
+    PlayerState.stance = 0
+end
+
 ---Crouch loop
 local function crouchLoop()
     lib.requestAnimSet('move_ped_crouched')
@@ -42,17 +48,17 @@ local function crouchLoop()
             Wait(0)
 
             if cache.vehicle then
-                PlayerState.stance = 0
+                resetStance()
                 break
             end
 
             if IsPedFalling(cache.ped) then
-                PlayerState.stance = 0
+                resetStance()
                 break
             end
 
             if IsPedJumping(cache.ped) then
-                PlayerState.stance = 0
+                resetStance()
                 break
             end
 
