@@ -18,6 +18,17 @@ lib.addKeybind({
         TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
 
         PlayerState.handsup = true
+
+        if Config.enableAimShootBlock then
+            CreateThread(function()
+                while PlayerState.handsup do
+                    Wait(0)
+
+                    DisableControlAction(0, 25, true)
+                    DisablePlayerFiring(cache.playerId, true)
+                end
+            end)
+        end
     end,
     onReleased = function()
         if PlayerState.isLimited then return end
