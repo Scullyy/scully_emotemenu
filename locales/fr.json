@@ -1,5 +1,5 @@
 {
-    "emote_menu": "Menu emotes",
+    "emote_menu": "Menu Emote",
     "open_emote_menu": "Ouvrir le menu des emotes",
     "open_radial_menu": "Ouvrir le menu",
     "view_list": "Voir la liste",
@@ -45,7 +45,7 @@
     "stance": "Posture",
     "crouch": "S'accroupir",
     "point": "Pointer",
-    "ragdoll": "Chiffon",
+    "ragdoll": "Tomber",
     "placement_text": "[Entrée] Terminer  \n[Clic Droit] Annuler  \n[Flèches Haut/Bas] Hauteur  \n[Molette de la souris] Tourner",
     "right_click_to_cancel": "[Clic Droit] Annuler",
     "too_far": "Vous êtes trop loin",
@@ -57,13 +57,13 @@
     "emote_cancelled": "L'emote a été annulée",
     "emote_command_help": "Jouer une emote",
     "emote_command_param1_name": "Emote",
-    "emote_command_param1_help": "Emote, c pour annuler ou l pour la liste",
+    "emote_command_param1_help": "Emote, c'est pour annuler ou 1 pour la liste",
     "emote_command_param2_name": "Variante",
     "emote_command_param2_help": "Numéro de variante",
     "walk_command_help": "Changer de style de marche",
     "walk_command_param1_name": "Marche",
-    "walk_command_param1_help": "Style de marche, c pour annuler ou l pour la liste",
+    "walk_command_param1_help": "Style de marche, c'est pour annuler ou l pour la liste",
     "expression_command_help": "Changer d'expression faciale",
     "expression_command_param1_name": "Expression",
-    "expression_command_param1_help": "Expression, c pour annuler ou l pour la liste"
+    "expression_command_param1_help": "Expression, c'est pour annuler ou l pour la liste"
 }
