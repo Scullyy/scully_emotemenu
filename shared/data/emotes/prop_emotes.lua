@@ -8484,6 +8484,203 @@ return {
             },
         },
         {
+            Label = 'Weights 3',
+            Command = 'weights3',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_muscle_bench_press@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_barbell_10kg',
+                        Placement = {
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Weights 4',
+            Command = 'weights4',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_muscle_bench_press@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_barbell_20kg',
+                        Placement = {
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Weights 5',
+            Command = 'weights5',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_muscle_bench_press@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_barbell_30kg',
+                        Placement = {
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Weights 6',
+            Command = 'weights6',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_muscle_bench_press@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_barbell_40kg',
+                        Placement = {
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Weights 7',
+            Command = 'weights7',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_muscle_bench_press@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_barbell_50kg',
+                        Placement = {
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Weights 8',
+            Command = 'weights8',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_muscle_bench_press@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_barbell_60kg',
+                        Placement = {
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Weights 9',
+            Command = 'weights9',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_muscle_bench_press@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_barbell_80kg',
+                        Placement = {
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Weights 10',
+            Command = 'weights10',
+            Animation = 'idle_a',
+            Dictionary = 'amb@prop_human_seat_muscle_bench_press@idle_a',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 28422,
+                        Name = 'prop_barbell_100kg',
+                        Placement = {
+                            vec3(0.0, 0.0, 0.0),
+                            vec3(0.0, 0.0, 0.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
+            Label = 'Weights 11',
+            Command = 'weights11',
+            Animation = 'base',
+            Dictionary = 'amb@world_human_muscle_free_weights@male@barbell@base',
+            Options = {
+                Flags = {
+                    Loop = true,
+                },
+                Props = {
+                    {
+                        Bone = 57005,
+                        Name = 'prop_barbell_01',
+                        Placement = {
+                            vec3(0.1, 0.0, 0.0),
+                            vec3(288.0, 70.0, -36.0),
+                        },
+                    },
+                    {
+                        Bone = 18905,
+                        Name = 'prop_barbell_01',
+                        Placement = {
+                            vec3(0.1, 0.0, 0.0),
+                            vec3(267.0, 91.0, -134.0),
+                        },
+                    },
+                },
+            },
+        },
+        {
             Label = 'Whiskey',
             Command = 'whiskey',
             Animation = 'idle_c',
