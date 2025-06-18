@@ -11,6 +11,7 @@ return {
         `A_C_Husky`,
         `A_C_Retriever`,
         `A_C_Rottweiler`,
+        `A_C_Rottweiler_02`,
         `A_C_shepherd`
     },
     cats = {
@@ -34,6 +35,8 @@ return {
     land_mammals = {
         `A_C_Boar`,
         `A_C_Boar_02`,
+        `A_C_Chimp`,
+        `A_C_Chimp_02`,
         `A_C_Cow`,
         `A_C_Coyote`,
         `A_C_Coyote_02`,
@@ -44,11 +47,14 @@ return {
         `A_C_Panther`,
         `A_C_Pig`,
         `A_C_Rabbit_01`,
-        `A_C_Rabbit_02`
+        `A_C_Rabbit_02`,
+        `A_C_Rhesus`
     },
     aquatic_animals = {
         `A_C_Cormorant`,
         `A_C_Fish`,
+        `A_C_Sharkhammer`,
+        `A_C_Sharktiger`,
         `A_C_Stingray`
     }
 }
