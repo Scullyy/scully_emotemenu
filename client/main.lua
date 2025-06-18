@@ -122,7 +122,7 @@ function PlayEmote(data, variation)
 
     if Config.enableAimShootBlock then
         CreateThread(function()
-            while PlayerState.isInEmote and not IsPedRagdoll(cache.ped) do
+            while PlayerState.isInEmote do
                 Wait(0)
 
                 DisableControlAction(0, 25, true)
