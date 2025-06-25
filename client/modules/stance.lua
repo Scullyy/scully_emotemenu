@@ -114,12 +114,12 @@ lib.addKeybind({
         local stanceLevel = PlayerState.stance
 
         if returnStance then
-            stanceLevel -= 1
+            stanceLevel = stanceLevel - 1
 
             if Config.useCrouchOnly and stanceLevel == 1 then stanceLevel = 0 end
             if stanceLevel == 0 then returnStance = false end
         else
-            stanceLevel += 1
+            stanceLevel = stanceLevel + 1
 
             if Config.useCrouchOnly and stanceLevel == 1 then stanceLevel = 2 end
             if stanceLevel == 2 then returnStance = true end

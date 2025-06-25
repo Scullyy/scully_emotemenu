@@ -178,19 +178,19 @@ function placement.start(data)
             end
 
             if IsDisabledControlJustPressed(0, 14) then
-                heading += 5
+                heading = heading + 5
 
                 if heading > 360 then heading = 0.0 end
             elseif IsDisabledControlJustPressed(0, 15) then
-                heading -= 5
+                heading = heading - 5
 
                 if heading < 0 then heading = 360.0 end
             elseif IsDisabledControlPressed(0, 27) then
-                offsetZ += 0.01
+                offsetZ = offsetZ + 0.01
 
                 if offsetZ > 1.0 then offsetZ = 1.0 end
             elseif IsDisabledControlPressed(0, 173) then
-                offsetZ -= 0.01
+                offsetZ = offsetZ - 0.01
 
                 if offsetZ < -1.0 then offsetZ = -1.0 end
             end

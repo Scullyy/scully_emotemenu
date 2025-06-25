@@ -1118,7 +1118,7 @@ AddEventHandler('CEventPlayerCollisionWithPed', function()
     while hitTimeout > 0 do
         Wait(100)
 
-        hitTimeout -= 100
+        hitTimeout = hitTimeout - 100
     end
 
     local lastEmote = PlayerState.lastEmote

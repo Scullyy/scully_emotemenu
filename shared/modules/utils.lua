@@ -13,7 +13,7 @@ function utils.filterTable(_table, keep)
                 _table[_index] = _table[i]
                 _table[i] = nil
             end
-            _index += 1
+            _index = _index + 1
         else
             _table[i] = nil
         end
