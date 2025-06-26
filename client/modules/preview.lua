@@ -56,7 +56,7 @@ function preview.createPreviewPed(previewModel)
             local previewCoords = vec3(0.0, 0.0, 0.0)
 
             for i = 1, #buffers do
-                previewCoords = previewCoords + buffers[i]
+                previewCoords += buffers[i]
             end
 
             previewCoords = previewCoords / #buffers
@@ -85,7 +85,7 @@ function preview.showEmote(data)
 
     if not preview.id then preview.id = 0 end
 
-    local previewId = preview.id + 1
+    local previewId = preview.id += 1
 
     preview.id = previewId
     preview.ped = preview.createPreviewPed(previewModel)
