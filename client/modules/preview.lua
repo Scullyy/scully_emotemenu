@@ -85,9 +85,10 @@ function preview.showEmote(data)
 
     if not preview.id then preview.id = 0 end
 
-    local previewId = preview.id += 1
+    preview.id += 1
 
-    preview.id = previewId
+    local previewId = preview.id
+
     preview.ped = preview.createPreviewPed(previewModel)
     preview.props = {}
 
