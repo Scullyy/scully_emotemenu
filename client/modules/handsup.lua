@@ -3,6 +3,7 @@ lib.addKeybind({
     description = locale('hands_up'),
     defaultKey = Config.handsUpKey,
     onPressed = function()
+        if Config.handsUpIsToggle and PlayerState.handsup then PlayerState.handsup = false end
         if PlayerState.isLimited then return end
         if GetVehiclePedIsEntering(cache.ped) ~= 0 then return end
 
@@ -25,10 +26,19 @@ lib.addKeybind({
 
                 DisableControlAction(0, 25, true)
                 DisablePlayerFiring(cache.playerId, true)
+
+                if Config.handsUpIsToggle and not IsEntityPlayingAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 3) then
+                    TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
+                end
+            end
+
+            if Config.handsUpIsToggle then
+                StopAnimTask(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0)
+                RemoveAnimDict('random@mugging3')
             end
         end)
     end,
-    onReleased = function()
+    onReleased = not Config.handsUpIsToggle and function()
         if PlayerState.isLimited then return end
         if not PlayerState.handsup then return end
 
