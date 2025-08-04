@@ -19,7 +19,8 @@ lib.addKeybind({
         TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
 
         PlayerState.handsup = true
-        local needsReset = true
+
+        local needsReset = false
         CreateThread(function()
             while PlayerState.handsup do
                 Wait(0)
