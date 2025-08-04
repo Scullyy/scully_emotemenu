@@ -33,7 +33,7 @@ lib.addKeybind({
 
                 if IsPedRagdoll(cache.ped) then needsReset = true end
 
-                if (Config.handsUpIsToggle and not IsEntityPlayingAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 3)) or needsReset then
+                if (Config.handsUpIsToggle and not IsEntityPlayingAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 3)) or (needsReset and not IsPedRagdoll(cache.ped)) then
                     TaskPlayAnim(cache.ped, 'random@mugging3', 'handsup_standing_base', 8.0, 8.0, -1, 50, 0, false, onBike and 4127 or false, false)
                     needsReset = false
                 end
