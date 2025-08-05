@@ -28,6 +28,7 @@ lib.addKeybind({
                 if cache.vehicle then
                     DisableControlAction(0, 59, true)
                 end
+
                 DisableControlAction(0, 25, true)
                 DisablePlayerFiring(cache.playerId, true)
 
