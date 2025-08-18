@@ -51,6 +51,8 @@ lib.addKeybind({
             while PlayerState.handsup do
                 Wait(0)
 
+                local currentPed = cache.ped
+
                 DisableControlAction(0, 25, true)
                 DisablePlayerFiring(cache.playerId, true)
 
@@ -58,23 +60,23 @@ lib.addKeybind({
                     DisableControlAction(0, 59, true)
                 end
 
-                if IsPedSwimming(ped) and not IsPedRagdoll(ped) then
-                    SetPedToRagdoll(ped, 1000, 1000, 0, false, false, false)
+                if IsPedSwimming(currentPed) and not IsPedRagdoll(currentPed) then
+                    SetPedToRagdoll(currentPed, 1000, 1000, 0, false, false, false)
                 end
 
-                if IsPedRagdoll(ped) then
+                if IsPedRagdoll(currentPed) then
                     needsReset = true
                 elseif needsReset then
-                    playHandsUpAnim(ped, self.dict, self.anim)
+                    playHandsUpAnim(currentPed, self.dict, self.anim)
                     needsReset = false
                 elseif Config.handsUpIsToggle
-                    and not IsEntityPlayingAnim(ped, self.dict, self.anim, 3) then
-                    playHandsUpAnim(ped, self.dict, self.anim)
+                    and not IsEntityPlayingAnim(currentPed, self.dict, self.anim, 3) then
+                    playHandsUpAnim(currentPed, self.dict, self.anim)
                 end
             end
 
             if Config.handsUpIsToggle then
-                stopHandsUpAnim(ped, self.dict, self.anim)
+                stopHandsUpAnim(currentPed, self.dict, self.anim)
             end
         end)
     end,
