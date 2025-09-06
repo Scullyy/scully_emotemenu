@@ -331,7 +331,7 @@ function CancelEmote(skipReset)
                 return
             end
         end
-
+        TriggerEvent("scully_emotemenu:emoteCancelled")
         ClearPedTasks(cache.ped)
     end
 end
