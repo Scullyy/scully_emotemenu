@@ -133,6 +133,12 @@ For support join my discord here: https://discord.gg/scully
 | [scully_emotemenu:addEmoteToMenu](docs/events/client/addEmoteToMenu.md) | String, Table | Client | Add an emote to the menu |
 | [scully_emotemenu:addEmotesToMenu](docs/events/client/addEmotesToMenu.md) | String, Table | Client | Add multiple emotes to the menu |
 
+# Triggers
+| Trigger Name | Parameter(s) | Type | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| [scully_emotemenu:emoteCancelled](docs/events/client/toggleMenu.md) | None | Client | Trigger when emoteCancelled |
+
+
 # Keybinds
 
 **Important Note:**
