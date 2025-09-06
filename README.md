@@ -136,7 +136,7 @@ For support join my discord here: https://discord.gg/scully
 # Triggers
 | Trigger Name | Parameter(s) | Type | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| [scully_emotemenu:emoteCancelled](docs/events/client/toggleMenu.md) | None | Client | Trigger when emoteCancelled |
+| [scully_emotemenu:emoteCancelled](docs/triggers/client/emoteCancelled.md) | None | Client | Trigger when emoteCancelled |
 
 
 # Keybinds
