@@ -25,7 +25,6 @@ return {
     ptfxKey = GetConvar('scully_emotemenu:ptfxKey', 'G'),
     handsUpKey = GetConvar('scully_emotemenu:handsUpKey', 'H'),
     handsUpIsToggle = GetConvar('scully_emotemenu:handsUpIsToggle', 'false') == 'true',
-    handsUpInVehicle = GetConvar('scully_emotemenu:handsUpInVehicle', 'false') == 'true',
     stanceKey = GetConvar('scully_emotemenu:stanceKey', 'LCONTROL'),
     useCrouchOnly = GetConvar('scully_emotemenu:useCrouchOnly', 'false') == 'true',
     pointKey = GetConvar('scully_emotemenu:pointKey', 'B'),
