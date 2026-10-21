@@ -6,7 +6,7 @@ lib.addKeybind({
         if Config.handsUpIsToggle and PlayerState.handsup then PlayerState.handsup = false return end
         if PlayerState.isLimited then return end
         if GetVehiclePedIsEntering(cache.ped) ~= 0 then return end
-        if cache.vehicle and not Config.handsUpInVehicle then return end
+        if cache.vehicle and not Config.enableEmotesInVehicles then return end
 
         local onBike = false
 
