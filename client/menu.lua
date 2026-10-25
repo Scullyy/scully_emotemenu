@@ -25,7 +25,7 @@ exports('closeMenu', CloseMenu)
 
 ---Toggle the emote menu
 function ToggleMenu()
-    if PlayerState.isLimited then return end
+    if PlayerState.isLimited or IsPauseMenuActive() then return end
 
     local currentMenu = lib.getOpenMenu()
 
