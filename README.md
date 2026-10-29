@@ -19,6 +19,10 @@ You can convert your emotes from dpemotes (including forks of dpemotes) using th
 - Add `exec scully_emotemenu.cfg` to the top of your `server.cfg`
 - Add `ensure scully_emotemenu` to your `server.cfg`
 
+## Setting it up in Enhanced
+
+- In `fxmanifest.lua`, replace every `stream/` path with `stream_enhanced/` in the `data_file` entries.
+
 # Requirements
 
 - [ox_lib](https://github.com/overextended/ox_lib/releases)
